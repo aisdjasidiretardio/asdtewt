@@ -38,3 +38,136 @@ img { max-width: 100%; }
     gap: 26px;
   }
 }
+
+/* Hide main campaign poster on phones */
+@media (max-width: 600px) {
+  #top div:has(> img[src*="01-main-campaign-poster.webp"]) {
+    display: none !important;
+  }
+}
+
+/* Hide identified hero artwork on phones */
+@media (max-width: 680px) {
+  [data-main-hero-art="true"] {
+    display: none !important;
+  }
+}
+
+/* Mobile winner-card carousel */
+@media (max-width: 680px) {
+  .winner-art-grid {
+    display: flex !important;
+    position: relative !important;
+    left: 50% !important;
+    width: 100vw !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 4px 18px 22px !important;
+    gap: 14px !important;
+    justify-content: flex-start !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    transform: translateX(-50%) !important;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 18px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .winner-art-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .winner-art-grid > * {
+    flex: 0 0 min(72vw, 290px) !important;
+    width: min(72vw, 290px) !important;
+    min-width: 0 !important;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+
+  .winner-art-grid img {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+/* Definitive mobile winner carousel */
+@media (max-width: 680px) {
+  html body [data-mobile-winner-grid="true"] {
+    display: flex !important;
+    position: relative !important;
+    left: 50% !important;
+    width: 100vw !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 6px 18px 24px !important;
+    gap: 16px !important;
+    grid-template-columns: none !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    overflow-x: scroll !important;
+    overflow-y: hidden !important;
+    transform: translateX(-50%) !important;
+    scroll-snap-type: x mandatory !important;
+    scroll-padding-left: 18px;
+    scrollbar-width: none;
+    touch-action: pan-x;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  html body [data-mobile-winner-grid="true"]::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  html body [data-mobile-winner-grid="true"] > * {
+    display: block !important;
+    flex: 0 0 min(72vw, 290px) !important;
+    width: min(72vw, 290px) !important;
+    min-width: min(72vw, 290px) !important;
+    max-width: min(72vw, 290px) !important;
+    aspect-ratio: 2 / 3;
+    margin: 0 !important;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+}
+
+/* Final compact mobile winner grid */
+@media (max-width: 680px) {
+  html body [data-mobile-winner-grid="true"] {
+    display: flex !important;
+    position: relative !important;
+    left: auto !important;
+    width: 100% !important;
+    max-width: 440px !important;
+    margin: 0 auto !important;
+    padding: 0 4px 18px !important;
+    gap: 8px !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    overflow: visible !important;
+    transform: none !important;
+    scroll-snap-type: none !important;
+    touch-action: auto !important;
+  }
+
+  html body [data-mobile-winner-grid="true"] > * {
+    display: block !important;
+    flex: 0 0 calc((100% - 24px) / 4) !important;
+    width: calc((100% - 24px) / 4) !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    margin: 0 !important;
+    aspect-ratio: 2 / 3 !important;
+    scroll-snap-align: none !important;
+  }
+
+  html body [data-mobile-winner-grid="true"] img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+}

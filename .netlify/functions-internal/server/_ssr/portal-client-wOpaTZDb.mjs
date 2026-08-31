@@ -1,48 +1,184 @@
-﻿"use client";
-
-import { useEffect, useState, type FormEvent } from "react";
-import styled, { keyframes } from "styled-components";
-
-import CandidateCarouselSection from "./candidate-carousel";
-const PROJECT = {
-  twitter: "https://x.com/onecoinrbh",
-  dice: "https://diceprotocol.world/agent/",
-};
-
-// Leave this empty before mint-out. After mint-out, replace it with the
-// exact mint-out time in UTC. The page adds 24 hours automatically.
-// Example: "2026-09-01T18:00:00Z".
-const MINT_OUT_AT = "";
-
-// After the verified draw, add the seven NFT IDs here.
-// Example: [147, 1220, 3066, 4781, 5902, 7440, 9811]
-const PUBLISHED_WINNERS: number[] = [];
-
-const CANDIDATE_IDS = [
-  147,
-  8221,
-  4096,
-  973,
-  6510,
-  2944,
-  9987,
-  512,
-  7361,
-  1884,
-  9042,
-  3477,
-  6208,
-  771,
-  4560,
-  8891,
+import { l as __toESM, o as require_react, t as require_jsx_runtime } from "./ssr.mjs";
+import { a as qt, t as Tt } from "./styled-components.esm-rePmBNy9.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/portal-client-wOpaTZDb.js
+var import_react = /* @__PURE__ */ __toESM(require_react(), 1);
+var import_jsx_runtime = require_jsx_runtime();
+var IDS = [
+	9987,
+	512,
+	7361,
+	1884,
+	9042,
+	3477,
+	6208,
+	771,
+	4560,
+	8891,
+	147,
+	8221,
+	4096,
+	973,
+	6510,
+	2944
 ];
+var slide = qt`
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+`;
+var Section = Tt.section`
+  padding:55px 0 70px;
+  overflow:hidden;
+  border-top:2px solid var(--ink);
+  border-bottom:2px solid var(--ink);
+  background:var(--red);
+  color:var(--light);
+  text-align:center;
+`;
+var HeadingWrap = Tt.div`
+  width:min(1180px,calc(100% - 40px));
+  margin:0 auto;
+`;
+var Kicker$1 = Tt.p`
+  margin:0 0 10px;
+  color:var(--pale-gold);
+  font-family:"Cormorant Garamond",serif;
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+`;
+var Heading = Tt.h2`
+  margin:0;
+  color:var(--light);
+  font-family:"Cinzel",serif;
+  font-size:clamp(2rem,8vw,4.8rem);
+  font-weight:700;
+  letter-spacing:.01em;
+  line-height:1;
+`;
+var Viewport = Tt.div`
+  width:100%;
+  margin-top:38px;
+  overflow:hidden;
+  padding:20px 0 30px;
+  border-top:1px solid rgba(247,236,201,.4);
+  border-bottom:1px solid rgba(247,236,201,.4);
+`;
+var Track = Tt.div`
+  display:flex;
+  width:max-content;
+  animation:${slide} 58s linear infinite;
+  will-change:transform;
 
-const drift = keyframes`
+  @media(prefers-reduced-motion:reduce){
+    animation:none;
+    transform:none;
+  }
+`;
+var CardSet = Tt.div`
+  display:flex;
+  gap:22px;
+  padding-right:22px;
+`;
+var Card = Tt.article`
+  position:relative;
+  width:clamp(260px,24vw,360px);
+  flex:0 0 auto;
+  padding:12px;
+  border:2px solid var(--ink);
+  background:var(--paper);
+  box-shadow:9px 10px 0 var(--lapis);
+  color:var(--ink);
+  text-align:left;
+
+  &::before{
+    content:"";
+    position:absolute;
+    inset:7px;
+    border:1px solid var(--gold);
+    pointer-events:none;
+  }
+`;
+var CardInner = Tt.div`
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(37,23,14,.72);
+  background:var(--light);
+`;
+var Identity = Tt.div`
+  display:flex;
+  align-items:baseline;
+  gap:8px;
+  padding:13px 14px;
+  color:var(--red);
+  font-family:"Cinzel",serif;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+
+  span:first-child{
+    font-size:1rem;
+  }
+
+  strong{
+    margin-left:auto;
+    color:var(--lapis);
+    font-size:clamp(1rem,2vw,1.3rem);
+    letter-spacing:.03em;
+  }
+`;
+var NftImage = Tt.img`
+  display:block;
+  width:100%;
+  aspect-ratio:1;
+  object-fit:cover;
+  border-top:1px solid var(--ink);
+  border-bottom:1px solid var(--ink);
+  background:var(--paper);
+`;
+var Fate = Tt.span`
+  display:block;
+  padding:12px 10px;
+  color:rgba(37,23,14,.68);
+  font-family:"Cormorant Garamond",serif;
+  font-size:.75rem;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-align:center;
+  text-transform:uppercase;
+`;
+function CandidateCarouselSection() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Section, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(HeadingWrap, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Kicker$1, { children: "Until the book closes" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Heading, { children: "Could fortune rest here?" })] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Viewport, {
+		"aria-label": "Possible winning NFT IDs",
+		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Track, { children: [false, true].map((duplicate) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CardSet, {
+			"aria-hidden": duplicate || void 0,
+			children: IDS.map((id, index) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Card, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(CardInner, { children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Identity, { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "✦" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "NFT ID" }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("strong", { children: ["#", id.toString().padStart(4, "0")] })
+				] }),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(NftImage, {
+					src: "/gallery/winner-nft.png",
+					alt: duplicate || index > 0 ? "" : "One Coin possible winning NFT",
+					loading: index > 3 ? "lazy" : "eager"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Fate, { children: "Fortune may call" })
+			] }) }, `${duplicate ? "d" : "p"}-${id}`))
+		}, duplicate ? "duplicate" : "primary")) })
+	})] });
+}
+var PROJECT = {
+	twitter: "https://x.com/onecoinrbh",
+	dice: "https://diceprotocol.world/agent/"
+};
+var PUBLISHED_WINNERS = [];
+var drift = qt`
   0%{transform:translateX(0)}
   100%{transform:translateX(-50%)}
 `;
-
-const breathe = keyframes`
+var breathe = qt`
   0%,100%{
     transform:translateY(0) rotate(-.6deg);
     box-shadow:12px 14px 0 #163e75;
@@ -52,18 +188,15 @@ const breathe = keyframes`
     box-shadow:15px 18px 0 #163e75;
   }
 `;
-
-const reveal = keyframes`
+var reveal = qt`
   0%{opacity:0;transform:translateY(14px) scale(.94)}
   100%{opacity:1;transform:translateY(0) scale(1)}
 `;
-
-const shimmer = keyframes`
+var shimmer = qt`
   0%,100%{opacity:.35}
   50%{opacity:1}
 `;
-
-const Page = styled.main`
+var Page = Tt.main`
   --lapis:#163e75;
   --deep:#0c2a53;
   --red:#9e332a;
@@ -97,8 +230,7 @@ const Page = styled.main`
       transparent 1px 5px
     );
 `;
-
-const Edge = styled.div`
+var Edge = Tt.div`
   position:fixed;
   z-index:50;
   inset:8px;
@@ -116,8 +248,7 @@ const Edge = styled.div`
     inset:13px;
   }
 `;
-
-const Container = styled.div`
+var Container = Tt.div`
   width:min(1120px,calc(100% - 40px));
   margin:0 auto;
 
@@ -125,16 +256,14 @@ const Container = styled.div`
     width:min(1120px,calc(100% - 80px));
   }
 `;
-
-const TopBar = styled.nav`
+var TopBar = Tt.nav`
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:16px;
   padding:24px 0 10px;
 `;
-
-const Wordmark = styled.a`
+var Wordmark = Tt.a`
   display:inline-flex;
   align-items:center;
   gap:9px;
@@ -151,14 +280,12 @@ const Wordmark = styled.a`
     font-size:1.15rem;
   }
 `;
-
-const Nav = styled.div`
+var Nav = Tt.div`
   display:flex;
   align-items:center;
   gap:clamp(10px,2.2vw,25px);
 `;
-
-const NavLink = styled.a`
+var NavLink = Tt.a`
   color:var(--ink);
   border-bottom:1px solid currentColor;
   font-family:"Cormorant Garamond",serif;
@@ -173,23 +300,20 @@ const NavLink = styled.a`
     color:var(--red);
   }
 `;
-
-const PortalFinal = styled.section`
+var PortalFinal = Tt.section`
   padding:90px 0 105px;
   border-top:2px solid var(--ink);
   background:var(--red);
   color:var(--light);
   text-align:center;
 `;
-
-const PortalFinalMark = styled.p`
+var PortalFinalMark = Tt.p`
   margin:0 0 20px;
   color:var(--pale-gold);
   font-size:1.4rem;
   letter-spacing:18px;
 `;
-
-const PortalFinalTitle = styled.h2`
+var PortalFinalTitle = Tt.h2`
   max-width:900px;
   margin:0 auto 22px;
   color:var(--light);
@@ -200,8 +324,7 @@ const PortalFinalTitle = styled.h2`
   word-spacing:.06em;
   line-height:1;
 `;
-
-const PortalFinalCopy = styled.p`
+var PortalFinalCopy = Tt.p`
   max-width:590px;
   margin:0 auto 30px;
   color:rgba(247,236,201,.82);
@@ -210,8 +333,7 @@ const PortalFinalCopy = styled.p`
   font-weight:600;
   line-height:1.5;
 `;
-
-const PortalFinalButton = styled.a`
+var PortalFinalButton = Tt.a`
   display:inline-flex;
   min-height:50px;
   align-items:center;
@@ -241,8 +363,7 @@ const PortalFinalButton = styled.a`
     outline-offset:4px;
   }
 `;
-
-const Footer = styled.footer`
+var Footer = Tt.footer`
   padding:28px 0 42px;
   background:var(--ink);
   color:rgba(247,236,201,.62);
@@ -250,8 +371,7 @@ const Footer = styled.footer`
   font-size:.79rem;
   line-height:1.5;
 `;
-
-const FooterRow = styled.div`
+var FooterRow = Tt.div`
   display:grid;
   gap:17px;
 
@@ -260,20 +380,17 @@ const FooterRow = styled.div`
     align-items:end;
   }
 `;
-
-const FooterLegal = styled.p`
+var FooterLegal = Tt.p`
   max-width:760px;
   margin:0;
 `;
-
-const FooterLink = styled.a`
+var FooterLink = Tt.a`
   color:var(--pale-gold);
   letter-spacing:.08em;
   text-decoration:none;
   text-transform:uppercase;
 `;
-
-const Kicker = styled.p`
+var Kicker = Tt.p`
   margin:0 0 10px;
   color:var(--red);
   font-family:"Cormorant Garamond",serif;
@@ -282,8 +399,7 @@ const Kicker = styled.p`
   letter-spacing:.18em;
   text-transform:uppercase;
 `;
-
-const Title = styled.h1`
+var Title = Tt.h1`
   margin:0;
   color:var(--lapis);
   font-family:"Cinzel",serif;
@@ -293,8 +409,7 @@ const Title = styled.h1`
   line-height:.94;
   text-wrap:balance;
 `;
-
-const Lead = styled.p`
+var Lead = Tt.p`
   max-width:660px;
   margin:22px auto 0;
   color:rgba(37,23,14,.78);
@@ -303,8 +418,7 @@ const Lead = styled.p`
   font-weight:600;
   line-height:1.48;
 `;
-
-const StatusPill = styled.span`
+Tt.span`
   display:inline-flex;
   align-items:center;
   gap:9px;
@@ -326,16 +440,14 @@ const StatusPill = styled.span`
     animation:${shimmer} 1.5s ease-in-out infinite;
   }
 `;
-
-const WhitelistMain = styled.section`
+var WhitelistMain = Tt.section`
   min-height:calc(100svh - 76px);
   display:grid;
   align-items:center;
   padding:55px 0 90px;
   text-align:center;
 `;
-
-const Checker = styled.div`
+var Checker = Tt.div`
   max-width:760px;
   margin:42px auto 0;
   padding:clamp(25px,6vw,54px);
@@ -344,8 +456,7 @@ const Checker = styled.div`
   box-shadow:9px 10px 0 var(--lapis);
   text-align:left;
 `;
-
-const CheckerLabel = styled.label`
+var CheckerLabel = Tt.label`
   display:block;
   margin-bottom:9px;
   color:var(--ink);
@@ -355,8 +466,7 @@ const CheckerLabel = styled.label`
   letter-spacing:.1em;
   text-transform:uppercase;
 `;
-
-const InputRow = styled.form`
+var InputRow = Tt.form`
   display:grid;
   gap:12px;
 
@@ -364,8 +474,7 @@ const InputRow = styled.form`
     grid-template-columns:1fr auto;
   }
 `;
-
-const WalletInput = styled.input`
+var WalletInput = Tt.input`
   min-width:0;
   min-height:56px;
   padding:0 17px;
@@ -382,8 +491,7 @@ const WalletInput = styled.input`
     box-shadow:0 0 0 3px rgba(158,51,42,.16);
   }
 `;
-
-const CheckButton = styled.button`
+var CheckButton = Tt.button`
   min-height:56px;
   padding:0 24px;
   border:2px solid var(--ink);
@@ -404,8 +512,7 @@ const CheckButton = styled.button`
     box-shadow:4px 4px 0 var(--gold);
   }
 `;
-
-const CheckerStatus = styled.p`
+var CheckerStatus = Tt.p`
   min-height:24px;
   margin:18px 0 0;
   color:var(--red);
@@ -414,8 +521,7 @@ const CheckerStatus = styled.p`
   font-weight:700;
   line-height:1.4;
 `;
-
-const Note = styled.p`
+Tt.p`
   margin:11px 0 0;
   color:rgba(37,23,14,.64);
   font-family:"Cormorant Garamond",serif;
@@ -423,25 +529,21 @@ const Note = styled.p`
   font-weight:600;
   line-height:1.45;
 `;
-
-const WinnerHero = styled.section`
+var WinnerHero = Tt.section`
   padding:58px 0 48px;
   text-align:center;
 `;
-
-const DrawStatus = styled.div`
+var DrawStatus = Tt.div`
   margin:34px auto 0;
 `;
-
-const DrawMessage = styled.div`
+var DrawMessage = Tt.div`
   max-width:760px;
   margin:0 auto;
   padding:22px;
   border-top:1px solid var(--ink);
   border-bottom:1px solid var(--ink);
 `;
-
-const DrawLabel = styled.p`
+var DrawLabel = Tt.p`
   margin:0;
   color:var(--red);
   font-family:"Cinzel",serif;
@@ -450,8 +552,7 @@ const DrawLabel = styled.p`
   letter-spacing:.04em;
   line-height:1.35;
 `;
-
-const Verify = styled.a`
+var Verify = Tt.a`
   display:inline-block;
   margin-top:10px;
   color:var(--lapis);
@@ -462,16 +563,14 @@ const Verify = styled.a`
   text-underline-offset:4px;
   text-transform:uppercase;
 `;
-
-const Countdown = styled.div`
+var Countdown = Tt.div`
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:7px;
   max-width:720px;
   margin:0 auto;
 `;
-
-const TimeCell = styled.div`
+var TimeCell = Tt.div`
   padding:16px 6px;
   border:1px solid var(--ink);
   background:var(--lapis);
@@ -495,16 +594,14 @@ const TimeCell = styled.div`
     text-transform:uppercase;
   }
 `;
-
-const Promise = styled.div`
+var Promise$1 = Tt.div`
   display:grid;
   grid-template-columns:repeat(3,1fr);
   margin:35px auto 0;
   border:1px solid var(--ink);
   background:rgba(247,236,201,.55);
 `;
-
-const PromiseItem = styled.div`
+var PromiseItem = Tt.div`
   padding:17px 8px;
   border-right:1px solid rgba(37,23,14,.45);
   font-family:"Cormorant Garamond",serif;
@@ -526,8 +623,7 @@ const PromiseItem = styled.div`
     letter-spacing:.02em;
   }
 `;
-
-const CandidateStage = styled.section`
+Tt.section`
   padding:55px 0 70px;
   background:var(--red);
   color:var(--light);
@@ -535,8 +631,7 @@ const CandidateStage = styled.section`
   border-top:2px solid var(--ink);
   border-bottom:2px solid var(--ink);
 `;
-
-const CandidateHeading = styled.h2`
+Tt.h2`
   margin:0;
   color:var(--light);
   font-family:"Cinzel",serif;
@@ -544,8 +639,7 @@ const CandidateHeading = styled.h2`
   letter-spacing:.01em;
   line-height:1;
 `;
-
-const CandidateCard = styled.article`
+Tt.article`
   position:relative;
   width:min(78vw,330px);
   aspect-ratio:3/4;
@@ -565,8 +659,7 @@ const CandidateCard = styled.article`
     pointer-events:none;
   }
 `;
-
-const CardInner = styled.div`
+Tt.div`
   box-sizing:border-box;
   height:100%;
   display:flex;
@@ -596,13 +689,11 @@ const CardInner = styled.div`
     box-shadow:4px 5px 0 rgba(22,62,117,.72);
   }
 `;
-
-const CardStar = styled.span`
+Tt.span`
   color:var(--red);
   font-size:2rem;
 `;
-
-const CardLabel = styled.span`
+Tt.span`
   margin-top:23px;
   color:var(--red);
   font-family:"Cormorant Garamond",serif;
@@ -611,8 +702,7 @@ const CardLabel = styled.span`
   letter-spacing:.18em;
   text-transform:uppercase;
 `;
-
-const CardNumber = styled.strong`
+Tt.strong`
   margin-top:5px;
   color:var(--lapis);
   font-family:"Cinzel",serif;
@@ -620,22 +710,19 @@ const CardNumber = styled.strong`
   letter-spacing:.04em;
   line-height:1;
 `;
-
-const CarouselWindow = styled.div`
+Tt.div`
   width:100%;
   overflow:hidden;
   border-top:1px solid rgba(247,236,201,.4);
   border-bottom:1px solid rgba(247,236,201,.4);
   padding:13px 0;
 `;
-
-const CarouselTrack = styled.div`
+Tt.div`
   display:flex;
   width:max-content;
   animation:${drift} 28s linear infinite;
 `;
-
-const MiniCard = styled.div`
+Tt.div`
   width:146px;
   margin-right:12px;
   padding:14px 10px;
@@ -655,16 +742,13 @@ const MiniCard = styled.div`
     text-transform:uppercase;
   }
 `;
-
-const WinnersSection = styled.section`
+var WinnersSection = Tt.section`
   padding:78px 0 95px;
 `;
-
-const SectionHead = styled.div`
+var SectionHead = Tt.div`
   text-align:center;
 `;
-
-const SectionTitle = styled.h2`
+var SectionTitle = Tt.h2`
   margin:0;
   color:var(--lapis);
   font-family:"Cinzel",serif;
@@ -672,8 +756,7 @@ const SectionTitle = styled.h2`
   letter-spacing:.01em;
   line-height:1;
 `;
-
-const SectionCopy = styled.p`
+var SectionCopy = Tt.p`
   max-width:620px;
   margin:18px auto 0;
   color:rgba(37,23,14,.72);
@@ -682,8 +765,7 @@ const SectionCopy = styled.p`
   font-weight:600;
   line-height:1.45;
 `;
-
-const WinnerGrid = styled.div`
+var WinnerGrid = Tt.div`
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:12px;
@@ -697,8 +779,7 @@ const WinnerGrid = styled.div`
     grid-template-columns:repeat(7,minmax(0,1fr));
   }
 `;
-
-const WinnerSlot = styled.article`
+var WinnerSlot = Tt.article`
   min-height:168px;
   display:flex;
   flex-direction:column;
@@ -735,427 +816,228 @@ const WinnerSlot = styled.article`
     text-transform:uppercase;
   }
 `;
-
-function SiteHeader({
-  current,
-}: {
-  current:"whitelist" | "winner";
-}) {
-  return (
-    <Container>
-      <TopBar aria-label="Primary navigation">
-        <Wordmark href="/">
-          <span>{"\u2726"}</span>
-          One Coin
-        </Wordmark>
-
-        <Nav>
-          <NavLink href="/">Home</NavLink>
-
-          <NavLink
-            href="/whitelist"
-            aria-current={
-              current === "whitelist"
-                ? "page"
-                : undefined
-            }
-          >
-            Whitelist
-          </NavLink>
-
-          <NavLink
-            href="/winner"
-            aria-current={
-              current === "winner"
-                ? "page"
-                : undefined
-            }
-          >
-            Winner room
-          </NavLink>
-        </Nav>
-      </TopBar>
-    </Container>
-  );
+function SiteHeader({ current }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Container, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TopBar, {
+		"aria-label": "Primary navigation",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Wordmark, {
+			href: "/",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "✦" }), "One Coin"]
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Nav, { children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(NavLink, {
+				href: "/",
+				children: "Home"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(NavLink, {
+				href: "/whitelist",
+				"aria-current": current === "whitelist" ? "page" : void 0,
+				children: "Whitelist"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(NavLink, {
+				href: "/winner",
+				"aria-current": current === "winner" ? "page" : void 0,
+				children: "Winner room"
+			})
+		] })]
+	}) });
 }
-
 function SiteFooter() {
-  return <>
-    <PortalFinal>
-      <Container>
-        <PortalFinalMark aria-hidden="true">{"\u2726"} {"\u2727"} {"\u2726"}</PortalFinalMark>
-        <PortalFinalTitle>May luck be in your favour.</PortalFinalTitle>
-        <PortalFinalCopy>10,000 entries. Seven winners. One dollar is all it takes to be part of the story.
-              {/* footerEntryExplainer */}
-              <span
-                style={{
-                  display:"block",
-                  marginTop:"12px",
-                  fontSize:"clamp(.92rem, 1.15vw, 1.05rem)",
-                  fontWeight:700,
-                  lineHeight:1.5,
-                  letterSpacing:".02em",
-                  color:"inherit",
-                  opacity:.88
-                }}
-              >
-                One NFT = one entry. Five NFTs in one wallet =
-                five separate entries in the draw.
-              </span></PortalFinalCopy>
-        <PortalFinalButton href={PROJECT.twitter} target="_blank" rel="noreferrer">
-          <span>X</span> Follow for the mint
-        </PortalFinalButton>
-      </Container>
-    </PortalFinal>
-
-    <Footer>
-      <Container>
-        <FooterRow>
-          <FooterLegal>To the fullest extent permitted by law, the project and its contributors are not liable for trading losses, NFT price changes, wallet compromise, failed transactions, third party services, network interruptions, taxes, or unlawful participation. NFTs are not investments and may have no resale value. Eligibility, claim deadlines, prize distribution, and the official rules apply. By participating, you accept these risks and remain responsible for complying with local laws. Use only links published by the official account.</FooterLegal>
-          <FooterLink href={PROJECT.twitter} target="_blank" rel="noreferrer">
-            Official X {"\u2197"}
-          </FooterLink>
-        </FooterRow>
-      </Container>
-    </Footer>
-  </>;
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalFinal, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Container, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(PortalFinalMark, {
+			"aria-hidden": "true",
+			children: [
+				"✦",
+				" ",
+				"✧",
+				" ",
+				"✦"
+			]
+		}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalFinalTitle, { children: "May luck be in your favour." }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(PortalFinalCopy, { children: ["10,000 entries. Seven winners. One dollar is all it takes to be part of the story.", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+			style: {
+				display: "block",
+				marginTop: "12px",
+				fontSize: "clamp(.92rem, 1.15vw, 1.05rem)",
+				fontWeight: 700,
+				lineHeight: 1.5,
+				letterSpacing: ".02em",
+				color: "inherit",
+				opacity: .88
+			},
+			children: "One NFT = one entry. Five NFTs in one wallet = five separate entries in the draw."
+		})] }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(PortalFinalButton, {
+			href: PROJECT.twitter,
+			target: "_blank",
+			rel: "noreferrer",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "X" }), " Follow for the mint"]
+		})
+	] }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Footer, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Container, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(FooterRow, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(FooterLegal, { children: "To the fullest extent permitted by law, the project and its contributors are not liable for trading losses, NFT price changes, wallet compromise, failed transactions, third party services, network interruptions, taxes, or unlawful participation. NFTs are not investments and may have no resale value. Eligibility, claim deadlines, prize distribution, and the official rules apply. By participating, you accept these risks and remain responsible for complying with local laws. Use only links published by the official account." }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(FooterLink, {
+		href: PROJECT.twitter,
+		target: "_blank",
+		rel: "noreferrer",
+		children: ["Official X ", "↗"]
+	})] }) }) })] });
 }
-
-function pad(value:number) {
-  return value.toString().padStart(2,"0");
+function pad(value) {
+	return value.toString().padStart(2, "0");
 }
-
-export function WhitelistChecker() {
-  const [wallet,setWallet] = useState("");
-  const [message,setMessage] = useState(
-    "The checker is not live yet. No wallets are being stored."
-  );
-
-  function checkWallet(
-    event:FormEvent<HTMLFormElement>
-  ) {
-    event.preventDefault();
-
-    setMessage(
-      wallet.trim()
-        ? "This wallet was not submitted. The whitelist checker is not live yet."
-        : "Enter a wallet when the checker goes live."
-    );
-  }
-
-  return (
-    <Page>
-      <Edge aria-hidden="true" />
-      <SiteHeader current="whitelist" />
-
-      <WhitelistMain>
-        <Container>
-          
-
-          <Kicker>
-            The royal list
-          </Kicker>
-
-          <Title>Whitelist checker</Title>
-
-          
-
-          <Checker>
-            <CheckerLabel htmlFor="wallet">
-              Wallet address
-            </CheckerLabel>
-
-            <InputRow onSubmit={checkWallet}>
-              <WalletInput
-                id="wallet"
-                disabled
-                aria-disabled="true"
-                style={{
-                  cursor:"not-allowed",
-                  opacity:.58
-                }}
-                value={wallet}
-                onChange={(event) =>
-                  setWallet(event.target.value)
-                }
-                placeholder="0x..."
-                autoComplete="off"
-                spellCheck={false}
-              />
-
-              <CheckButton
-                type="submit"
-                disabled
-                aria-disabled="true"
-                style={{
-                  cursor:"not-allowed",
-                  opacity:.58
-                }}
-              >
-                Check wallet
-              </CheckButton>
-            </InputRow>
-
-            <CheckerStatus aria-live="polite">
-              {message}
-            </CheckerStatus>
-
-            
-          </Checker>
-
-          <p
-            style={{
-              maxWidth:"720px",
-              margin:"34px auto 0",
-              color:"var(--red)",
-              fontFamily:'"Cormorant Garamond", serif',
-              fontSize:"clamp(1.05rem, 2.3vw, 1.28rem)",
-              fontStyle:"italic",
-              fontWeight:600,
-              letterSpacing:".02em",
-              lineHeight:1.5,
-              textAlign:"center"
-            }}
-          >
-            The royals keep no fixed hour. A sharp eye may yet find its name written within.
-          </p>
-        </Container>
-      </WhitelistMain>
-
-      <SiteFooter />
-    </Page>
-  );
+function WhitelistChecker() {
+	const [wallet, setWallet] = (0, import_react.useState)("");
+	const [message, setMessage] = (0, import_react.useState)("The checker is not live yet. No wallets are being stored.");
+	function checkWallet(event) {
+		event.preventDefault();
+		setMessage(wallet.trim() ? "This wallet was not submitted. The whitelist checker is not live yet." : "Enter a wallet when the checker goes live.");
+	}
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Page, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Edge, { "aria-hidden": "true" }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SiteHeader, { current: "whitelist" }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(WhitelistMain, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Container, { children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Kicker, { children: "The royal list" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Title, { children: "Whitelist checker" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Checker, { children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckerLabel, {
+					htmlFor: "wallet",
+					children: "Wallet address"
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(InputRow, {
+					onSubmit: checkWallet,
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(WalletInput, {
+						id: "wallet",
+						disabled: true,
+						"aria-disabled": "true",
+						style: {
+							cursor: "not-allowed",
+							opacity: .58
+						},
+						value: wallet,
+						onChange: (event) => setWallet(event.target.value),
+						placeholder: "0x...",
+						autoComplete: "off",
+						spellCheck: false
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckButton, {
+						type: "submit",
+						disabled: true,
+						"aria-disabled": "true",
+						style: {
+							cursor: "not-allowed",
+							opacity: .58
+						},
+						children: "Check wallet"
+					})]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckerStatus, {
+					"aria-live": "polite",
+					children: message
+				})
+			] }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				style: {
+					maxWidth: "720px",
+					margin: "34px auto 0",
+					color: "var(--red)",
+					fontFamily: "\"Cormorant Garamond\", serif",
+					fontSize: "clamp(1.05rem, 2.3vw, 1.28rem)",
+					fontStyle: "italic",
+					fontWeight: 600,
+					letterSpacing: ".02em",
+					lineHeight: 1.5,
+					textAlign: "center"
+				},
+				children: "The royals keep no fixed hour. A sharp eye may yet find its name written within."
+			})
+		] }) }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SiteFooter, {})
+	] });
 }
-
-export function WinnerRoom() {
-  const [candidate,setCandidate] = useState(4821);
-  const [now,setNow] = useState(0);
-
-  const drawTime = MINT_OUT_AT
-    ? Date.parse(MINT_OUT_AT) +
-      24 * 60 * 60 * 1000
-    : 0;
-
-  const hasWinners =
-    PUBLISHED_WINNERS.length === 7;
-
-  useEffect(() => {
-    let seed = 4821;
-
-    const candidateTimer = window.setInterval(() => {
-      seed = (seed * 9301 + 49297) % 10000;
-      setCandidate(seed + 1);
-    },950);
-
-    const updateClock = () => {
-      setNow(Date.now());
-    };
-
-    updateClock();
-
-    const clockTimer = window.setInterval(
-      updateClock,
-      1000
-    );
-
-    return () => {
-      window.clearInterval(candidateTimer);
-      window.clearInterval(clockTimer);
-    };
-  },[]);
-
-  const remaining =
-    drawTime && now
-      ? Math.max(0,drawTime - now)
-      : 0;
-
-  const days = Math.floor(
-    remaining / 86400000
-  );
-
-  const hours = Math.floor(
-    (remaining % 86400000) / 3600000
-  );
-
-  const minutes = Math.floor(
-    (remaining % 3600000) / 60000
-  );
-
-  const seconds = Math.floor(
-    (remaining % 60000) / 1000
-  );
-
-  const isCountdown = Boolean(
-    drawTime &&
-    now &&
-    remaining > 0 &&
-    !hasWinners
-  );
-
-  const isAwaitingDraw = Boolean(
-    drawTime &&
-    now &&
-    remaining === 0 &&
-    !hasWinners
-  );
-
-
-  /* winnerRevealObserver */
-  useEffect(() => {
-    const isTouchDevice = window.matchMedia(
-      "(hover: none), (pointer: coarse)"
-    ).matches;
-
-    if (
-      !isTouchDevice ||
-      !("IntersectionObserver" in window)
-    ) {
-      return;
-    }
-
-    const cards = Array.from(
-      document.querySelectorAll<HTMLElement>(
-        ".winner-art-card"
-      )
-    );
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (
-            entry.isIntersecting &&
-            entry.intersectionRatio >= 0.6
-          ) {
-            entry.target.classList.add(
-              "is-revealed"
-            );
-
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold:[0.6]
-      }
-    );
-
-    cards.forEach((card) => {
-      observer.observe(card);
-    });
-
-    return () => {
-      observer.disconnect();
-    };
-  },[]);
-
-  return (
-    <Page>
-      <Edge aria-hidden="true" />
-      <SiteHeader current="winner" />
-
-      <WinnerHero>
-        <Container>
-          <Kicker>The draw room</Kicker>
-
-          <Title>
-            Seven doors.
-            <br />
-            Seven fortunes.
-          </Title>
-
-          <Lead>
-            Seven winning NFTs receive $1,000 each.
-            Every NFT is one entry, and every winning
-            ID is worth 1,000x the $1 mint price.
-          </Lead>
-
-          <DrawStatus>
-            {isCountdown ? (
-              <Countdown
-                aria-label="Time remaining until the draw"
-              >
-                <TimeCell>
-                  <b>{pad(days)}</b>
-                  <span>Days</span>
-                </TimeCell>
-
-                <TimeCell>
-                  <b>{pad(hours)}</b>
-                  <span>Hours</span>
-                </TimeCell>
-
-                <TimeCell>
-                  <b>{pad(minutes)}</b>
-                  <span>Minutes</span>
-                </TimeCell>
-
-                <TimeCell>
-                  <b>{pad(seconds)}</b>
-                  <span>Seconds</span>
-                </TimeCell>
-              </Countdown>
-            ) : (
-              <DrawMessage>
-                <DrawLabel>
-                  {hasWinners
-                    ? "The seven winning IDs have been revealed."
-                    : isAwaitingDraw
-                      ? "The trading window is closed. The verified draw is next."
-                      : "Winners will be selected 24 hours after mint-out."}
-                </DrawLabel>
-
-                <Verify
-                  href={PROJECT.dice}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Verifiable with Dice Protocol {"\u2197"}
-                </Verify>
-              </DrawMessage>
-            )}
-          </DrawStatus>
-
-          <Promise>
-            <PromiseItem>
-              <b>7</b>
-              Winning NFTs
-            </PromiseItem>
-
-            <PromiseItem>
-              <b>$1,000</b>
-              For each winner
-            </PromiseItem>
-
-            <PromiseItem>
-              <b>1,000x</b>
-              The mint price
-            </PromiseItem>
-          </Promise>
-        </Container>
-      </WinnerHero>
-
-      <CandidateCarouselSection />
-
-      <WinnersSection>
-        <Container>
-          <SectionHead>
-            <Kicker>The final seven</Kicker>
-
-            <SectionTitle>
-              {hasWinners
-                ? "The winners."
-                : "The names remain sealed."}
-            </SectionTitle>
-
-            {hasWinners && (
-            <SectionCopy className="winner-section-copy">
-              Each winning ID and its owner can now be checked
-              against the verified Dice result.
-            </SectionCopy>
-          )}
-          </SectionHead>
-
-          <style>{`
+function WinnerRoom() {
+	const [candidate, setCandidate] = (0, import_react.useState)(4821);
+	const [now, setNow] = (0, import_react.useState)(0);
+	const drawTime = 0;
+	const hasWinners = PUBLISHED_WINNERS.length === 7;
+	(0, import_react.useEffect)(() => {
+		let seed = 4821;
+		const candidateTimer = window.setInterval(() => {
+			seed = (seed * 9301 + 49297) % 1e4;
+			setCandidate(seed + 1);
+		}, 950);
+		const updateClock = () => {
+			setNow(Date.now());
+		};
+		updateClock();
+		const clockTimer = window.setInterval(updateClock, 1e3);
+		return () => {
+			window.clearInterval(candidateTimer);
+			window.clearInterval(clockTimer);
+		};
+	}, []);
+	const remaining = 0;
+	const days = Math.floor(remaining / 864e5);
+	const hours = Math.floor(remaining % 864e5 / 36e5);
+	const minutes = Math.floor(remaining % 36e5 / 6e4);
+	const seconds = Math.floor(remaining % 6e4 / 1e3);
+	const isCountdown = Boolean(drawTime);
+	const isAwaitingDraw = Boolean(drawTime);
+	(0, import_react.useEffect)(() => {
+		if (!window.matchMedia("(hover: none), (pointer: coarse)").matches || !("IntersectionObserver" in window)) return;
+		const cards = Array.from(document.querySelectorAll(".winner-art-card"));
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting && entry.intersectionRatio >= .6) {
+					entry.target.classList.add("is-revealed");
+					observer.unobserve(entry.target);
+				}
+			});
+		}, { threshold: [.6] });
+		cards.forEach((card) => {
+			observer.observe(card);
+		});
+		return () => {
+			observer.disconnect();
+		};
+	}, []);
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Page, { children: [
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Edge, { "aria-hidden": "true" }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SiteHeader, { current: "winner" }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(WinnerHero, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Container, { children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Kicker, { children: "The draw room" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Title, { children: [
+				"Seven doors.",
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+				"Seven fortunes."
+			] }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Lead, { children: "Seven winning NFTs receive $1,000 each. Every NFT is one entry, and every winning ID is worth 1,000x the $1 mint price." }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(DrawStatus, { children: isCountdown ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Countdown, {
+				"aria-label": "Time remaining until the draw",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TimeCell, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: pad(days) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Days" })] }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TimeCell, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: pad(hours) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Hours" })] }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TimeCell, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: pad(minutes) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Minutes" })] }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TimeCell, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: pad(seconds) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Seconds" })] })
+				]
+			}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(DrawMessage, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(DrawLabel, { children: hasWinners ? "The seven winning IDs have been revealed." : isAwaitingDraw ? "The trading window is closed. The verified draw is next." : "Winners will be selected 24 hours after mint-out." }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Verify, {
+				href: PROJECT.dice,
+				target: "_blank",
+				rel: "noreferrer",
+				children: ["Verifiable with Dice Protocol ", "↗"]
+			})] }) }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Promise$1, { children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(PromiseItem, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: "7" }), "Winning NFTs"] }),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(PromiseItem, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: "$1,000" }), "For each winner"] }),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(PromiseItem, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: "1,000x" }), "The mint price"] })
+			] })
+		] }) }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CandidateCarouselSection, {}),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(WinnersSection, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Container, { children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SectionHead, { children: [
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Kicker, { children: "The final seven" }),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionTitle, { children: hasWinners ? "The winners." : "The names remain sealed." }),
+				hasWinners && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionCopy, {
+					className: "winner-section-copy",
+					children: "Each winning ID and its owner can now be checked against the verified Dice result."
+				})
+			] }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("style", { children: `
             /* winnerCardSiteStyle */
 
             .winner-art-grid {
@@ -1245,9 +1127,8 @@ export function WinnerRoom() {
                 transition:none;
               }
             }
-          `}</style>
-
-          <style>{`
+          ` }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("style", { children: `
             /* winnerCardOverlayFix */
 
             .winner-art-card {
@@ -1306,9 +1187,8 @@ export function WinnerRoom() {
                 transition:none;
               }
             }
-          `}</style>
-
-          <style>{`
+          ` }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("style", { children: `
             /* winnerCardEqualSizeFix */
 
             .winner-art-card {
@@ -1338,9 +1218,8 @@ export function WinnerRoom() {
             .winner-card-cover {
               z-index:2;
             }
-          `}</style>
-
-          <style>{`
+          ` }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("style", { children: `
             /* winnerFourThreeLayout */
 
             .winner-section-copy {
@@ -1415,83 +1294,47 @@ export function WinnerRoom() {
                 justify-self:stretch;
               }
             }
-          `}</style>
-
-          <WinnerGrid data-mobile-winner-grid="true" className="winner-art-grid">
-            {hasWinners ? (
-              <>
-                {Array.from(
-              {length:7},
-              (_,index) => {
-                const winner =
-                  PUBLISHED_WINNERS[index];
-
-                return (
-                  <WinnerSlot key={index}>
-                    <span>
-                      Winner {index + 1}
-                    </span>
-
-                    <b>
-                      {winner
-                        ? `#${winner
-                            .toString()
-                            .padStart(4,"0")}`
-                        : "SEALED"}
-                    </b>
-
-                    <small>
-                      {winner
-                        ? "$1,000 prize"
-                        : "Awaiting draw"}
-                    </small>
-                  </WinnerSlot>
-                );
-              }
-            )}
-              </>
-            ) : (
-              [
-          "/gallery/winner-1.png",
-          "/gallery/winner-2.png",
-          "/gallery/winner-3.png",
-          "/gallery/winner-4.png",
-          "/gallery/winner-5.png",
-          "/gallery/winner-6.png",
-          "/gallery/winner-7.png"
-].map(
-                (image, index) => (
-                  <WinnerSlot
-                    key={image}
-                    className="winner-art-card"
-                    tabIndex={0}
-                    style={{
-                      padding:0,
-                      overflow:"hidden"
-                    }}
-                  >
-                    <img
-                      className="winner-card-art"
-                      src={image}
-                      alt={`Fortune card for winner ${index + 1}`}
-                      loading={index < 2 ? "eager" : "lazy"}
-                    />
-
-                    <img
-                      className="winner-card-cover"
-                      src="/gallery/unrevealed.png"
-                      alt="Sealed fortune card"
-                      loading="eager"
-                    />
-                  </WinnerSlot>
-                )
-              )
-            )}
-          </WinnerGrid>
-        </Container>
-      </WinnersSection>
-
-      <SiteFooter />
-    </Page>
-  );
+          ` }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(WinnerGrid, {
+				className: "winner-art-grid",
+				children: hasWinners ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: Array.from({ length: 7 }, (_, index) => {
+					const winner = PUBLISHED_WINNERS[index];
+					return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(WinnerSlot, { children: [
+						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: ["Winner ", index + 1] }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: winner ? `#${winner.toString().padStart(4, "0")}` : "SEALED" }),
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("small", { children: winner ? "$1,000 prize" : "Awaiting draw" })
+					] }, index);
+				}) }) : [
+					"/gallery/winner-1.png",
+					"/gallery/winner-2.png",
+					"/gallery/winner-3.png",
+					"/gallery/winner-4.png",
+					"/gallery/winner-5.png",
+					"/gallery/winner-6.png",
+					"/gallery/winner-7.png"
+				].map((image, index) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(WinnerSlot, {
+					className: "winner-art-card",
+					tabIndex: 0,
+					style: {
+						padding: 0,
+						overflow: "hidden"
+					},
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+						className: "winner-card-art",
+						src: image,
+						alt: `Fortune card for winner ${index + 1}`,
+						loading: index < 2 ? "eager" : "lazy"
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
+						className: "winner-card-cover",
+						src: "/gallery/unrevealed.png",
+						alt: "Sealed fortune card",
+						loading: "eager"
+					})]
+				}, image))
+			})
+		] }) }),
+		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SiteFooter, {})
+	] });
 }
+//#endregion
+export { WhitelistChecker, WinnerRoom };

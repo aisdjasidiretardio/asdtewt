@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import styled, { keyframes } from "styled-components";
 
@@ -152,7 +152,7 @@ export default function OneCoinSite(){
             <HeroCopy>The first guaranteed 1000x mint.</HeroCopy>
             <ButtonRow><PrimaryButton {...external(PROJECT.twitter)}><span>X</span> Follow the drop</PrimaryButton></ButtonRow>
           </div>
-          <HeroArt><img src="/gallery/01-main-campaign-poster.webp" alt="One Dollar Can Change Your Life illuminated campaign poster" width="1200" height="1200" fetchPriority="high" /></HeroArt>
+          <HeroArt data-main-hero-art="true"><img src="/gallery/01-main-campaign-poster.webp" alt="One Dollar Can Change Your Life illuminated campaign poster" width="1200" height="1200" fetchPriority="high" /></HeroArt>
         </HeroGrid>
         
       </Hero>
@@ -185,4 +185,5 @@ export default function OneCoinSite(){
     <Footer><Container><FooterRow><Legal>To the fullest extent permitted by law, the project and its contributors are not liable for trading losses, NFT price changes, wallet compromise, failed transactions, third-party services, network interruptions, taxes, or unlawful participation. NFTs are not investments and may have no resale value. Eligibility, claim deadlines, prize distribution, and the official rules apply. By participating, you accept these risks and remain responsible for complying with local laws. Use only links published by the official account.</Legal><FooterLink {...external(PROJECT.twitter)}>Official X {"\u2197"}</FooterLink></FooterRow></Container></Footer>
   </Page>
 }
+
 
