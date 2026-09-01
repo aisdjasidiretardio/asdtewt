@@ -5,13 +5,7 @@
 [build.environment]
   NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
-# Challenge site
-[[redirects]]
-  from = "/challenge"
-  to = "/challenge/"
-  status = 301
-  force = true
-
+# Challenge site proxy
 [[redirects]]
   from = "/challenge/*"
   to = "https://onecoin-challenge-live.netlify.app/:splat"
