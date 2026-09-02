@@ -335,6 +335,78 @@ const WhitelistMain = styled.section`
   text-align:center;
 `;
 
+const AccessStages = styled.section`
+  display:grid;
+  gap:12px;
+  max-width:980px;
+  margin:42px auto 0;
+  text-align:left;
+
+  @media(min-width:760px){
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+`;
+
+const AccessStage = styled.article`
+  position:relative;
+  min-height:230px;
+  padding:26px 23px 24px;
+  border:1px solid var(--ink);
+  background:rgba(247,236,201,.67);
+  box-shadow:6px 7px 0 var(--gold);
+
+  &::before{
+    content:"";
+    position:absolute;
+    inset:6px;
+    border:1px solid rgba(158,51,42,.45);
+    pointer-events:none;
+  }
+`;
+
+const AccessNumber = styled.span`
+  position:relative;
+  display:block;
+  margin-bottom:24px;
+  color:var(--red);
+  font-family:"Cinzel",serif;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+`;
+
+const AccessName = styled.h2`
+  position:relative;
+  margin:0;
+  color:var(--lapis);
+  font-family:"Cinzel",serif;
+  font-size:clamp(1.25rem,3vw,1.7rem);
+  font-weight:700;
+  letter-spacing:.02em;
+  line-height:1.1;
+`;
+
+const AccessAllocation = styled.p`
+  position:relative;
+  margin:14px 0 0;
+  color:var(--red);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.15rem;
+  font-weight:700;
+  line-height:1.25;
+`;
+
+const AccessCopy = styled.p`
+  position:relative;
+  margin:10px 0 0;
+  color:rgba(37,23,14,.7);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1rem;
+  font-weight:600;
+  line-height:1.42;
+`;
+
 const Checker = styled.div`
   max-width:760px;
   margin:42px auto 0;
@@ -828,19 +900,78 @@ function pad(value:number) {
 export function WhitelistChecker() {
   const [wallet,setWallet] = useState("");
   const [message,setMessage] = useState(
-    "The checker is not live yet. No wallets are being stored."
+    "Enter your wallet to search the Royal List."
   );
 
-  function checkWallet(
-    event:FormEvent<HTMLFormElement>
+  async function checkWallet(
+    event: FormEvent<HTMLFormElement>
   ) {
     event.preventDefault();
 
-    setMessage(
-      wallet.trim()
-        ? "This wallet was not submitted. The whitelist checker is not live yet."
-        : "Enter a wallet when the checker goes live."
-    );
+    const address = wallet.trim();
+
+    if (!/^0x[a-fA-F0-9]{40}$/.test(address)) {
+      setMessage("Enter a valid wallet address.");
+      return;
+    }
+
+    setMessage("Checking the Royal List...");
+
+    try {
+      const response = await fetch(
+        "https://ikslmrrplnwwipdnteza.supabase.co/functions/v1/whitelist-check",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            wallet: address,
+          }),
+        }
+      );
+
+      if (response.status === 429) {
+        setMessage("Too many checks. Try again later.");
+        return;
+      }
+
+      if (!response.ok) {
+        throw new Error("Whitelist lookup failed");
+      }
+
+      const data = await response.json();
+
+      if (data?.accessType === "royallist_gtd") {
+        setMessage(
+          "RoyalList GTD. Guaranteed access. 3 mint spots per wallet."
+        );
+        return;
+      }
+
+      if (data?.accessType === "early_access_fcfs") {
+        setMessage(
+          "Early Access FCFS. 1 mint spot per wallet."
+        );
+        return;
+      }
+
+      if (data?.accessType === "ecosystem_fcfs") {
+        setMessage(
+          "Ecosystem FCFS. 1 mint spot per wallet."
+        );
+        return;
+      }
+
+      setMessage("This wallet is not on the Royal List.");
+
+    } catch (error) {
+      console.error(error);
+
+      setMessage(
+        "The Royal List could not be checked. Try again."
+      );
+    }
   }
 
   return (
@@ -860,7 +991,7 @@ export function WhitelistChecker() {
 
           
 
-          <Checker>
+<Checker>
             <CheckerLabel htmlFor="wallet">
               Wallet address
             </CheckerLabel>
@@ -868,12 +999,6 @@ export function WhitelistChecker() {
             <InputRow onSubmit={checkWallet}>
               <WalletInput
                 id="wallet"
-                disabled
-                aria-disabled="true"
-                style={{
-                  cursor:"not-allowed",
-                  opacity:.58
-                }}
                 value={wallet}
                 onChange={(event) =>
                   setWallet(event.target.value)
@@ -885,12 +1010,6 @@ export function WhitelistChecker() {
 
               <CheckButton
                 type="submit"
-                disabled
-                aria-disabled="true"
-                style={{
-                  cursor:"not-allowed",
-                  opacity:.58
-                }}
               >
                 Check wallet
               </CheckButton>
@@ -919,6 +1038,314 @@ export function WhitelistChecker() {
           >
             The royals keep no fixed hour. A sharp eye may yet find its name written within.
           </p>
+
+<section className="royalListChapters">
+
+  <article className="royalChapterCard royalChapterFeatured">
+    <div className="royalChapterImage royalChapterImageLarge">
+      <img
+        src="/gallery/gtd.png"
+        alt=""
+      />
+    </div>
+
+    <div className="royalChapterContent">
+      <div className="royalChapterHeading">
+        <span>STAGE I</span>
+      </div>
+
+      <h2>ROYALLIST GTD</h2>
+
+      <p className="royalChapterBigLine">
+        3 MINT SPOTS PER WALLET
+      </p>
+
+      <p className="royalChapterText">
+        For those who stand with onecoin and represent our kingdom.
+      </p>
+
+      <p className="royalChapterText royalChapterOpenSea">
+        Minting takes place on OpenSea, so all 777 GTD places receive guaranteed mint access.
+      </p>
+    </div>
+  </article>
+
+
+  <div className="royalChapterGrid">
+
+    <article className="royalChapterCard">
+      <div className="royalChapterImage">
+        <img
+          src="/gallery/fcfs.png"
+          alt=""
+        />
+      </div>
+
+      <div className="royalChapterContent">
+        <div className="royalChapterHeading">
+          <span>STAGE II</span>
+        </div>
+
+        <h2>EARLY ACCESS FCFS</h2>
+
+        <p className="royalChapterBigLine">
+          1 MINT SPOT PER WALLET
+        </p>
+
+        <p className="royalChapterText">
+          Access is granted in order until the available allocation has been claimed.
+        </p>
+      </div>
+    </article>
+
+
+    <article className="royalChapterCard">
+      <div className="royalChapterImage">
+        <img
+          src="/gallery/fcfscommunity.png"
+          alt=""
+        />
+      </div>
+
+      <div className="royalChapterContent">
+        <div className="royalChapterHeading">
+          <span>STAGE III</span>
+        </div>
+
+        <h2>ECOSYSTEM FCFS</h2>
+
+        <p className="royalChapterBigLine">
+          1 MINT SPOT PER WALLET
+        </p>
+
+        <p className="royalChapterText">
+          A separate first-come allocation reserved for selected projects on Robinhood.
+        </p>
+      </div>
+    </article>
+
+  </div>
+
+
+  <style>{`
+
+    .royalListChapters {
+      width: min(1320px, calc(100% - 48px));
+      margin: 58px auto 76px;
+    }
+
+    .royalChapterCard {
+      position: relative;
+      display: grid;
+      grid-template-columns: 178px minmax(0, 1fr);
+      min-height: 215px;
+      padding: 12px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255,255,255,.28), transparent 48%),
+        rgba(255,245,208,.72);
+      border: 1px solid #5e472b;
+      box-shadow: 6px 6px 0 rgba(164,67,54,.88);
+      overflow: hidden;
+    }
+
+    .royalChapterCard::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border: 1px solid rgba(107,73,35,.16);
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .royalChapterFeatured {
+      grid-template-columns: 270px minmax(0, 1fr);
+      min-height: 305px;
+      margin-bottom: 22px;
+    }
+
+    .royalChapterImage {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      min-height: 190px;
+      overflow: hidden;
+      border: 1px solid #604526;
+      background: #e7d29b;
+    }
+
+    .royalChapterImageLarge {
+      min-height: 280px;
+    }
+
+    .royalChapterImage img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .royalChapterContent {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 24px 30px 25px;
+      text-align: left;
+    }
+
+    .royalChapterFeatured .royalChapterContent {
+      padding: 30px 38px;
+    }
+
+    .royalChapterHeading {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .royalChapterHeading > span:first-child {
+      color: #a93329;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .royalChapterCard h2 {
+      margin: 0;
+      color: #16477e;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(29px, 2.4vw, 40px);
+      font-weight: 400;
+      line-height: 1.02;
+      letter-spacing: .01em;
+      text-transform: uppercase;
+    }
+
+    .royalChapterFeatured h2 {
+      font-size: clamp(40px, 4vw, 60px);
+    }
+
+    .royalChapterBigLine {
+      width: fit-content;
+      margin: 17px 0 0;
+      padding-bottom: 7px;
+      color: #a93329;
+      border-bottom: 1px solid rgba(169,51,41,.4);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .07em;
+      line-height: 1.35;
+      text-transform: uppercase;
+    }
+
+    .royalChapterFeatured .royalChapterBigLine {
+      color: #16477e;
+      font-size: 17px;
+    }
+
+    .royalChapterText {
+      max-width: 42ch;
+      margin: 15px 0 0;
+      color: #69471f;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .royalChapterFeatured .royalChapterText {
+      max-width: 58ch;
+      font-size: 16px;
+    }
+
+    .royalChapterOpenSea {
+      margin-top: 9px;
+      color: #a93329;
+      font-style: italic;
+    }
+
+    .royalChapterGrid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 22px;
+    }
+
+    @media (max-width: 1000px) {
+      .royalListChapters {
+        width: min(760px, calc(100% - 36px));
+      }
+
+      .royalChapterGrid {
+        grid-template-columns: 1fr;
+      }
+
+      .royalChapterFeatured {
+        grid-template-columns: 220px minmax(0,1fr);
+      }
+
+      .royalChapterCard {
+        grid-template-columns: 190px minmax(0,1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .royalListChapters {
+        width: calc(100% - 28px);
+        margin: 40px auto 62px;
+      }
+
+      .royalChapterFeatured,
+      .royalChapterCard {
+        display: block;
+        padding: 10px;
+      }
+
+      .royalChapterImage,
+      .royalChapterImageLarge {
+        width: 100%;
+        height: 190px;
+        min-height: 190px;
+      }
+
+      .royalChapterFeatured .royalChapterImage {
+        height: 230px;
+      }
+
+      .royalChapterContent,
+      .royalChapterFeatured .royalChapterContent {
+        padding: 25px 20px;
+      }
+
+      .royalChapterFeatured h2,
+      .royalChapterCard h2 {
+        font-size: 32px;
+      }
+
+      .royalChapterText,
+      .royalChapterFeatured .royalChapterText {
+        max-width: none;
+        font-size: 15px;
+      }
+
+      .royalChapterGrid {
+        gap: 18px;
+      }
+    }
+
+  `}</style>
+
+</section>
+
+          
         </Container>
       </WhitelistMain>
 
