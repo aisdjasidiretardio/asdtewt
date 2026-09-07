@@ -143,7 +143,7 @@ export default function OneCoinSite(){
   return <Page>
     <Edge aria-hidden="true" />
     <Container>
-      <TopBar aria-label="Primary navigation"><Wordmark href="#top"><span>{"\u2726"}</span> One Coin</Wordmark><NavActions><NavLink href="/whitelist">Whitelist</NavLink><NavLink href="/winner">Winner room</NavLink><NavLink {...external(PROJECT.twitter)}>X {"\u2197"}</NavLink></NavActions></TopBar>
+      <TopBar aria-label="Primary navigation"><Wordmark href="#top"><span>{"\u2726"}</span> One Coin</Wordmark><NavActions><NavLink href="/winner">Winner room</NavLink><NavLink {...external(PROJECT.twitter)}>X {"\u2197"}</NavLink></NavActions></TopBar>
       <Hero id="top">
         <HeroGrid>
           <div>
@@ -185,5 +185,3 @@ export default function OneCoinSite(){
     <Footer><Container><FooterRow><Legal>To the fullest extent permitted by law, the project and its contributors are not liable for trading losses, NFT price changes, wallet compromise, failed transactions, third-party services, network interruptions, taxes, or unlawful participation. NFTs are not investments and may have no resale value. Eligibility, claim deadlines, prize distribution, and the official rules apply. By participating, you accept these risks and remain responsible for complying with local laws. Use only links published by the official account.</Legal><FooterLink {...external(PROJECT.twitter)}>Official X {"\u2197"}</FooterLink></FooterRow></Container></Footer>
   </Page>
 }
-
-

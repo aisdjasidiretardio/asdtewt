@@ -191,7 +191,15 @@ export default function GlobalSiteHeader() {
             >
               The Great Hall
             </HeaderLink>
-<HeaderLink
+
+            <HeaderLink
+              href="/whitelist"
+              aria-current={pathname === "/whitelist" ? "page" : undefined}
+            >
+              OPENSEA ↗
+            </HeaderLink>
+
+            <HeaderLink
               href="/winner"
               aria-current={pathname === "/winner" ? "page" : undefined}
             >
@@ -220,7 +228,17 @@ export default function GlobalSiteHeader() {
               >
                 The Great Hall
               </HeaderLink>
-<HeaderLink
+
+              <HeaderLink
+                href="/whitelist"
+                aria-current={
+                  pathname === "/whitelist" ? "page" : undefined
+                }
+              >
+                OPENSEA ↗
+              </HeaderLink>
+
+              <HeaderLink
                 href="/winner"
                 aria-current={pathname === "/winner" ? "page" : undefined}
               >
@@ -241,10 +259,5 @@ export default function GlobalSiteHeader() {
     </>
   );
 }
-
-
-
-
-
 
 

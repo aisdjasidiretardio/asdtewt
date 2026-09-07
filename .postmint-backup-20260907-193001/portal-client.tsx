@@ -7,13 +7,12 @@ import CandidateCarouselSection from "./candidate-carousel";
 const PROJECT = {
   twitter: "https://x.com/onecoinrbh",
   dice: "https://diceprotocol.world/agent/",
-  opensea: "https://opensea.io/collection/onecoin",
 };
 
 // Leave this empty before mint-out. After mint-out, replace it with the
 // exact mint-out time in UTC. The page adds 24 hours automatically.
 // Example: "2026-09-01T18:00:00Z".
-const DRAW_AT = "2026-09-08T15:30:00Z";
+const MINT_OUT_AT = "";
 
 // After the verified draw, add the seven NFT IDs here.
 // Example: [147, 1220, 3066, 4781, 5902, 7440, 9811]
@@ -536,72 +535,9 @@ const Verify = styled.a`
   text-transform:uppercase;
 `;
 
-const WinnerDrawDate = styled.p`
-  margin:16px 0 0;
-  color:var(--red);
-  font-family:"Cormorant Garamond",serif;
-  font-size:1rem;
-  font-weight:700;
-  letter-spacing:.08em;
-  text-align:center;
-  text-transform:uppercase;
-`;
-
-const WinnerActions = styled.div`
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  margin:24px 0 0;
-`;
-
-const WinnerButton = styled.a`
-  display:inline-flex;
-  min-height:50px;
-  align-items:center;
-  justify-content:center;
-  padding:0 22px;
-  border:2px solid var(--ink);
-  background:var(--lapis);
-  box-shadow:5px 5px 0 var(--gold);
-  color:var(--light);
-  font-family:"Cinzel",serif;
-  font-size:.72rem;
-  font-weight:700;
-  letter-spacing:.1em;
-  text-decoration:none;
-  text-transform:uppercase;
-  transition:
-    transform .2s,
-    box-shadow .2s,
-    background .2s;
-
-  &:hover{
-    transform:translate(2px,2px);
-    box-shadow:3px 3px 0 var(--gold);
-    background:var(--deep);
-  }
-
-  &:focus-visible{
-    outline:3px solid var(--red);
-    outline-offset:4px;
-  }
-`;
-
-const WinnerSecondaryButton = styled(WinnerButton)`
-  background:var(--light);
-  color:var(--lapis);
-  box-shadow:5px 5px 0 var(--red);
-
-  &:hover{
-    background:white;
-    box-shadow:3px 3px 0 var(--red);
-  }
-`;
 const Countdown = styled.div`
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(4,1fr);
   gap:7px;
   max-width:720px;
   margin:0 auto;
@@ -964,7 +900,7 @@ function pad(value:number) {
 export function WhitelistChecker() {
   const [wallet,setWallet] = useState("");
   const [message,setMessage] = useState(
-    "Enter your wallet to search OPENSEA ↗."
+    "Enter your wallet to search the Royal List."
   );
 
   async function checkWallet(
@@ -979,7 +915,7 @@ export function WhitelistChecker() {
       return;
     }
 
-    setMessage("Checking OPENSEA ↗...");
+    setMessage("Checking the Royal List...");
 
     try {
       const response = await fetch(
@@ -1008,7 +944,7 @@ export function WhitelistChecker() {
 
       if (data?.accessType === "royallist_gtd") {
         setMessage(
-          "MINTED OUT. Guaranteed access. 3 mint spots per wallet."
+          "RoyalList GTD. Guaranteed access. 3 mint spots per wallet."
         );
         return;
       }
@@ -1027,13 +963,13 @@ export function WhitelistChecker() {
         return;
       }
 
-      setMessage("This wallet is not on OPENSEA ↗.");
+      setMessage("This wallet is not on the Royal List.");
 
     } catch (error) {
       console.error(error);
 
       setMessage(
-        "OPENSEA ↗ could not be checked. Try again."
+        "The Royal List could not be checked. Try again."
       );
     }
   }
@@ -1048,7 +984,7 @@ export function WhitelistChecker() {
           
 
           <Kicker>
-            OPENSEA ↗
+            The royal list
           </Kicker>
 
           <Title>Whitelist checker</Title>
@@ -1118,7 +1054,7 @@ export function WhitelistChecker() {
         <span>STAGE I</span>
       </div>
 
-      <h2>MINTED OUT</h2>
+      <h2>ROYALLIST GTD</h2>
 
       <p className="royalChapterBigLine">
         3 MINT SPOTS PER WALLET
@@ -1422,7 +1358,10 @@ export function WinnerRoom() {
   const [candidate,setCandidate] = useState(4821);
   const [now,setNow] = useState(0);
 
-  const drawTime = Date.parse(DRAW_AT);
+  const drawTime = MINT_OUT_AT
+    ? Date.parse(MINT_OUT_AT) +
+      24 * 60 * 60 * 1000
+    : 0;
 
   const hasWinners =
     PUBLISHED_WINNERS.length === 7;
@@ -1461,7 +1400,9 @@ export function WinnerRoom() {
     remaining / 86400000
   );
 
-  const hours = Math.floor(remaining / 3600000);
+  const hours = Math.floor(
+    (remaining % 86400000) / 3600000
+  );
 
   const minutes = Math.floor(
     (remaining % 3600000) / 60000
@@ -1541,51 +1482,53 @@ export function WinnerRoom() {
 
       <WinnerHero>
         <Container>
+          <Kicker>The draw room</Kicker>
 
           <Title>
-           Minted out
-     <Lead>
+            Seven doors.
+            <br />
+            Seven fortunes.
+          </Title>
+
+          <Lead>
             Seven winning NFTs receive $1,000 each.
             Every NFT is one entry, and every winning
             ID is worth 1,000x the $1 mint price.
           </Lead>
 
-        
-          </Title>
           <DrawStatus>
             {isCountdown ? (
-              <>
-                <Countdown
-                  aria-label="Time remaining until the draw"
-                >
-                  <TimeCell>
-                    <b>{pad(hours)}</b>
-                    <span>Hours</span>
-                  </TimeCell>
+              <Countdown
+                aria-label="Time remaining until the draw"
+              >
+                <TimeCell>
+                  <b>{pad(days)}</b>
+                  <span>Days</span>
+                </TimeCell>
 
-                  <TimeCell>
-                    <b>{pad(minutes)}</b>
-                    <span>Minutes</span>
-                  </TimeCell>
+                <TimeCell>
+                  <b>{pad(hours)}</b>
+                  <span>Hours</span>
+                </TimeCell>
 
-                  <TimeCell>
-                    <b>{pad(seconds)}</b>
-                    <span>Seconds</span>
-                  </TimeCell>
-                </Countdown>
+                <TimeCell>
+                  <b>{pad(minutes)}</b>
+                  <span>Minutes</span>
+                </TimeCell>
 
-                <WinnerDrawDate>
-                  September 8 {"\u00B7"} 3:30 PM UTC
-                </WinnerDrawDate>
-              </>
+                <TimeCell>
+                  <b>{pad(seconds)}</b>
+                  <span>Seconds</span>
+                </TimeCell>
+              </Countdown>
             ) : (
               <DrawMessage>
                 <DrawLabel>
                   {hasWinners
                     ? "The seven winning IDs have been revealed."
                     : isAwaitingDraw
-                      ? "The draw is live. Check X for the winning IDs."
-                      : "The final draw begins September 8 at 3:30 PM UTC."}
+                      ? "The trading window is closed. The verified draw is next."
+                      : "Winners will be selected 24 hours after mint-out."}
                 </DrawLabel>
 
                 <Verify
@@ -1599,30 +1542,22 @@ export function WinnerRoom() {
             )}
           </DrawStatus>
 
-          <WinnerActions>
-            <WinnerButton
-              href={PROJECT.twitter}
-              target="_blank"
-              rel="noreferrer"
-            >
-              CHECK X FOR THE DRAW {"\u2197"}
-            </WinnerButton>
+          <Promise>
+            <PromiseItem>
+              <b>7</b>
+              Winning NFTs
+            </PromiseItem>
 
-            <WinnerSecondaryButton
-              href={PROJECT.opensea}
-              target="_blank"
-              rel="noreferrer"
-            >
-              GET YOUR NFT {"\u2197"}
-            </WinnerSecondaryButton>
-          </WinnerActions>
+            <PromiseItem>
+              <b>$1,000</b>
+              For each winner
+            </PromiseItem>
 
-          <div style={{ height:"52px" }} />
-
-         
-
-     
-
+            <PromiseItem>
+              <b>1,000x</b>
+              The mint price
+            </PromiseItem>
+          </Promise>
         </Container>
       </WinnerHero>
 
@@ -1987,8 +1922,3 @@ export function WinnerRoom() {
     </Page>
   );
 }
-
-
-
-
-

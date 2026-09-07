@@ -1,4 +1,4 @@
-[build]
+﻿[build]
   command = "npm run build"
   publish = "dist"
 
@@ -6,6 +6,28 @@
   NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
 # Challenge site proxy
+
+# ============================================================
+# POST-MINT ROYAL LIST REDIRECT
+# ============================================================
+
+[[redirects]]
+  from = "/royal-list"
+  to = "https://opensea.io/collection/onecoin"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/royal-list/*"
+  to = "https://opensea.io/collection/onecoin"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/royallist"
+  to = "https://opensea.io/collection/onecoin"
+  status = 302
+  force = true
 [[redirects]]
   from = "/challenge/*"
   to = "https://onecoin-challenge-live.netlify.app/:splat"

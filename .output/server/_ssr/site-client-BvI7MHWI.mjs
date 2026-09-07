@@ -1,6 +1,6 @@
 import { t as require_jsx_runtime } from "./ssr.mjs";
 import { a as qt, t as Tt } from "./styled-components.esm-rePmBNy9.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/site-client-JSwmnTCR.js
+//#region node_modules/.nitro/vite/services/ssr/assets/site-client-BvI7MHWI.js
 var import_jsx_runtime = require_jsx_runtime();
 var PROJECT = {
 	twitter: "https://x.com/onecoinrbh",
@@ -162,20 +162,13 @@ function OneCoinSite() {
 			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Wordmark, {
 				href: "#top",
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "✦" }), " One Coin"]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(NavActions, { children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(NavLink, {
-					href: "/whitelist",
-					children: "Whitelist"
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(NavLink, {
-					href: "/winner",
-					children: "Winner room"
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(NavLink, {
-					...external(PROJECT.twitter),
-					children: ["X ", "↗"]
-				})
-			] })]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(NavActions, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(NavLink, {
+				href: "/winner",
+				children: "Winner room"
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(NavLink, {
+				...external(PROJECT.twitter),
+				children: ["X ", "↗"]
+			})] })]
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Hero, {
 			id: "top",
 			children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(HeroGrid, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [

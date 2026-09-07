@@ -1542,16 +1542,10 @@ export function WinnerRoom() {
       <WinnerHero>
         <Container>
 
-          <Title>
-           Minted out
-     <Lead>
-            Seven winning NFTs receive $1,000 each.
-            Every NFT is one entry, and every winning
-            ID is worth 1,000x the $1 mint price.
-          </Lead>
+          <Kicker>
+            Minted out {"\u00B7"} final draw
+          </Kicker>
 
-        
-          </Title>
           <DrawStatus>
             {isCountdown ? (
               <>
@@ -1619,9 +1613,36 @@ export function WinnerRoom() {
 
           <div style={{ height:"52px" }} />
 
-         
+          <Kicker>The draw room</Kicker>
 
-     
+          <Title>
+            Seven doors.
+            <br />
+            Seven fortunes.
+          </Title>
+
+          <Lead>
+            Seven winning NFTs receive $1,000 each.
+            Every NFT is one entry, and every winning
+            ID is worth 1,000x the $1 mint price.
+          </Lead>
+
+          <Promise>
+            <PromiseItem>
+              <b>7</b>
+              Winning NFTs
+            </PromiseItem>
+
+            <PromiseItem>
+              <b>$1,000</b>
+              For each winner
+            </PromiseItem>
+
+            <PromiseItem>
+              <b>1,000x</b>
+              The mint price
+            </PromiseItem>
+          </Promise>
 
         </Container>
       </WinnerHero>

@@ -1,7 +1,7 @@
 import { t as require_jsx_runtime } from "./ssr.mjs";
 import { t as usePathname } from "./navigation-Bna7sSlc.mjs";
 import { r as Vt, t as Tt } from "./styled-components.esm-rePmBNy9.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/global-site-header-Cjdy8x7x.js
+//#region node_modules/.nitro/vite/services/ssr/assets/global-site-header-Ds80oPp_.js
 var import_jsx_runtime = require_jsx_runtime();
 var TWITTER_URL = "https://x.com/onecoinrbh";
 var HideOldHeaders = Vt`
@@ -175,11 +175,6 @@ function GlobalSiteHeader() {
 					children: "The Great Hall"
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(HeaderLink, {
-					href: "/whitelist",
-					"aria-current": pathname === "/whitelist" ? "page" : void 0,
-					children: "The Royal List"
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(HeaderLink, {
 					href: "/winner",
 					"aria-current": pathname === "/winner" ? "page" : void 0,
 					children: "Winner Chamber"
@@ -202,11 +197,6 @@ function GlobalSiteHeader() {
 					href: "/",
 					"aria-current": pathname === "/" ? "page" : void 0,
 					children: "The Great Hall"
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(HeaderLink, {
-					href: "/whitelist",
-					"aria-current": pathname === "/whitelist" ? "page" : void 0,
-					children: "The Royal List"
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(HeaderLink, {
 					href: "/winner",

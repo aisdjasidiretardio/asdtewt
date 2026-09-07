@@ -28,14 +28,14 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   font-weight:700;
   letter-spacing:.01em;
   line-height:1;
-`,ee=r.div`
+`,p=r.div`
   width:100%;
   margin-top:38px;
   overflow:hidden;
   padding:20px 0 30px;
   border-top:1px solid rgba(247,236,201,.4);
   border-bottom:1px solid rgba(247,236,201,.4);
-`,p=r.div`
+`,ee=r.div`
   display:flex;
   width:max-content;
   animation:${c} 58s linear infinite;
@@ -67,12 +67,12 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     border:1px solid var(--gold);
     pointer-events:none;
   }
-`,re=r.div`
+`,m=r.div`
   position:relative;
   overflow:hidden;
   border:1px solid rgba(37,23,14,.72);
   background:var(--light);
-`,ie=r.div`
+`,h=r.div`
   display:flex;
   align-items:baseline;
   gap:8px;
@@ -94,7 +94,7 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     font-size:clamp(1rem,2vw,1.3rem);
     letter-spacing:.03em;
   }
-`,ae=r.img`
+`,g=r.img`
   display:block;
   width:100%;
   aspect-ratio:1;
@@ -102,7 +102,7 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   border-top:1px solid var(--ink);
   border-bottom:1px solid var(--ink);
   background:var(--paper);
-`,m=r.span`
+`,_=r.span`
   display:block;
   padding:12px 10px;
   color:rgba(37,23,14,.68);
@@ -112,10 +112,10 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   letter-spacing:.12em;
   text-align:center;
   text-transform:uppercase;
-`;function h(){return(0,o.jsxs)(l,{children:[(0,o.jsxs)(u,{children:[(0,o.jsx)(d,{children:`Until the book closes`}),(0,o.jsx)(f,{children:`Could fortune rest here?`})]}),(0,o.jsx)(ee,{"aria-label":`Possible winning NFT IDs`,children:(0,o.jsx)(p,{children:[!1,!0].map(e=>(0,o.jsx)(te,{"aria-hidden":e||void 0,children:s.map((t,n)=>(0,o.jsx)(ne,{children:(0,o.jsxs)(re,{children:[(0,o.jsxs)(ie,{children:[(0,o.jsx)(`span`,{children:`✦`}),(0,o.jsx)(`span`,{children:`NFT ID`}),(0,o.jsxs)(`strong`,{children:[`#`,t.toString().padStart(4,`0`)]})]}),(0,o.jsx)(ae,{src:`/gallery/winner-nft.png`,alt:e||n>0?``:`One Coin possible winning NFT`,loading:n>3?`lazy`:`eager`}),(0,o.jsx)(m,{children:`Fortune may call`})]})},`${e?`d`:`p`}-${t}`))},e?`duplicate`:`primary`))})})]})}var g={twitter:`https://x.com/onecoinrbh`,dice:`https://diceprotocol.world/agent/`},_=[],v=i`
+`;function v(){return(0,o.jsxs)(l,{children:[(0,o.jsxs)(u,{children:[(0,o.jsx)(d,{children:`Until the book closes`}),(0,o.jsx)(f,{children:`Could fortune rest here?`})]}),(0,o.jsx)(p,{"aria-label":`Possible winning NFT IDs`,children:(0,o.jsx)(ee,{children:[!1,!0].map(e=>(0,o.jsx)(te,{"aria-hidden":e||void 0,children:s.map((t,n)=>(0,o.jsx)(ne,{children:(0,o.jsxs)(m,{children:[(0,o.jsxs)(h,{children:[(0,o.jsx)(`span`,{children:`✦`}),(0,o.jsx)(`span`,{children:`NFT ID`}),(0,o.jsxs)(`strong`,{children:[`#`,t.toString().padStart(4,`0`)]})]}),(0,o.jsx)(g,{src:`/gallery/winner-nft.png`,alt:e||n>0?``:`One Coin possible winning NFT`,loading:n>3?`lazy`:`eager`}),(0,o.jsx)(_,{children:`Fortune may call`})]})},`${e?`d`:`p`}-${t}`))},e?`duplicate`:`primary`))})})]})}var y={twitter:`https://x.com/onecoinrbh`,dice:`https://diceprotocol.world/agent/`,opensea:`https://opensea.io/collection/onecoin`},re=`2026-09-08T15:30:00Z`,b=[],ie=i`
   0%{transform:translateX(0)}
   100%{transform:translateX(-50%)}
-`,y=i`
+`,ae=i`
   0%,100%{
     transform:translateY(0) rotate(-.6deg);
     box-shadow:12px 14px 0 #163e75;
@@ -124,13 +124,13 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     transform:translateY(-9px) rotate(.6deg);
     box-shadow:15px 18px 0 #163e75;
   }
-`,b=i`
+`,oe=i`
   0%{opacity:0;transform:translateY(14px) scale(.94)}
   100%{opacity:1;transform:translateY(0) scale(1)}
-`,x=i`
+`,se=i`
   0%,100%{opacity:.35}
   50%{opacity:1}
-`,S=r.main`
+`,x=r.main`
   --lapis:#163e75;
   --deep:#0c2a53;
   --red:#9e332a;
@@ -163,7 +163,7 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
       rgba(80,52,22,.025) 0 1px,
       transparent 1px 5px
     );
-`,C=r.div`
+`,S=r.div`
   position:fixed;
   z-index:50;
   inset:8px;
@@ -180,20 +180,20 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   @media(min-width:800px){
     inset:13px;
   }
-`,w=r.div`
+`,C=r.div`
   width:min(1120px,calc(100% - 40px));
   margin:0 auto;
 
   @media(min-width:760px){
     width:min(1120px,calc(100% - 80px));
   }
-`,T=r.nav`
+`,w=r.nav`
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:16px;
   padding:24px 0 10px;
-`,E=r.a`
+`,T=r.a`
   display:inline-flex;
   align-items:center;
   gap:9px;
@@ -209,11 +209,11 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     color:var(--red);
     font-size:1.15rem;
   }
-`,D=r.div`
+`,E=r.div`
   display:flex;
   align-items:center;
   gap:clamp(10px,2.2vw,25px);
-`,O=r.a`
+`,D=r.a`
   color:var(--ink);
   border-bottom:1px solid currentColor;
   font-family:"Cormorant Garamond",serif;
@@ -227,18 +227,18 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   &[aria-current="page"]{
     color:var(--red);
   }
-`,k=r.section`
+`,O=r.section`
   padding:90px 0 105px;
   border-top:2px solid var(--ink);
   background:var(--red);
   color:var(--light);
   text-align:center;
-`,A=r.p`
+`,k=r.p`
   margin:0 0 20px;
   color:var(--pale-gold);
   font-size:1.4rem;
   letter-spacing:18px;
-`,j=r.h2`
+`,A=r.h2`
   max-width:900px;
   margin:0 auto 22px;
   color:var(--light);
@@ -248,7 +248,7 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   letter-spacing:.01em;
   word-spacing:.06em;
   line-height:1;
-`,M=r.p`
+`,j=r.p`
   max-width:590px;
   margin:0 auto 30px;
   color:rgba(247,236,201,.82);
@@ -256,7 +256,7 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   font-size:1.22rem;
   font-weight:600;
   line-height:1.5;
-`,N=r.a`
+`,M=r.a`
   display:inline-flex;
   min-height:50px;
   align-items:center;
@@ -285,14 +285,14 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     outline:3px solid var(--light);
     outline-offset:4px;
   }
-`,P=r.footer`
+`,N=r.footer`
   padding:28px 0 42px;
   background:var(--ink);
   color:rgba(247,236,201,.62);
   font-family:"Cormorant Garamond",serif;
   font-size:.79rem;
   line-height:1.5;
-`,F=r.div`
+`,P=r.div`
   display:grid;
   gap:17px;
 
@@ -300,15 +300,15 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     grid-template-columns:1fr auto;
     align-items:end;
   }
-`,I=r.p`
+`,F=r.p`
   max-width:760px;
   margin:0;
-`,L=r.a`
+`,I=r.a`
   color:var(--pale-gold);
   letter-spacing:.08em;
   text-decoration:none;
   text-transform:uppercase;
-`,R=r.p`
+`,L=r.p`
   margin:0 0 10px;
   color:var(--red);
   font-family:"Cormorant Garamond",serif;
@@ -316,7 +316,7 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   font-weight:700;
   letter-spacing:.18em;
   text-transform:uppercase;
-`,z=r.h1`
+`,R=r.h1`
   margin:0;
   color:var(--lapis);
   font-family:"Cinzel",serif;
@@ -325,7 +325,7 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   letter-spacing:.01em;
   line-height:.94;
   text-wrap:balance;
-`,B=r.p`
+`,z=r.p`
   max-width:660px;
   margin:22px auto 0;
   color:rgba(37,23,14,.78);
@@ -352,15 +352,75 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     height:7px;
     border-radius:50%;
     background:var(--red);
-    animation:${x} 1.5s ease-in-out infinite;
+    animation:${se} 1.5s ease-in-out infinite;
   }
-`;var V=r.section`
+`;var B=r.section`
   min-height:calc(100svh - 76px);
   display:grid;
   align-items:center;
   padding:55px 0 90px;
   text-align:center;
-`,H=r.div`
+`;r.section`
+  display:grid;
+  gap:12px;
+  max-width:980px;
+  margin:42px auto 0;
+  text-align:left;
+
+  @media(min-width:760px){
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+`,r.article`
+  position:relative;
+  min-height:230px;
+  padding:26px 23px 24px;
+  border:1px solid var(--ink);
+  background:rgba(247,236,201,.67);
+  box-shadow:6px 7px 0 var(--gold);
+
+  &::before{
+    content:"";
+    position:absolute;
+    inset:6px;
+    border:1px solid rgba(158,51,42,.45);
+    pointer-events:none;
+  }
+`,r.span`
+  position:relative;
+  display:block;
+  margin-bottom:24px;
+  color:var(--red);
+  font-family:"Cinzel",serif;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+`,r.h2`
+  position:relative;
+  margin:0;
+  color:var(--lapis);
+  font-family:"Cinzel",serif;
+  font-size:clamp(1.25rem,3vw,1.7rem);
+  font-weight:700;
+  letter-spacing:.02em;
+  line-height:1.1;
+`,r.p`
+  position:relative;
+  margin:14px 0 0;
+  color:var(--red);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.15rem;
+  font-weight:700;
+  line-height:1.25;
+`,r.p`
+  position:relative;
+  margin:10px 0 0;
+  color:rgba(37,23,14,.7);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1rem;
+  font-weight:600;
+  line-height:1.42;
+`;var V=r.div`
   max-width:760px;
   margin:42px auto 0;
   padding:clamp(25px,6vw,54px);
@@ -368,7 +428,7 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   background:rgba(247,236,201,.67);
   box-shadow:9px 10px 0 var(--lapis);
   text-align:left;
-`,U=r.label`
+`,H=r.label`
   display:block;
   margin-bottom:9px;
   color:var(--ink);
@@ -377,14 +437,14 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   font-weight:700;
   letter-spacing:.1em;
   text-transform:uppercase;
-`,W=r.form`
+`,U=r.form`
   display:grid;
   gap:12px;
 
   @media(min-width:650px){
     grid-template-columns:1fr auto;
   }
-`,G=r.input`
+`,W=r.input`
   min-width:0;
   min-height:56px;
   padding:0 17px;
@@ -400,7 +460,7 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     border-color:var(--red);
     box-shadow:0 0 0 3px rgba(158,51,42,.16);
   }
-`,K=r.button`
+`,G=r.button`
   min-height:56px;
   padding:0 24px;
   border:2px solid var(--ink);
@@ -420,7 +480,7 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     transform:translate(1px,1px);
     box-shadow:4px 4px 0 var(--gold);
   }
-`,q=r.p`
+`,ce=r.p`
   min-height:24px;
   margin:18px 0 0;
   color:var(--red);
@@ -435,18 +495,18 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   font-size:.9rem;
   font-weight:600;
   line-height:1.45;
-`;var J=r.section`
+`;var le=r.section`
   padding:58px 0 48px;
   text-align:center;
-`,oe=r.div`
+`,ue=r.div`
   margin:34px auto 0;
-`,se=r.div`
+`,de=r.div`
   max-width:760px;
   margin:0 auto;
   padding:22px;
   border-top:1px solid var(--ink);
   border-bottom:1px solid var(--ink);
-`,ce=r.p`
+`,fe=r.p`
   margin:0;
   color:var(--red);
   font-family:"Cinzel",serif;
@@ -454,7 +514,7 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   font-weight:700;
   letter-spacing:.04em;
   line-height:1.35;
-`,le=r.a`
+`,pe=r.a`
   display:inline-block;
   margin-top:10px;
   color:var(--lapis);
@@ -464,13 +524,69 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   letter-spacing:.06em;
   text-underline-offset:4px;
   text-transform:uppercase;
-`;r.div`
+`,me=r.p`
+  margin:16px 0 0;
+  color:var(--red);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-align:center;
+  text-transform:uppercase;
+`,he=r.div`
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  margin:24px 0 0;
+`,K=r.a`
+  display:inline-flex;
+  min-height:50px;
+  align-items:center;
+  justify-content:center;
+  padding:0 22px;
+  border:2px solid var(--ink);
+  background:var(--lapis);
+  box-shadow:5px 5px 0 var(--gold);
+  color:var(--light);
+  font-family:"Cinzel",serif;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-decoration:none;
+  text-transform:uppercase;
+  transition:
+    transform .2s,
+    box-shadow .2s,
+    background .2s;
+
+  &:hover{
+    transform:translate(2px,2px);
+    box-shadow:3px 3px 0 var(--gold);
+    background:var(--deep);
+  }
+
+  &:focus-visible{
+    outline:3px solid var(--red);
+    outline-offset:4px;
+  }
+`,ge=r(K)`
+  background:var(--light);
+  color:var(--lapis);
+  box-shadow:5px 5px 0 var(--red);
+
+  &:hover{
+    background:white;
+    box-shadow:3px 3px 0 var(--red);
+  }
+`,_e=r.div`
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(3,1fr);
   gap:7px;
   max-width:720px;
   margin:0 auto;
-`,r.div`
+`,q=r.div`
   padding:16px 6px;
   border:1px solid var(--ink);
   background:var(--lapis);
@@ -493,13 +609,13 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     letter-spacing:.11em;
     text-transform:uppercase;
   }
-`;var ue=r.div`
+`,ve=r.div`
   display:grid;
   grid-template-columns:repeat(3,1fr);
   margin:35px auto 0;
   border:1px solid var(--ink);
   background:rgba(247,236,201,.55);
-`,Y=r.div`
+`,J=r.div`
   padding:17px 8px;
   border-right:1px solid rgba(37,23,14,.45);
   font-family:"Cormorant Garamond",serif;
@@ -544,7 +660,7 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   background:var(--paper);
   box-shadow:12px 14px 0 var(--lapis);
   color:var(--ink);
-  animation:${y} 4s ease-in-out infinite;
+  animation:${ae} 4s ease-in-out infinite;
 
   &::before{
     content:"";
@@ -565,7 +681,7 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   background:
     radial-gradient(circle,rgba(241,206,114,.7),transparent 42%),
     linear-gradient(145deg,rgba(255,255,255,.2),rgba(158,51,42,.08));
-  animation:${b} .45s ease-out;
+  animation:${oe} .45s ease-out;
 
   &::after{
     content:"";
@@ -609,7 +725,7 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
 `,r.div`
   display:flex;
   width:max-content;
-  animation:${v} 28s linear infinite;
+  animation:${ie} 28s linear infinite;
 `,r.div`
   width:146px;
   margin-right:12px;
@@ -629,18 +745,18 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     font-size:.68rem;
     text-transform:uppercase;
   }
-`;var de=r.section`
+`;var ye=r.section`
   padding:78px 0 95px;
-`,fe=r.div`
+`,be=r.div`
   text-align:center;
-`,X=r.h2`
+`,Y=r.h2`
   margin:0;
   color:var(--lapis);
   font-family:"Cinzel",serif;
   font-size:clamp(2rem,9vw,5rem);
   letter-spacing:.01em;
   line-height:1;
-`,pe=r.p`
+`,xe=r.p`
   max-width:620px;
   margin:18px auto 0;
   color:rgba(37,23,14,.72);
@@ -648,7 +764,7 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   font-size:1.15rem;
   font-weight:600;
   line-height:1.45;
-`,me=r.div`
+`,Se=r.div`
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:12px;
@@ -661,7 +777,7 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   @media(min-width:960px){
     grid-template-columns:repeat(7,minmax(0,1fr));
   }
-`,Z=r.article`
+`,X=r.article`
   min-height:168px;
   display:flex;
   flex-direction:column;
@@ -697,7 +813,221 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     font-weight:700;
     text-transform:uppercase;
   }
-`;function Q({current:e}){return(0,o.jsx)(w,{children:(0,o.jsxs)(T,{"aria-label":`Primary navigation`,children:[(0,o.jsxs)(E,{href:`/`,children:[(0,o.jsx)(`span`,{children:`✦`}),`One Coin`]}),(0,o.jsxs)(D,{children:[(0,o.jsx)(O,{href:`/`,children:`Home`}),(0,o.jsx)(O,{href:`/whitelist`,"aria-current":e===`whitelist`?`page`:void 0,children:`Whitelist`}),(0,o.jsx)(O,{href:`/winner`,"aria-current":e===`winner`?`page`:void 0,children:`Winner room`})]})]})})}function $(){return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(k,{children:(0,o.jsxs)(w,{children:[(0,o.jsxs)(A,{"aria-hidden":`true`,children:[`✦`,` `,`✧`,` `,`✦`]}),(0,o.jsx)(j,{children:`May luck be in your favour.`}),(0,o.jsxs)(M,{children:[`10,000 entries. Seven winners. One dollar is all it takes to be part of the story.`,(0,o.jsx)(`span`,{style:{display:`block`,marginTop:`12px`,fontSize:`clamp(.92rem, 1.15vw, 1.05rem)`,fontWeight:700,lineHeight:1.5,letterSpacing:`.02em`,color:`inherit`,opacity:.88},children:`One NFT = one entry. Five NFTs in one wallet = five separate entries in the draw.`})]}),(0,o.jsxs)(N,{href:g.twitter,target:`_blank`,rel:`noreferrer`,children:[(0,o.jsx)(`span`,{children:`X`}),` Follow for the mint`]})]})}),(0,o.jsx)(P,{children:(0,o.jsx)(w,{children:(0,o.jsxs)(F,{children:[(0,o.jsx)(I,{children:`To the fullest extent permitted by law, the project and its contributors are not liable for trading losses, NFT price changes, wallet compromise, failed transactions, third party services, network interruptions, taxes, or unlawful participation. NFTs are not investments and may have no resale value. Eligibility, claim deadlines, prize distribution, and the official rules apply. By participating, you accept these risks and remain responsible for complying with local laws. Use only links published by the official account.`}),(0,o.jsxs)(L,{href:g.twitter,target:`_blank`,rel:`noreferrer`,children:[`Official X `,`↗`]})]})})})]})}function he(){let[e,t]=(0,a.useState)(``),[n,r]=(0,a.useState)(`The checker is not live yet. No wallets are being stored.`);function i(t){t.preventDefault(),r(e.trim()?`This wallet was not submitted. The whitelist checker is not live yet.`:`Enter a wallet when the checker goes live.`)}return(0,o.jsxs)(S,{children:[(0,o.jsx)(C,{"aria-hidden":`true`}),(0,o.jsx)(Q,{current:`whitelist`}),(0,o.jsx)(V,{children:(0,o.jsxs)(w,{children:[(0,o.jsx)(R,{children:`The royal list`}),(0,o.jsx)(z,{children:`Whitelist checker`}),(0,o.jsxs)(H,{children:[(0,o.jsx)(U,{htmlFor:`wallet`,children:`Wallet address`}),(0,o.jsxs)(W,{onSubmit:i,children:[(0,o.jsx)(G,{id:`wallet`,disabled:!0,"aria-disabled":`true`,style:{cursor:`not-allowed`,opacity:.58},value:e,onChange:e=>t(e.target.value),placeholder:`0x...`,autoComplete:`off`,spellCheck:!1}),(0,o.jsx)(K,{type:`submit`,disabled:!0,"aria-disabled":`true`,style:{cursor:`not-allowed`,opacity:.58},children:`Check wallet`})]}),(0,o.jsx)(q,{"aria-live":`polite`,children:n})]}),(0,o.jsx)(`p`,{style:{maxWidth:`720px`,margin:`34px auto 0`,color:`var(--red)`,fontFamily:`"Cormorant Garamond", serif`,fontSize:`clamp(1.05rem, 2.3vw, 1.28rem)`,fontStyle:`italic`,fontWeight:600,letterSpacing:`.02em`,lineHeight:1.5,textAlign:`center`},children:`The royals keep no fixed hour. A sharp eye may yet find its name written within.`})]})}),(0,o.jsx)($,{})]})}function ge(){let[e,t]=(0,a.useState)(4821),[n,r]=(0,a.useState)(0),i=_.length===7;return(0,a.useEffect)(()=>{let e=4821,n=window.setInterval(()=>{e=(e*9301+49297)%1e4,t(e+1)},950),i=()=>{r(Date.now())};i();let a=window.setInterval(i,1e3);return()=>{window.clearInterval(n),window.clearInterval(a)}},[]),(0,a.useEffect)(()=>{if(!window.matchMedia(`(hover: none), (pointer: coarse)`).matches||!(`IntersectionObserver`in window))return;let e=Array.from(document.querySelectorAll(`.winner-art-card`)),t=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.intersectionRatio>=.6&&(e.target.classList.add(`is-revealed`),t.unobserve(e.target))})},{threshold:[.6]});return e.forEach(e=>{t.observe(e)}),()=>{t.disconnect()}},[]),(0,o.jsxs)(S,{children:[(0,o.jsx)(C,{"aria-hidden":`true`}),(0,o.jsx)(Q,{current:`winner`}),(0,o.jsx)(J,{children:(0,o.jsxs)(w,{children:[(0,o.jsx)(R,{children:`The draw room`}),(0,o.jsxs)(z,{children:[`Seven doors.`,(0,o.jsx)(`br`,{}),`Seven fortunes.`]}),(0,o.jsx)(B,{children:`Seven winning NFTs receive $1,000 each. Every NFT is one entry, and every winning ID is worth 1,000x the $1 mint price.`}),(0,o.jsx)(oe,{children:(0,o.jsxs)(se,{children:[(0,o.jsx)(ce,{children:i?`The seven winning IDs have been revealed.`:`Winners will be selected 24 hours after mint-out.`}),(0,o.jsxs)(le,{href:g.dice,target:`_blank`,rel:`noreferrer`,children:[`Verifiable with Dice Protocol `,`↗`]})]})}),(0,o.jsxs)(ue,{children:[(0,o.jsxs)(Y,{children:[(0,o.jsx)(`b`,{children:`7`}),`Winning NFTs`]}),(0,o.jsxs)(Y,{children:[(0,o.jsx)(`b`,{children:`$1,000`}),`For each winner`]}),(0,o.jsxs)(Y,{children:[(0,o.jsx)(`b`,{children:`1,000x`}),`The mint price`]})]})]})}),(0,o.jsx)(h,{}),(0,o.jsx)(de,{children:(0,o.jsxs)(w,{children:[(0,o.jsxs)(fe,{children:[(0,o.jsx)(R,{children:`The final seven`}),(0,o.jsx)(X,{children:i?`The winners.`:`The names remain sealed.`}),i&&(0,o.jsx)(pe,{className:`winner-section-copy`,children:`Each winning ID and its owner can now be checked against the verified Dice result.`})]}),(0,o.jsx)(`style`,{children:`
+`;function Z({current:e}){return(0,o.jsx)(C,{children:(0,o.jsxs)(w,{"aria-label":`Primary navigation`,children:[(0,o.jsxs)(T,{href:`/`,children:[(0,o.jsx)(`span`,{children:`✦`}),`One Coin`]}),(0,o.jsxs)(E,{children:[(0,o.jsx)(D,{href:`/`,children:`Home`}),(0,o.jsx)(D,{href:`/whitelist`,"aria-current":e===`whitelist`?`page`:void 0,children:`Whitelist`}),(0,o.jsx)(D,{href:`/winner`,"aria-current":e===`winner`?`page`:void 0,children:`Winner room`})]})]})})}function Q(){return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(O,{children:(0,o.jsxs)(C,{children:[(0,o.jsxs)(k,{"aria-hidden":`true`,children:[`✦`,` `,`✧`,` `,`✦`]}),(0,o.jsx)(A,{children:`May luck be in your favour.`}),(0,o.jsxs)(j,{children:[`10,000 entries. Seven winners. One dollar is all it takes to be part of the story.`,(0,o.jsx)(`span`,{style:{display:`block`,marginTop:`12px`,fontSize:`clamp(.92rem, 1.15vw, 1.05rem)`,fontWeight:700,lineHeight:1.5,letterSpacing:`.02em`,color:`inherit`,opacity:.88},children:`One NFT = one entry. Five NFTs in one wallet = five separate entries in the draw.`})]}),(0,o.jsxs)(M,{href:y.twitter,target:`_blank`,rel:`noreferrer`,children:[(0,o.jsx)(`span`,{children:`X`}),` Follow for the mint`]})]})}),(0,o.jsx)(N,{children:(0,o.jsx)(C,{children:(0,o.jsxs)(P,{children:[(0,o.jsx)(F,{children:`To the fullest extent permitted by law, the project and its contributors are not liable for trading losses, NFT price changes, wallet compromise, failed transactions, third party services, network interruptions, taxes, or unlawful participation. NFTs are not investments and may have no resale value. Eligibility, claim deadlines, prize distribution, and the official rules apply. By participating, you accept these risks and remain responsible for complying with local laws. Use only links published by the official account.`}),(0,o.jsxs)(I,{href:y.twitter,target:`_blank`,rel:`noreferrer`,children:[`Official X `,`↗`]})]})})})]})}function $(e){return e.toString().padStart(2,`0`)}function Ce(){let[e,t]=(0,a.useState)(``),[n,r]=(0,a.useState)(`Enter your wallet to search OPENSEA ↗.`);async function i(t){t.preventDefault();let n=e.trim();if(!/^0x[a-fA-F0-9]{40}$/.test(n)){r(`Enter a valid wallet address.`);return}r(`Checking OPENSEA ↗...`);try{let e=await fetch(`https://ikslmrrplnwwipdnteza.supabase.co/functions/v1/whitelist-check`,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify({wallet:n})});if(e.status===429){r(`Too many checks. Try again later.`);return}if(!e.ok)throw Error(`Whitelist lookup failed`);let t=await e.json();if(t?.accessType===`royallist_gtd`){r(`MINTED OUT. Guaranteed access. 3 mint spots per wallet.`);return}if(t?.accessType===`early_access_fcfs`){r(`Early Access FCFS. 1 mint spot per wallet.`);return}if(t?.accessType===`ecosystem_fcfs`){r(`Ecosystem FCFS. 1 mint spot per wallet.`);return}r(`This wallet is not on OPENSEA ↗.`)}catch(e){console.error(e),r(`OPENSEA ↗ could not be checked. Try again.`)}}return(0,o.jsxs)(x,{children:[(0,o.jsx)(S,{"aria-hidden":`true`}),(0,o.jsx)(Z,{current:`whitelist`}),(0,o.jsx)(B,{children:(0,o.jsxs)(C,{children:[(0,o.jsx)(L,{children:`OPENSEA ↗`}),(0,o.jsx)(R,{children:`Whitelist checker`}),(0,o.jsxs)(V,{children:[(0,o.jsx)(H,{htmlFor:`wallet`,children:`Wallet address`}),(0,o.jsxs)(U,{onSubmit:i,children:[(0,o.jsx)(W,{id:`wallet`,value:e,onChange:e=>t(e.target.value),placeholder:`0x...`,autoComplete:`off`,spellCheck:!1}),(0,o.jsx)(G,{type:`submit`,children:`Check wallet`})]}),(0,o.jsx)(ce,{"aria-live":`polite`,children:n})]}),(0,o.jsx)(`p`,{style:{maxWidth:`720px`,margin:`34px auto 0`,color:`var(--red)`,fontFamily:`"Cormorant Garamond", serif`,fontSize:`clamp(1.05rem, 2.3vw, 1.28rem)`,fontStyle:`italic`,fontWeight:600,letterSpacing:`.02em`,lineHeight:1.5,textAlign:`center`},children:`The royals keep no fixed hour. A sharp eye may yet find its name written within.`}),(0,o.jsxs)(`section`,{className:`royalListChapters`,children:[(0,o.jsxs)(`article`,{className:`royalChapterCard royalChapterFeatured`,children:[(0,o.jsx)(`div`,{className:`royalChapterImage royalChapterImageLarge`,children:(0,o.jsx)(`img`,{src:`/gallery/gtd.png`,alt:``})}),(0,o.jsxs)(`div`,{className:`royalChapterContent`,children:[(0,o.jsx)(`div`,{className:`royalChapterHeading`,children:(0,o.jsx)(`span`,{children:`STAGE I`})}),(0,o.jsx)(`h2`,{children:`MINTED OUT`}),(0,o.jsx)(`p`,{className:`royalChapterBigLine`,children:`3 MINT SPOTS PER WALLET`}),(0,o.jsx)(`p`,{className:`royalChapterText`,children:`For those who stand with onecoin and represent our kingdom.`}),(0,o.jsx)(`p`,{className:`royalChapterText royalChapterOpenSea`,children:`Minting takes place on OpenSea, so all 777 GTD places receive guaranteed mint access.`})]})]}),(0,o.jsxs)(`div`,{className:`royalChapterGrid`,children:[(0,o.jsxs)(`article`,{className:`royalChapterCard`,children:[(0,o.jsx)(`div`,{className:`royalChapterImage`,children:(0,o.jsx)(`img`,{src:`/gallery/fcfs.png`,alt:``})}),(0,o.jsxs)(`div`,{className:`royalChapterContent`,children:[(0,o.jsx)(`div`,{className:`royalChapterHeading`,children:(0,o.jsx)(`span`,{children:`STAGE II`})}),(0,o.jsx)(`h2`,{children:`EARLY ACCESS FCFS`}),(0,o.jsx)(`p`,{className:`royalChapterBigLine`,children:`1 MINT SPOT PER WALLET`}),(0,o.jsx)(`p`,{className:`royalChapterText`,children:`Access is granted in order until the available allocation has been claimed.`})]})]}),(0,o.jsxs)(`article`,{className:`royalChapterCard`,children:[(0,o.jsx)(`div`,{className:`royalChapterImage`,children:(0,o.jsx)(`img`,{src:`/gallery/fcfscommunity.png`,alt:``})}),(0,o.jsxs)(`div`,{className:`royalChapterContent`,children:[(0,o.jsx)(`div`,{className:`royalChapterHeading`,children:(0,o.jsx)(`span`,{children:`STAGE III`})}),(0,o.jsx)(`h2`,{children:`ECOSYSTEM FCFS`}),(0,o.jsx)(`p`,{className:`royalChapterBigLine`,children:`1 MINT SPOT PER WALLET`}),(0,o.jsx)(`p`,{className:`royalChapterText`,children:`A separate first-come allocation reserved for selected projects on Robinhood.`})]})]})]}),(0,o.jsx)(`style`,{children:`
+
+    .royalListChapters {
+      width: min(1320px, calc(100% - 48px));
+      margin: 58px auto 76px;
+    }
+
+    .royalChapterCard {
+      position: relative;
+      display: grid;
+      grid-template-columns: 178px minmax(0, 1fr);
+      min-height: 215px;
+      padding: 12px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255,255,255,.28), transparent 48%),
+        rgba(255,245,208,.72);
+      border: 1px solid #5e472b;
+      box-shadow: 6px 6px 0 rgba(164,67,54,.88);
+      overflow: hidden;
+    }
+
+    .royalChapterCard::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border: 1px solid rgba(107,73,35,.16);
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .royalChapterFeatured {
+      grid-template-columns: 270px minmax(0, 1fr);
+      min-height: 305px;
+      margin-bottom: 22px;
+    }
+
+    .royalChapterImage {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      min-height: 190px;
+      overflow: hidden;
+      border: 1px solid #604526;
+      background: #e7d29b;
+    }
+
+    .royalChapterImageLarge {
+      min-height: 280px;
+    }
+
+    .royalChapterImage img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .royalChapterContent {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 24px 30px 25px;
+      text-align: left;
+    }
+
+    .royalChapterFeatured .royalChapterContent {
+      padding: 30px 38px;
+    }
+
+    .royalChapterHeading {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .royalChapterHeading > span:first-child {
+      color: #a93329;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .royalChapterCard h2 {
+      margin: 0;
+      color: #16477e;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(29px, 2.4vw, 40px);
+      font-weight: 400;
+      line-height: 1.02;
+      letter-spacing: .01em;
+      text-transform: uppercase;
+    }
+
+    .royalChapterFeatured h2 {
+      font-size: clamp(40px, 4vw, 60px);
+    }
+
+    .royalChapterBigLine {
+      width: fit-content;
+      margin: 17px 0 0;
+      padding-bottom: 7px;
+      color: #a93329;
+      border-bottom: 1px solid rgba(169,51,41,.4);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .07em;
+      line-height: 1.35;
+      text-transform: uppercase;
+    }
+
+    .royalChapterFeatured .royalChapterBigLine {
+      color: #16477e;
+      font-size: 17px;
+    }
+
+    .royalChapterText {
+      max-width: 42ch;
+      margin: 15px 0 0;
+      color: #69471f;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .royalChapterFeatured .royalChapterText {
+      max-width: 58ch;
+      font-size: 16px;
+    }
+
+    .royalChapterOpenSea {
+      margin-top: 9px;
+      color: #a93329;
+      font-style: italic;
+    }
+
+    .royalChapterGrid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 22px;
+    }
+
+    @media (max-width: 1000px) {
+      .royalListChapters {
+        width: min(760px, calc(100% - 36px));
+      }
+
+      .royalChapterGrid {
+        grid-template-columns: 1fr;
+      }
+
+      .royalChapterFeatured {
+        grid-template-columns: 220px minmax(0,1fr);
+      }
+
+      .royalChapterCard {
+        grid-template-columns: 190px minmax(0,1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .royalListChapters {
+        width: calc(100% - 28px);
+        margin: 40px auto 62px;
+      }
+
+      .royalChapterFeatured,
+      .royalChapterCard {
+        display: block;
+        padding: 10px;
+      }
+
+      .royalChapterImage,
+      .royalChapterImageLarge {
+        width: 100%;
+        height: 190px;
+        min-height: 190px;
+      }
+
+      .royalChapterFeatured .royalChapterImage {
+        height: 230px;
+      }
+
+      .royalChapterContent,
+      .royalChapterFeatured .royalChapterContent {
+        padding: 25px 20px;
+      }
+
+      .royalChapterFeatured h2,
+      .royalChapterCard h2 {
+        font-size: 32px;
+      }
+
+      .royalChapterText,
+      .royalChapterFeatured .royalChapterText {
+        max-width: none;
+        font-size: 15px;
+      }
+
+      .royalChapterGrid {
+        gap: 18px;
+      }
+    }
+
+  `})]})]})}),(0,o.jsx)(Q,{})]})}function we(){let[e,t]=(0,a.useState)(4821),[n,r]=(0,a.useState)(0),i=Date.parse(re),s=b.length===7;(0,a.useEffect)(()=>{let e=4821,n=window.setInterval(()=>{e=(e*9301+49297)%1e4,t(e+1)},950),i=()=>{r(Date.now())};i();let a=window.setInterval(i,1e3);return()=>{window.clearInterval(n),window.clearInterval(a)}},[]);let c=i&&n?Math.max(0,i-n):0;Math.floor(c/864e5);let l=Math.floor(c/36e5),u=Math.floor(c%36e5/6e4),d=Math.floor(c%6e4/1e3),f=!!(i&&n&&c>0&&!s),p=!!(i&&n&&c===0&&!s);return(0,a.useEffect)(()=>{if(!window.matchMedia(`(hover: none), (pointer: coarse)`).matches||!(`IntersectionObserver`in window))return;let e=Array.from(document.querySelectorAll(`.winner-art-card`)),t=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.intersectionRatio>=.6&&(e.target.classList.add(`is-revealed`),t.unobserve(e.target))})},{threshold:[.6]});return e.forEach(e=>{t.observe(e)}),()=>{t.disconnect()}},[]),(0,o.jsxs)(x,{children:[(0,o.jsx)(S,{"aria-hidden":`true`}),(0,o.jsx)(Z,{current:`winner`}),(0,o.jsx)(le,{children:(0,o.jsxs)(C,{children:[(0,o.jsxs)(L,{children:[`Minted out `,`·`,` final draw`]}),(0,o.jsx)(ue,{children:f?(0,o.jsxs)(o.Fragment,{children:[(0,o.jsxs)(_e,{"aria-label":`Time remaining until the draw`,children:[(0,o.jsxs)(q,{children:[(0,o.jsx)(`b`,{children:$(l)}),(0,o.jsx)(`span`,{children:`Hours`})]}),(0,o.jsxs)(q,{children:[(0,o.jsx)(`b`,{children:$(u)}),(0,o.jsx)(`span`,{children:`Minutes`})]}),(0,o.jsxs)(q,{children:[(0,o.jsx)(`b`,{children:$(d)}),(0,o.jsx)(`span`,{children:`Seconds`})]})]}),(0,o.jsxs)(me,{children:[`September 8 `,`·`,` 3:30 PM UTC`]})]}):(0,o.jsxs)(de,{children:[(0,o.jsx)(fe,{children:s?`The seven winning IDs have been revealed.`:p?`The draw is live. Check X for the winning IDs.`:`The final draw begins September 8 at 3:30 PM UTC.`}),(0,o.jsxs)(pe,{href:y.dice,target:`_blank`,rel:`noreferrer`,children:[`Verifiable with Dice Protocol `,`↗`]})]})}),(0,o.jsxs)(he,{children:[(0,o.jsxs)(K,{href:y.twitter,target:`_blank`,rel:`noreferrer`,children:[`CHECK X FOR THE DRAW `,`↗`]}),(0,o.jsxs)(ge,{href:y.opensea,target:`_blank`,rel:`noreferrer`,children:[`GET YOUR NFT `,`↗`]})]}),(0,o.jsx)(`div`,{style:{height:`52px`}}),(0,o.jsx)(L,{children:`The draw room`}),(0,o.jsxs)(R,{children:[`Seven doors.`,(0,o.jsx)(`br`,{}),`Seven fortunes.`]}),(0,o.jsx)(z,{children:`Seven winning NFTs receive $1,000 each. Every NFT is one entry, and every winning ID is worth 1,000x the $1 mint price.`}),(0,o.jsxs)(ve,{children:[(0,o.jsxs)(J,{children:[(0,o.jsx)(`b`,{children:`7`}),`Winning NFTs`]}),(0,o.jsxs)(J,{children:[(0,o.jsx)(`b`,{children:`$1,000`}),`For each winner`]}),(0,o.jsxs)(J,{children:[(0,o.jsx)(`b`,{children:`1,000x`}),`The mint price`]})]})]})}),(0,o.jsx)(v,{}),(0,o.jsx)(ye,{children:(0,o.jsxs)(C,{children:[(0,o.jsxs)(be,{children:[(0,o.jsx)(L,{children:`The final seven`}),(0,o.jsx)(Y,{children:s?`The winners.`:`The names remain sealed.`}),s&&(0,o.jsx)(xe,{className:`winner-section-copy`,children:`Each winning ID and its owner can now be checked against the verified Dice result.`})]}),(0,o.jsx)(`style`,{children:`
             /* winnerCardSiteStyle */
 
             .winner-art-grid {
@@ -951,4 +1281,4 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
                 justify-self:stretch;
               }
             }
-          `}),(0,o.jsx)(me,{"data-mobile-winner-grid":`true`,className:`winner-art-grid`,children:i?(0,o.jsx)(o.Fragment,{children:Array.from({length:7},(e,t)=>{let n=_[t];return(0,o.jsxs)(Z,{children:[(0,o.jsxs)(`span`,{children:[`Winner `,t+1]}),(0,o.jsx)(`b`,{children:n?`#${n.toString().padStart(4,`0`)}`:`SEALED`}),(0,o.jsx)(`small`,{children:n?`$1,000 prize`:`Awaiting draw`})]},t)})}):[`/gallery/winner-1.png`,`/gallery/winner-2.png`,`/gallery/winner-3.png`,`/gallery/winner-4.png`,`/gallery/winner-5.png`,`/gallery/winner-6.png`,`/gallery/winner-7.png`].map((e,t)=>(0,o.jsxs)(Z,{className:`winner-art-card`,tabIndex:0,style:{padding:0,overflow:`hidden`},children:[(0,o.jsx)(`img`,{className:`winner-card-art`,src:e,alt:`Fortune card for winner ${t+1}`,loading:t<2?`eager`:`lazy`}),(0,o.jsx)(`img`,{className:`winner-card-cover`,src:`/gallery/unrevealed.png`,alt:`Sealed fortune card`,loading:`eager`})]},e))})]})}),(0,o.jsx)($,{})]})}export{he as WhitelistChecker,ge as WinnerRoom};
+          `}),(0,o.jsx)(Se,{"data-mobile-winner-grid":`true`,className:`winner-art-grid`,children:s?(0,o.jsx)(o.Fragment,{children:Array.from({length:7},(e,t)=>{let n=b[t];return(0,o.jsxs)(X,{children:[(0,o.jsxs)(`span`,{children:[`Winner `,t+1]}),(0,o.jsx)(`b`,{children:n?`#${n.toString().padStart(4,`0`)}`:`SEALED`}),(0,o.jsx)(`small`,{children:n?`$1,000 prize`:`Awaiting draw`})]},t)})}):[`/gallery/winner-1.png`,`/gallery/winner-2.png`,`/gallery/winner-3.png`,`/gallery/winner-4.png`,`/gallery/winner-5.png`,`/gallery/winner-6.png`,`/gallery/winner-7.png`].map((e,t)=>(0,o.jsxs)(X,{className:`winner-art-card`,tabIndex:0,style:{padding:0,overflow:`hidden`},children:[(0,o.jsx)(`img`,{className:`winner-card-art`,src:e,alt:`Fortune card for winner ${t+1}`,loading:t<2?`eager`:`lazy`}),(0,o.jsx)(`img`,{className:`winner-card-cover`,src:`/gallery/unrevealed.png`,alt:`Sealed fortune card`,loading:`eager`})]},e))})]})}),(0,o.jsx)(Q,{})]})}export{Ce as WhitelistChecker,we as WinnerRoom};

@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
+
+# Challenge site proxy
+[[redirects]]
+  from = "/challenge/*"
+  to = "https://onecoin-challenge-live.netlify.app/:splat"
+  status = 200
+  force = true

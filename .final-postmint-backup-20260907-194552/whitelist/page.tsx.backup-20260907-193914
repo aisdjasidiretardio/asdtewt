@@ -1,0 +1,97 @@
+﻿import styles from "./post-mint.module.css";
+
+export default function RoyalListPage() {
+  return (
+    <main className={styles.page}>
+      <div className={styles.outerFrame}>
+        <span className={`${styles.star} ${styles.starOne}`}>✦</span>
+        <span className={`${styles.star} ${styles.starTwo}`}>✧</span>
+        <span className={`${styles.star} ${styles.starThree}`}>✦</span>
+
+        <section className={styles.hero}>
+
+          <div className={styles.left}>
+            <div className={styles.eyebrow}>
+              THE KINGDOM IS FULL
+            </div>
+
+            <h1 className={styles.title}>
+              MINTED
+              <br />
+              <span>OUT.</span>
+            </h1>
+
+            <p className={styles.lead}>
+              All 10,000 onecoin have found their holders.
+            </p>
+
+            <p className={styles.sub}>
+              The mint has closed.
+              <br />
+              Now, seven fortunes remain.
+            </p>
+
+            <div className={styles.actions}>
+              <a
+                href="https://opensea.io/collection/onecoin"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.primary}
+              >
+                VIEW ON OPENSEA ↗
+              </a>
+
+              <a
+                href="/winner-chamber"
+                className={styles.secondary}
+              >
+                ENTER WINNER CHAMBER
+              </a>
+            </div>
+          </div>
+
+          <div className={styles.right}>
+            <div className={styles.seal}>
+              <div className={styles.sealInner}>
+                <span className={styles.ten}>10K</span>
+                <span className={styles.sealText}>MINTED</span>
+              </div>
+            </div>
+
+            <div className={styles.drawCard}>
+              <span className={styles.cardLabel}>
+                THE FINAL DRAW
+              </span>
+
+              <div className={styles.seven}>
+                7
+              </div>
+
+              <div className={styles.cardCopy}>
+                WINNERS
+                <br />
+                $1,000 EACH
+              </div>
+
+              <div className={styles.rule} />
+
+              <p>
+                SEPTEMBER 8
+                <br />
+                3:30 PM UTC
+              </p>
+            </div>
+          </div>
+
+        </section>
+
+        <div className={styles.bottomNote}>
+          <span>ONE COIN.</span>
+          <em>Seven fortunes.</em>
+          <span>$7,000 TO BE DRAWN.</span>
+        </div>
+
+      </div>
+    </main>
+  );
+}

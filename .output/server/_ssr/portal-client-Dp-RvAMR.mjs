@@ -1,6 +1,6 @@
 import { l as __toESM, o as require_react, t as require_jsx_runtime } from "./ssr.mjs";
 import { a as qt, t as Tt } from "./styled-components.esm-rePmBNy9.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/portal-client-bel6ZwKP.js
+//#region node_modules/.nitro/vite/services/ssr/assets/portal-client-Dp-RvAMR.js
 var import_react = /* @__PURE__ */ __toESM(require_react(), 1);
 var import_jsx_runtime = require_jsx_runtime();
 var IDS = [
@@ -171,8 +171,10 @@ function CandidateCarouselSection() {
 }
 var PROJECT = {
 	twitter: "https://x.com/onecoinrbh",
-	dice: "https://diceprotocol.world/agent/"
+	dice: "https://diceprotocol.world/agent/",
+	opensea: "https://opensea.io/collection/onecoin"
 };
+var DRAW_AT = "2026-09-08T15:30:00Z";
 var PUBLISHED_WINNERS = [];
 var drift = qt`
   0%{transform:translateX(0)}
@@ -440,14 +442,80 @@ Tt.span`
     animation:${shimmer} 1.5s ease-in-out infinite;
   }
 `;
-var WhitelistMain = Tt.section`
+Tt.section`
   min-height:calc(100svh - 76px);
   display:grid;
   align-items:center;
   padding:55px 0 90px;
   text-align:center;
 `;
-var Checker = Tt.div`
+Tt.section`
+  display:grid;
+  gap:12px;
+  max-width:980px;
+  margin:42px auto 0;
+  text-align:left;
+
+  @media(min-width:760px){
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+`;
+Tt.article`
+  position:relative;
+  min-height:230px;
+  padding:26px 23px 24px;
+  border:1px solid var(--ink);
+  background:rgba(247,236,201,.67);
+  box-shadow:6px 7px 0 var(--gold);
+
+  &::before{
+    content:"";
+    position:absolute;
+    inset:6px;
+    border:1px solid rgba(158,51,42,.45);
+    pointer-events:none;
+  }
+`;
+Tt.span`
+  position:relative;
+  display:block;
+  margin-bottom:24px;
+  color:var(--red);
+  font-family:"Cinzel",serif;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+`;
+Tt.h2`
+  position:relative;
+  margin:0;
+  color:var(--lapis);
+  font-family:"Cinzel",serif;
+  font-size:clamp(1.25rem,3vw,1.7rem);
+  font-weight:700;
+  letter-spacing:.02em;
+  line-height:1.1;
+`;
+Tt.p`
+  position:relative;
+  margin:14px 0 0;
+  color:var(--red);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1.15rem;
+  font-weight:700;
+  line-height:1.25;
+`;
+Tt.p`
+  position:relative;
+  margin:10px 0 0;
+  color:rgba(37,23,14,.7);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1rem;
+  font-weight:600;
+  line-height:1.42;
+`;
+Tt.div`
   max-width:760px;
   margin:42px auto 0;
   padding:clamp(25px,6vw,54px);
@@ -456,7 +524,7 @@ var Checker = Tt.div`
   box-shadow:9px 10px 0 var(--lapis);
   text-align:left;
 `;
-var CheckerLabel = Tt.label`
+Tt.label`
   display:block;
   margin-bottom:9px;
   color:var(--ink);
@@ -466,7 +534,7 @@ var CheckerLabel = Tt.label`
   letter-spacing:.1em;
   text-transform:uppercase;
 `;
-var InputRow = Tt.form`
+Tt.form`
   display:grid;
   gap:12px;
 
@@ -474,7 +542,7 @@ var InputRow = Tt.form`
     grid-template-columns:1fr auto;
   }
 `;
-var WalletInput = Tt.input`
+Tt.input`
   min-width:0;
   min-height:56px;
   padding:0 17px;
@@ -491,7 +559,7 @@ var WalletInput = Tt.input`
     box-shadow:0 0 0 3px rgba(158,51,42,.16);
   }
 `;
-var CheckButton = Tt.button`
+Tt.button`
   min-height:56px;
   padding:0 24px;
   border:2px solid var(--ink);
@@ -512,7 +580,7 @@ var CheckButton = Tt.button`
     box-shadow:4px 4px 0 var(--gold);
   }
 `;
-var CheckerStatus = Tt.p`
+Tt.p`
   min-height:24px;
   margin:18px 0 0;
   color:var(--red);
@@ -563,9 +631,69 @@ var Verify = Tt.a`
   text-underline-offset:4px;
   text-transform:uppercase;
 `;
+var WinnerDrawDate = Tt.p`
+  margin:16px 0 0;
+  color:var(--red);
+  font-family:"Cormorant Garamond",serif;
+  font-size:1rem;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-align:center;
+  text-transform:uppercase;
+`;
+var WinnerActions = Tt.div`
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  margin:24px 0 0;
+`;
+var WinnerButton = Tt.a`
+  display:inline-flex;
+  min-height:50px;
+  align-items:center;
+  justify-content:center;
+  padding:0 22px;
+  border:2px solid var(--ink);
+  background:var(--lapis);
+  box-shadow:5px 5px 0 var(--gold);
+  color:var(--light);
+  font-family:"Cinzel",serif;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-decoration:none;
+  text-transform:uppercase;
+  transition:
+    transform .2s,
+    box-shadow .2s,
+    background .2s;
+
+  &:hover{
+    transform:translate(2px,2px);
+    box-shadow:3px 3px 0 var(--gold);
+    background:var(--deep);
+  }
+
+  &:focus-visible{
+    outline:3px solid var(--red);
+    outline-offset:4px;
+  }
+`;
+var WinnerSecondaryButton = Tt(WinnerButton)`
+  background:var(--light);
+  color:var(--lapis);
+  box-shadow:5px 5px 0 var(--red);
+
+  &:hover{
+    background:white;
+    box-shadow:3px 3px 0 var(--red);
+  }
+`;
 var Countdown = Tt.div`
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(3,1fr);
   gap:7px;
   max-width:720px;
   margin:0 auto;
@@ -882,78 +1010,10 @@ function SiteFooter() {
 function pad(value) {
 	return value.toString().padStart(2, "0");
 }
-function WhitelistChecker() {
-	const [wallet, setWallet] = (0, import_react.useState)("");
-	const [message, setMessage] = (0, import_react.useState)("The checker is not live yet. No wallets are being stored.");
-	function checkWallet(event) {
-		event.preventDefault();
-		setMessage(wallet.trim() ? "This wallet was not submitted. The whitelist checker is not live yet." : "Enter a wallet when the checker goes live.");
-	}
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Page, { children: [
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Edge, { "aria-hidden": "true" }),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SiteHeader, { current: "whitelist" }),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(WhitelistMain, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Container, { children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Kicker, { children: "The royal list" }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Title, { children: "Whitelist checker" }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Checker, { children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckerLabel, {
-					htmlFor: "wallet",
-					children: "Wallet address"
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(InputRow, {
-					onSubmit: checkWallet,
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(WalletInput, {
-						id: "wallet",
-						disabled: true,
-						"aria-disabled": "true",
-						style: {
-							cursor: "not-allowed",
-							opacity: .58
-						},
-						value: wallet,
-						onChange: (event) => setWallet(event.target.value),
-						placeholder: "0x...",
-						autoComplete: "off",
-						spellCheck: false
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckButton, {
-						type: "submit",
-						disabled: true,
-						"aria-disabled": "true",
-						style: {
-							cursor: "not-allowed",
-							opacity: .58
-						},
-						children: "Check wallet"
-					})]
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckerStatus, {
-					"aria-live": "polite",
-					children: message
-				})
-			] }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-				style: {
-					maxWidth: "720px",
-					margin: "34px auto 0",
-					color: "var(--red)",
-					fontFamily: "\"Cormorant Garamond\", serif",
-					fontSize: "clamp(1.05rem, 2.3vw, 1.28rem)",
-					fontStyle: "italic",
-					fontWeight: 600,
-					letterSpacing: ".02em",
-					lineHeight: 1.5,
-					textAlign: "center"
-				},
-				children: "The royals keep no fixed hour. A sharp eye may yet find its name written within."
-			})
-		] }) }),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SiteFooter, {})
-	] });
-}
 function WinnerRoom() {
 	const [candidate, setCandidate] = (0, import_react.useState)(4821);
 	const [now, setNow] = (0, import_react.useState)(0);
-	const drawTime = 0;
+	const drawTime = Date.parse(DRAW_AT);
 	const hasWinners = PUBLISHED_WINNERS.length === 7;
 	(0, import_react.useEffect)(() => {
 		let seed = 4821;
@@ -971,13 +1031,13 @@ function WinnerRoom() {
 			window.clearInterval(clockTimer);
 		};
 	}, []);
-	const remaining = 0;
-	const days = Math.floor(remaining / 864e5);
-	const hours = Math.floor(remaining % 864e5 / 36e5);
+	const remaining = drawTime && now ? Math.max(0, drawTime - now) : 0;
+	Math.floor(remaining / 864e5);
+	const hours = Math.floor(remaining / 36e5);
 	const minutes = Math.floor(remaining % 36e5 / 6e4);
 	const seconds = Math.floor(remaining % 6e4 / 1e3);
-	const isCountdown = Boolean(drawTime);
-	const isAwaitingDraw = Boolean(drawTime);
+	const isCountdown = Boolean(drawTime && now && remaining > 0 && !hasWinners);
+	const isAwaitingDraw = Boolean(drawTime && now && remaining === 0 && !hasWinners);
 	(0, import_react.useEffect)(() => {
 		if (!window.matchMedia("(hover: none), (pointer: coarse)").matches || !("IntersectionObserver" in window)) return;
 		const cards = Array.from(document.querySelectorAll(".winner-art-card"));
@@ -1000,6 +1060,40 @@ function WinnerRoom() {
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Edge, { "aria-hidden": "true" }),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SiteHeader, { current: "winner" }),
 		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(WinnerHero, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Container, { children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Kicker, { children: [
+				"Minted out ",
+				"·",
+				" final draw"
+			] }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(DrawStatus, { children: isCountdown ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Countdown, {
+				"aria-label": "Time remaining until the draw",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TimeCell, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: pad(hours) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Hours" })] }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TimeCell, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: pad(minutes) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Minutes" })] }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TimeCell, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: pad(seconds) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Seconds" })] })
+				]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(WinnerDrawDate, { children: [
+				"September 8 ",
+				"·",
+				" 3:30 PM UTC"
+			] })] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(DrawMessage, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(DrawLabel, { children: hasWinners ? "The seven winning IDs have been revealed." : isAwaitingDraw ? "The draw is live. Check X for the winning IDs." : "The final draw begins September 8 at 3:30 PM UTC." }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Verify, {
+				href: PROJECT.dice,
+				target: "_blank",
+				rel: "noreferrer",
+				children: ["Verifiable with Dice Protocol ", "↗"]
+			})] }) }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(WinnerActions, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(WinnerButton, {
+				href: PROJECT.twitter,
+				target: "_blank",
+				rel: "noreferrer",
+				children: ["CHECK X FOR THE DRAW ", "↗"]
+			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(WinnerSecondaryButton, {
+				href: PROJECT.opensea,
+				target: "_blank",
+				rel: "noreferrer",
+				children: ["GET YOUR NFT ", "↗"]
+			})] }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { height: "52px" } }),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Kicker, { children: "The draw room" }),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Title, { children: [
 				"Seven doors.",
@@ -1007,20 +1101,6 @@ function WinnerRoom() {
 				"Seven fortunes."
 			] }),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Lead, { children: "Seven winning NFTs receive $1,000 each. Every NFT is one entry, and every winning ID is worth 1,000x the $1 mint price." }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(DrawStatus, { children: isCountdown ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Countdown, {
-				"aria-label": "Time remaining until the draw",
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TimeCell, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: pad(days) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Days" })] }),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TimeCell, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: pad(hours) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Hours" })] }),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TimeCell, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: pad(minutes) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Minutes" })] }),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TimeCell, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: pad(seconds) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Seconds" })] })
-				]
-			}) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(DrawMessage, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(DrawLabel, { children: hasWinners ? "The seven winning IDs have been revealed." : isAwaitingDraw ? "The trading window is closed. The verified draw is next." : "Winners will be selected 24 hours after mint-out." }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Verify, {
-				href: PROJECT.dice,
-				target: "_blank",
-				rel: "noreferrer",
-				children: ["Verifiable with Dice Protocol ", "↗"]
-			})] }) }),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Promise$1, { children: [
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(PromiseItem, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: "7" }), "Winning NFTs"] }),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(PromiseItem, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: "$1,000" }), "For each winner"] }),
@@ -1338,4 +1418,4 @@ function WinnerRoom() {
 	] });
 }
 //#endregion
-export { WhitelistChecker, WinnerRoom };
+export { WinnerRoom };
