@@ -1540,91 +1540,83 @@ export function WinnerRoom() {
       <SiteHeader current="winner" />
 
       <WinnerHero>
-        <Container>
+  <Container>
 
-          <Title>
-           Minted out
-     <Lead>
-            Seven winning NFTs receive $1,000 each.
-            Every NFT is one entry, and every winning
-            ID is worth 1,000x the $1 mint price.
-          </Lead>
+    <Title>
+      Minted out {"\u00B7"} final draw
+    </Title>
 
-        
-          </Title>
-          <DrawStatus>
-            {isCountdown ? (
-              <>
-                <Countdown
-                  aria-label="Time remaining until the draw"
-                >
-                  <TimeCell>
-                    <b>{pad(hours)}</b>
-                    <span>Hours</span>
-                  </TimeCell>
+    <Lead>
+      Draw in:
+    </Lead>
 
-                  <TimeCell>
-                    <b>{pad(minutes)}</b>
-                    <span>Minutes</span>
-                  </TimeCell>
+    <DrawStatus>
+      {isCountdown ? (
+        <>
+          <Countdown
+            aria-label="Time remaining until the draw"
+          >
+            <TimeCell>
+              <b>{pad(hours)}</b>
+              <span>Hours</span>
+            </TimeCell>
 
-                  <TimeCell>
-                    <b>{pad(seconds)}</b>
-                    <span>Seconds</span>
-                  </TimeCell>
-                </Countdown>
+            <TimeCell>
+              <b>{pad(minutes)}</b>
+              <span>Minutes</span>
+            </TimeCell>
 
-                <WinnerDrawDate>
-                  September 8 {"\u00B7"} 3:30 PM UTC
-                </WinnerDrawDate>
-              </>
-            ) : (
-              <DrawMessage>
-                <DrawLabel>
-                  {hasWinners
-                    ? "The seven winning IDs have been revealed."
-                    : isAwaitingDraw
-                      ? "The draw is live. Check X for the winning IDs."
-                      : "The final draw begins September 8 at 3:30 PM UTC."}
-                </DrawLabel>
+            <TimeCell>
+              <b>{pad(seconds)}</b>
+              <span>Seconds</span>
+            </TimeCell>
+          </Countdown>
 
-                <Verify
-                  href={PROJECT.dice}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Verifiable with Dice Protocol {"\u2197"}
-                </Verify>
-              </DrawMessage>
-            )}
-          </DrawStatus>
+          <WinnerDrawDate>
+            September 8 {"\u00B7"} 3:30 PM UTC
+          </WinnerDrawDate>
+        </>
+      ) : (
+        <DrawMessage>
+          <DrawLabel>
+            {hasWinners
+              ? "The seven winning IDs have been revealed."
+              : "The draw is live. Check X for the winning IDs."}
+          </DrawLabel>
+        </DrawMessage>
+      )}
+    </DrawStatus>
 
-          <WinnerActions>
-            <WinnerButton
-              href={PROJECT.twitter}
-              target="_blank"
-              rel="noreferrer"
-            >
-              CHECK X FOR THE DRAW {"\u2197"}
-            </WinnerButton>
+    <WinnerActions>
+      <WinnerButton
+        href={PROJECT.twitter}
+        target="_blank"
+        rel="noreferrer"
+      >
+        CHECK X FOR THE DRAW {"\u2197"}
+      </WinnerButton>
 
-            <WinnerSecondaryButton
-              href={PROJECT.opensea}
-              target="_blank"
-              rel="noreferrer"
-            >
-              GET YOUR NFT {"\u2197"}
-            </WinnerSecondaryButton>
-          </WinnerActions>
+      <WinnerSecondaryButton
+        href={PROJECT.opensea}
+        target="_blank"
+        rel="noreferrer"
+      >
+        GET YOUR NFT {"\u2197"}
+      </WinnerSecondaryButton>
+    </WinnerActions>
 
-          <div style={{ height:"52px" }} />
+    <Lead
+      style={{
+        marginTop:"55px"
+      }}
+    >
+      Seven winning NFTs receive $1,000 each.
+      Every NFT is one entry, and every winning ID
+      is worth 1,000x the $1 mint price.
+    </Lead>
 
-         
-
-     
-
-        </Container>
-      </WinnerHero>
+  </Container>
+</WinnerHero>
 
       <CandidateCarouselSection />
 
