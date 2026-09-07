@@ -1543,7 +1543,7 @@ export function WinnerRoom() {
   <Container>
 
     <Title>
-      Minted out {"\u00B7"} final draw
+      Minted out
     </Title>
 
     <Lead>
