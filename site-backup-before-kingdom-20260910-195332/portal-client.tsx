@@ -1,186 +1,49 @@
-import { l as __toESM, o as require_react, t as require_jsx_runtime } from "./ssr.mjs";
-import { a as qt, t as Tt } from "./styled-components.esm-rePmBNy9.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/portal-client-Dp-RvAMR.js
-var import_react = /* @__PURE__ */ __toESM(require_react(), 1);
-var import_jsx_runtime = require_jsx_runtime();
-var IDS = [
-	9987,
-	512,
-	7361,
-	1884,
-	9042,
-	3477,
-	6208,
-	771,
-	4560,
-	8891,
-	147,
-	8221,
-	4096,
-	973,
-	6510,
-	2944
-];
-var slide = qt`
-  from{transform:translateX(0)}
-  to{transform:translateX(-50%)}
-`;
-var Section = Tt.section`
-  padding:55px 0 70px;
-  overflow:hidden;
-  border-top:2px solid var(--ink);
-  border-bottom:2px solid var(--ink);
-  background:var(--red);
-  color:var(--light);
-  text-align:center;
-`;
-var HeadingWrap = Tt.div`
-  width:min(1180px,calc(100% - 40px));
-  margin:0 auto;
-`;
-var Kicker$1 = Tt.p`
-  margin:0 0 10px;
-  color:var(--pale-gold);
-  font-family:"Cormorant Garamond",serif;
-  font-size:.78rem;
-  font-weight:700;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-`;
-var Heading = Tt.h2`
-  margin:0;
-  color:var(--light);
-  font-family:"Cinzel",serif;
-  font-size:clamp(2rem,8vw,4.8rem);
-  font-weight:700;
-  letter-spacing:.01em;
-  line-height:1;
-`;
-var Viewport = Tt.div`
-  width:100%;
-  margin-top:38px;
-  overflow:hidden;
-  padding:20px 0 30px;
-  border-top:1px solid rgba(247,236,201,.4);
-  border-bottom:1px solid rgba(247,236,201,.4);
-`;
-var Track = Tt.div`
-  display:flex;
-  width:max-content;
-  animation:${slide} 58s linear infinite;
-  will-change:transform;
+"use client";
 
-  @media(prefers-reduced-motion:reduce){
-    animation:none;
-    transform:none;
-  }
-`;
-var CardSet = Tt.div`
-  display:flex;
-  gap:22px;
-  padding-right:22px;
-`;
-var Card = Tt.article`
-  position:relative;
-  width:clamp(260px,24vw,360px);
-  flex:0 0 auto;
-  padding:12px;
-  border:2px solid var(--ink);
-  background:var(--paper);
-  box-shadow:9px 10px 0 var(--lapis);
-  color:var(--ink);
-  text-align:left;
+import { useEffect, useState, type FormEvent } from "react";
+import styled, { keyframes } from "styled-components";
 
-  &::before{
-    content:"";
-    position:absolute;
-    inset:7px;
-    border:1px solid var(--gold);
-    pointer-events:none;
-  }
-`;
-var CardInner = Tt.div`
-  position:relative;
-  overflow:hidden;
-  border:1px solid rgba(37,23,14,.72);
-  background:var(--light);
-`;
-var Identity = Tt.div`
-  display:flex;
-  align-items:baseline;
-  gap:8px;
-  padding:13px 14px;
-  color:var(--red);
-  font-family:"Cinzel",serif;
-  font-size:.72rem;
-  font-weight:700;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-
-  span:first-child{
-    font-size:1rem;
-  }
-
-  strong{
-    margin-left:auto;
-    color:var(--lapis);
-    font-size:clamp(1rem,2vw,1.3rem);
-    letter-spacing:.03em;
-  }
-`;
-var NftImage = Tt.img`
-  display:block;
-  width:100%;
-  aspect-ratio:1;
-  object-fit:cover;
-  border-top:1px solid var(--ink);
-  border-bottom:1px solid var(--ink);
-  background:var(--paper);
-`;
-var Fate = Tt.span`
-  display:block;
-  padding:12px 10px;
-  color:rgba(37,23,14,.68);
-  font-family:"Cormorant Garamond",serif;
-  font-size:.75rem;
-  font-weight:700;
-  letter-spacing:.12em;
-  text-align:center;
-  text-transform:uppercase;
-`;
-function CandidateCarouselSection() {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Section, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(HeadingWrap, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Kicker$1, { children: "Until the book closes" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Heading, { children: "Could fortune rest here?" })] }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Viewport, {
-		"aria-label": "Possible winning NFT IDs",
-		children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Track, { children: [false, true].map((duplicate) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CardSet, {
-			"aria-hidden": duplicate || void 0,
-			children: IDS.map((id, index) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Card, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(CardInner, { children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Identity, { children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "✦" }),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "NFT ID" }),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("strong", { children: ["#", id.toString().padStart(4, "0")] })
-				] }),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(NftImage, {
-					src: "/gallery/winner-nft.png",
-					alt: duplicate || index > 0 ? "" : "One Coin possible winning NFT",
-					loading: index > 3 ? "lazy" : "eager"
-				}),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Fate, { children: "Fortune may call" })
-			] }) }, `${duplicate ? "d" : "p"}-${id}`))
-		}, duplicate ? "duplicate" : "primary")) })
-	})] });
-}
-var PROJECT = {
-	twitter: "https://x.com/onecoinrbh",
-	dice: "https://diceprotocol.world/agent/",
-	opensea: "https://opensea.io/collection/onecoin"
+import CandidateCarouselSection from "./candidate-carousel";
+const PROJECT = {
+  twitter: "https://x.com/onecoinrbh",
+  dice: "https://diceprotocol.world/agent/",
+  opensea: "https://opensea.io/collection/onecoin",
 };
-var DRAW_AT = "2026-09-08T15:30:00Z";
-var PUBLISHED_WINNERS = [];
-var drift = qt`
+
+// Leave this empty before mint-out. After mint-out, replace it with the
+// exact mint-out time in UTC. The page adds 24 hours automatically.
+// Example: "2026-09-01T18:00:00Z".
+const DRAW_AT = "2026-09-08T15:30:00Z";
+
+// After the verified draw, add the seven NFT IDs here.
+// Example: [147, 1220, 3066, 4781, 5902, 7440, 9811]
+const PUBLISHED_WINNERS: number[] = [];
+
+const CANDIDATE_IDS = [
+  147,
+  8221,
+  4096,
+  973,
+  6510,
+  2944,
+  9987,
+  512,
+  7361,
+  1884,
+  9042,
+  3477,
+  6208,
+  771,
+  4560,
+  8891,
+];
+
+const drift = keyframes`
   0%{transform:translateX(0)}
   100%{transform:translateX(-50%)}
 `;
-var breathe = qt`
+
+const breathe = keyframes`
   0%,100%{
     transform:translateY(0) rotate(-.6deg);
     box-shadow:12px 14px 0 #163e75;
@@ -190,15 +53,18 @@ var breathe = qt`
     box-shadow:15px 18px 0 #163e75;
   }
 `;
-var reveal = qt`
+
+const reveal = keyframes`
   0%{opacity:0;transform:translateY(14px) scale(.94)}
   100%{opacity:1;transform:translateY(0) scale(1)}
 `;
-var shimmer = qt`
+
+const shimmer = keyframes`
   0%,100%{opacity:.35}
   50%{opacity:1}
 `;
-var Page = Tt.main`
+
+const Page = styled.main`
   --lapis:#163e75;
   --deep:#0c2a53;
   --red:#9e332a;
@@ -232,7 +98,8 @@ var Page = Tt.main`
       transparent 1px 5px
     );
 `;
-var Edge = Tt.div`
+
+const Edge = styled.div`
   position:fixed;
   z-index:50;
   inset:8px;
@@ -250,7 +117,8 @@ var Edge = Tt.div`
     inset:13px;
   }
 `;
-var Container = Tt.div`
+
+const Container = styled.div`
   width:min(1120px,calc(100% - 40px));
   margin:0 auto;
 
@@ -258,14 +126,16 @@ var Container = Tt.div`
     width:min(1120px,calc(100% - 80px));
   }
 `;
-var TopBar = Tt.nav`
+
+const TopBar = styled.nav`
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:16px;
   padding:24px 0 10px;
 `;
-var Wordmark = Tt.a`
+
+const Wordmark = styled.a`
   display:inline-flex;
   align-items:center;
   gap:9px;
@@ -282,12 +152,14 @@ var Wordmark = Tt.a`
     font-size:1.15rem;
   }
 `;
-var Nav = Tt.div`
+
+const Nav = styled.div`
   display:flex;
   align-items:center;
   gap:clamp(10px,2.2vw,25px);
 `;
-var NavLink = Tt.a`
+
+const NavLink = styled.a`
   color:var(--ink);
   border-bottom:1px solid currentColor;
   font-family:"Cormorant Garamond",serif;
@@ -302,20 +174,23 @@ var NavLink = Tt.a`
     color:var(--red);
   }
 `;
-var PortalFinal = Tt.section`
+
+const PortalFinal = styled.section`
   padding:90px 0 105px;
   border-top:2px solid var(--ink);
   background:var(--red);
   color:var(--light);
   text-align:center;
 `;
-var PortalFinalMark = Tt.p`
+
+const PortalFinalMark = styled.p`
   margin:0 0 20px;
   color:var(--pale-gold);
   font-size:1.4rem;
   letter-spacing:18px;
 `;
-var PortalFinalTitle = Tt.h2`
+
+const PortalFinalTitle = styled.h2`
   max-width:900px;
   margin:0 auto 22px;
   color:var(--light);
@@ -326,7 +201,8 @@ var PortalFinalTitle = Tt.h2`
   word-spacing:.06em;
   line-height:1;
 `;
-var PortalFinalCopy = Tt.p`
+
+const PortalFinalCopy = styled.p`
   max-width:590px;
   margin:0 auto 30px;
   color:rgba(247,236,201,.82);
@@ -335,7 +211,8 @@ var PortalFinalCopy = Tt.p`
   font-weight:600;
   line-height:1.5;
 `;
-var PortalFinalButton = Tt.a`
+
+const PortalFinalButton = styled.a`
   display:inline-flex;
   min-height:50px;
   align-items:center;
@@ -365,7 +242,8 @@ var PortalFinalButton = Tt.a`
     outline-offset:4px;
   }
 `;
-var Footer = Tt.footer`
+
+const Footer = styled.footer`
   padding:28px 0 42px;
   background:var(--ink);
   color:rgba(247,236,201,.62);
@@ -373,7 +251,8 @@ var Footer = Tt.footer`
   font-size:.79rem;
   line-height:1.5;
 `;
-var FooterRow = Tt.div`
+
+const FooterRow = styled.div`
   display:grid;
   gap:17px;
 
@@ -382,17 +261,20 @@ var FooterRow = Tt.div`
     align-items:end;
   }
 `;
-var FooterLegal = Tt.p`
+
+const FooterLegal = styled.p`
   max-width:760px;
   margin:0;
 `;
-var FooterLink = Tt.a`
+
+const FooterLink = styled.a`
   color:var(--pale-gold);
   letter-spacing:.08em;
   text-decoration:none;
   text-transform:uppercase;
 `;
-var Kicker = Tt.p`
+
+const Kicker = styled.p`
   margin:0 0 10px;
   color:var(--red);
   font-family:"Cormorant Garamond",serif;
@@ -401,7 +283,8 @@ var Kicker = Tt.p`
   letter-spacing:.18em;
   text-transform:uppercase;
 `;
-var Title = Tt.h1`
+
+const Title = styled.h1`
   margin:0;
   color:var(--lapis);
   font-family:"Cinzel",serif;
@@ -411,7 +294,8 @@ var Title = Tt.h1`
   line-height:.94;
   text-wrap:balance;
 `;
-var Lead = Tt.p`
+
+const Lead = styled.p`
   max-width:660px;
   margin:22px auto 0;
   color:rgba(37,23,14,.78);
@@ -420,7 +304,8 @@ var Lead = Tt.p`
   font-weight:600;
   line-height:1.48;
 `;
-Tt.span`
+
+const StatusPill = styled.span`
   display:inline-flex;
   align-items:center;
   gap:9px;
@@ -442,14 +327,16 @@ Tt.span`
     animation:${shimmer} 1.5s ease-in-out infinite;
   }
 `;
-Tt.section`
+
+const WhitelistMain = styled.section`
   min-height:calc(100svh - 76px);
   display:grid;
   align-items:center;
   padding:55px 0 90px;
   text-align:center;
 `;
-Tt.section`
+
+const AccessStages = styled.section`
   display:grid;
   gap:12px;
   max-width:980px;
@@ -460,7 +347,8 @@ Tt.section`
     grid-template-columns:repeat(3,minmax(0,1fr));
   }
 `;
-Tt.article`
+
+const AccessStage = styled.article`
   position:relative;
   min-height:230px;
   padding:26px 23px 24px;
@@ -476,7 +364,8 @@ Tt.article`
     pointer-events:none;
   }
 `;
-Tt.span`
+
+const AccessNumber = styled.span`
   position:relative;
   display:block;
   margin-bottom:24px;
@@ -487,7 +376,8 @@ Tt.span`
   letter-spacing:.17em;
   text-transform:uppercase;
 `;
-Tt.h2`
+
+const AccessName = styled.h2`
   position:relative;
   margin:0;
   color:var(--lapis);
@@ -497,7 +387,8 @@ Tt.h2`
   letter-spacing:.02em;
   line-height:1.1;
 `;
-Tt.p`
+
+const AccessAllocation = styled.p`
   position:relative;
   margin:14px 0 0;
   color:var(--red);
@@ -506,7 +397,8 @@ Tt.p`
   font-weight:700;
   line-height:1.25;
 `;
-Tt.p`
+
+const AccessCopy = styled.p`
   position:relative;
   margin:10px 0 0;
   color:rgba(37,23,14,.7);
@@ -515,7 +407,8 @@ Tt.p`
   font-weight:600;
   line-height:1.42;
 `;
-Tt.div`
+
+const Checker = styled.div`
   max-width:760px;
   margin:42px auto 0;
   padding:clamp(25px,6vw,54px);
@@ -524,7 +417,8 @@ Tt.div`
   box-shadow:9px 10px 0 var(--lapis);
   text-align:left;
 `;
-Tt.label`
+
+const CheckerLabel = styled.label`
   display:block;
   margin-bottom:9px;
   color:var(--ink);
@@ -534,7 +428,8 @@ Tt.label`
   letter-spacing:.1em;
   text-transform:uppercase;
 `;
-Tt.form`
+
+const InputRow = styled.form`
   display:grid;
   gap:12px;
 
@@ -542,7 +437,8 @@ Tt.form`
     grid-template-columns:1fr auto;
   }
 `;
-Tt.input`
+
+const WalletInput = styled.input`
   min-width:0;
   min-height:56px;
   padding:0 17px;
@@ -559,7 +455,8 @@ Tt.input`
     box-shadow:0 0 0 3px rgba(158,51,42,.16);
   }
 `;
-Tt.button`
+
+const CheckButton = styled.button`
   min-height:56px;
   padding:0 24px;
   border:2px solid var(--ink);
@@ -580,7 +477,8 @@ Tt.button`
     box-shadow:4px 4px 0 var(--gold);
   }
 `;
-Tt.p`
+
+const CheckerStatus = styled.p`
   min-height:24px;
   margin:18px 0 0;
   color:var(--red);
@@ -589,7 +487,8 @@ Tt.p`
   font-weight:700;
   line-height:1.4;
 `;
-Tt.p`
+
+const Note = styled.p`
   margin:11px 0 0;
   color:rgba(37,23,14,.64);
   font-family:"Cormorant Garamond",serif;
@@ -597,21 +496,25 @@ Tt.p`
   font-weight:600;
   line-height:1.45;
 `;
-var WinnerHero = Tt.section`
+
+const WinnerHero = styled.section`
   padding:58px 0 48px;
   text-align:center;
 `;
-var DrawStatus = Tt.div`
+
+const DrawStatus = styled.div`
   margin:34px auto 0;
 `;
-var DrawMessage = Tt.div`
+
+const DrawMessage = styled.div`
   max-width:760px;
   margin:0 auto;
   padding:22px;
   border-top:1px solid var(--ink);
   border-bottom:1px solid var(--ink);
 `;
-var DrawLabel = Tt.p`
+
+const DrawLabel = styled.p`
   margin:0;
   color:var(--red);
   font-family:"Cinzel",serif;
@@ -620,7 +523,8 @@ var DrawLabel = Tt.p`
   letter-spacing:.04em;
   line-height:1.35;
 `;
-var Verify = Tt.a`
+
+const Verify = styled.a`
   display:inline-block;
   margin-top:10px;
   color:var(--lapis);
@@ -631,7 +535,8 @@ var Verify = Tt.a`
   text-underline-offset:4px;
   text-transform:uppercase;
 `;
-var WinnerDrawDate = Tt.p`
+
+const WinnerDrawDate = styled.p`
   margin:16px 0 0;
   color:var(--red);
   font-family:"Cormorant Garamond",serif;
@@ -641,7 +546,8 @@ var WinnerDrawDate = Tt.p`
   text-align:center;
   text-transform:uppercase;
 `;
-var WinnerActions = Tt.div`
+
+const WinnerActions = styled.div`
   display:flex;
   flex-wrap:wrap;
   align-items:center;
@@ -649,7 +555,8 @@ var WinnerActions = Tt.div`
   gap:12px;
   margin:24px 0 0;
 `;
-var WinnerButton = Tt.a`
+
+const WinnerButton = styled.a`
   display:inline-flex;
   min-height:50px;
   align-items:center;
@@ -681,7 +588,8 @@ var WinnerButton = Tt.a`
     outline-offset:4px;
   }
 `;
-var WinnerSecondaryButton = Tt(WinnerButton)`
+
+const WinnerSecondaryButton = styled(WinnerButton)`
   background:var(--light);
   color:var(--lapis);
   box-shadow:5px 5px 0 var(--red);
@@ -691,14 +599,15 @@ var WinnerSecondaryButton = Tt(WinnerButton)`
     box-shadow:3px 3px 0 var(--red);
   }
 `;
-var Countdown = Tt.div`
+const Countdown = styled.div`
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:7px;
   max-width:720px;
   margin:0 auto;
 `;
-var TimeCell = Tt.div`
+
+const TimeCell = styled.div`
   padding:16px 6px;
   border:1px solid var(--ink);
   background:var(--lapis);
@@ -722,14 +631,16 @@ var TimeCell = Tt.div`
     text-transform:uppercase;
   }
 `;
-var Promise$1 = Tt.div`
+
+const Promise = styled.div`
   display:grid;
   grid-template-columns:repeat(3,1fr);
   margin:35px auto 0;
   border:1px solid var(--ink);
   background:rgba(247,236,201,.55);
 `;
-var PromiseItem = Tt.div`
+
+const PromiseItem = styled.div`
   padding:17px 8px;
   border-right:1px solid rgba(37,23,14,.45);
   font-family:"Cormorant Garamond",serif;
@@ -751,7 +662,8 @@ var PromiseItem = Tt.div`
     letter-spacing:.02em;
   }
 `;
-Tt.section`
+
+const CandidateStage = styled.section`
   padding:55px 0 70px;
   background:var(--red);
   color:var(--light);
@@ -759,7 +671,8 @@ Tt.section`
   border-top:2px solid var(--ink);
   border-bottom:2px solid var(--ink);
 `;
-Tt.h2`
+
+const CandidateHeading = styled.h2`
   margin:0;
   color:var(--light);
   font-family:"Cinzel",serif;
@@ -767,7 +680,8 @@ Tt.h2`
   letter-spacing:.01em;
   line-height:1;
 `;
-Tt.article`
+
+const CandidateCard = styled.article`
   position:relative;
   width:min(78vw,330px);
   aspect-ratio:3/4;
@@ -787,7 +701,8 @@ Tt.article`
     pointer-events:none;
   }
 `;
-Tt.div`
+
+const CardInner = styled.div`
   box-sizing:border-box;
   height:100%;
   display:flex;
@@ -817,11 +732,13 @@ Tt.div`
     box-shadow:4px 5px 0 rgba(22,62,117,.72);
   }
 `;
-Tt.span`
+
+const CardStar = styled.span`
   color:var(--red);
   font-size:2rem;
 `;
-Tt.span`
+
+const CardLabel = styled.span`
   margin-top:23px;
   color:var(--red);
   font-family:"Cormorant Garamond",serif;
@@ -830,7 +747,8 @@ Tt.span`
   letter-spacing:.18em;
   text-transform:uppercase;
 `;
-Tt.strong`
+
+const CardNumber = styled.strong`
   margin-top:5px;
   color:var(--lapis);
   font-family:"Cinzel",serif;
@@ -838,19 +756,22 @@ Tt.strong`
   letter-spacing:.04em;
   line-height:1;
 `;
-Tt.div`
+
+const CarouselWindow = styled.div`
   width:100%;
   overflow:hidden;
   border-top:1px solid rgba(247,236,201,.4);
   border-bottom:1px solid rgba(247,236,201,.4);
   padding:13px 0;
 `;
-Tt.div`
+
+const CarouselTrack = styled.div`
   display:flex;
   width:max-content;
   animation:${drift} 28s linear infinite;
 `;
-Tt.div`
+
+const MiniCard = styled.div`
   width:146px;
   margin-right:12px;
   padding:14px 10px;
@@ -870,13 +791,16 @@ Tt.div`
     text-transform:uppercase;
   }
 `;
-var WinnersSection = Tt.section`
+
+const WinnersSection = styled.section`
   padding:78px 0 95px;
 `;
-var SectionHead = Tt.div`
+
+const SectionHead = styled.div`
   text-align:center;
 `;
-var SectionTitle = Tt.h2`
+
+const SectionTitle = styled.h2`
   margin:0;
   color:var(--lapis);
   font-family:"Cinzel",serif;
@@ -884,7 +808,8 @@ var SectionTitle = Tt.h2`
   letter-spacing:.01em;
   line-height:1;
 `;
-var SectionCopy = Tt.p`
+
+const SectionCopy = styled.p`
   max-width:620px;
   margin:18px auto 0;
   color:rgba(37,23,14,.72);
@@ -893,7 +818,8 @@ var SectionCopy = Tt.p`
   font-weight:600;
   line-height:1.45;
 `;
-var WinnerGrid = Tt.div`
+
+const WinnerGrid = styled.div`
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:12px;
@@ -907,7 +833,8 @@ var WinnerGrid = Tt.div`
     grid-template-columns:repeat(7,minmax(0,1fr));
   }
 `;
-var WinnerSlot = Tt.article`
+
+const WinnerSlot = styled.article`
   min-height:168px;
   display:flex;
   flex-direction:column;
@@ -944,180 +871,716 @@ var WinnerSlot = Tt.article`
     text-transform:uppercase;
   }
 `;
-function SiteHeader({ current }) {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Container, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TopBar, {
-		"aria-label": "Primary navigation",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Wordmark, {
-			href: "/",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "✦" }), "One Coin"]
-		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Nav, { children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(NavLink, {
-				href: "/",
-				children: "Home"
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(NavLink, {
-				href: "/whitelist",
-				"aria-current": current === "whitelist" ? "page" : void 0,
-				children: "Whitelist"
-			}),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(NavLink, {
-				href: "/winner",
-				"aria-current": current === "winner" ? "page" : void 0,
-				children: "Winner room"
-			})
-		] })]
-	}) });
+
+function SiteHeader({
+  current,
+}: {
+  current:"whitelist" | "winner";
+}) {
+  return (
+    <Container>
+      <TopBar aria-label="Primary navigation">
+        <Wordmark href="/">
+          <span>{"\u2726"}</span>
+          One Coin
+        </Wordmark>
+
+        <Nav>
+          <NavLink href="/">Home</NavLink>
+
+          <NavLink
+            href="/whitelist"
+            aria-current={
+              current === "whitelist"
+                ? "page"
+                : undefined
+            }
+          >
+            Whitelist
+          </NavLink>
+
+          <NavLink
+            href="/winner"
+            aria-current={
+              current === "winner"
+                ? "page"
+                : undefined
+            }
+          >
+            Winner chamber
+          </NavLink>
+        </Nav>
+      </TopBar>
+    </Container>
+  );
 }
+
 function SiteFooter() {
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalFinal, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Container, { children: [
-		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(PortalFinalMark, {
-			"aria-hidden": "true",
-			children: [
-				"✦",
-				" ",
-				"✧",
-				" ",
-				"✦"
-			]
-		}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PortalFinalTitle, { children: "May luck be in your favour." }),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(PortalFinalCopy, { children: ["10,000 entries. Seven winners. One dollar is all it takes to be part of the story.", /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-			style: {
-				display: "block",
-				marginTop: "12px",
-				fontSize: "clamp(.92rem, 1.15vw, 1.05rem)",
-				fontWeight: 700,
-				lineHeight: 1.5,
-				letterSpacing: ".02em",
-				color: "inherit",
-				opacity: .88
-			},
-			children: "One NFT = one entry. Five NFTs in one wallet = five separate entries in the draw."
-		})] }),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(PortalFinalButton, {
-			href: PROJECT.twitter,
-			target: "_blank",
-			rel: "noreferrer",
-			children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "X" }), " Follow for the mint"]
-		})
-	] }) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Footer, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Container, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(FooterRow, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(FooterLegal, { children: "To the fullest extent permitted by law, the project and its contributors are not liable for trading losses, NFT price changes, wallet compromise, failed transactions, third party services, network interruptions, taxes, or unlawful participation. NFTs are not investments and may have no resale value. Eligibility, claim deadlines, prize distribution, and the official rules apply. By participating, you accept these risks and remain responsible for complying with local laws. Use only links published by the official account." }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(FooterLink, {
-		href: PROJECT.twitter,
-		target: "_blank",
-		rel: "noreferrer",
-		children: ["Official X ", "↗"]
-	})] }) }) })] });
+  return <>
+    <PortalFinal>
+      <Container>
+        <PortalFinalMark aria-hidden="true">{"\u2726"} {"\u2727"} {"\u2726"}</PortalFinalMark>
+        <PortalFinalTitle>May luck be in your favour. Again.</PortalFinalTitle>
+        <PortalFinalCopy>The first game is over. The kingdom remains. Keep your coin close while Chapter II is forged.</PortalFinalCopy>
+        <PortalFinalButton href={PROJECT.twitter} target="_blank" rel="noreferrer"><span>X</span> Follow Chapter II</PortalFinalButton>
+      </Container>
+    </PortalFinal>
+
+    <Footer>
+      <Container>
+        <FooterRow>
+          <FooterLegal>To the fullest extent permitted by law, the project and its contributors are not liable for trading losses, NFT price changes, wallet compromise, failed transactions, third party services, network interruptions, taxes, or unlawful participation. NFTs are not investments and may have no resale value. Eligibility, claim deadlines, prize distribution, and the official rules apply. By participating, you accept these risks and remain responsible for complying with local laws. Use only links published by the official account.</FooterLegal>
+          <FooterLink href={PROJECT.twitter} target="_blank" rel="noreferrer">
+            Official X {"\u2197"}
+          </FooterLink>
+        </FooterRow>
+      </Container>
+    </Footer>
+  </>;
 }
-function pad(value) {
-	return value.toString().padStart(2, "0");
+
+function pad(value:number) {
+  return value.toString().padStart(2,"0");
 }
-function WinnerRoom() {
-	const [candidate, setCandidate] = (0, import_react.useState)(4821);
-	const [now, setNow] = (0, import_react.useState)(0);
-	const drawTime = Date.parse(DRAW_AT);
-	const hasWinners = PUBLISHED_WINNERS.length === 7;
-	(0, import_react.useEffect)(() => {
-		let seed = 4821;
-		const candidateTimer = window.setInterval(() => {
-			seed = (seed * 9301 + 49297) % 1e4;
-			setCandidate(seed + 1);
-		}, 950);
-		const updateClock = () => {
-			setNow(Date.now());
-		};
-		updateClock();
-		const clockTimer = window.setInterval(updateClock, 1e3);
-		return () => {
-			window.clearInterval(candidateTimer);
-			window.clearInterval(clockTimer);
-		};
-	}, []);
-	const remaining = drawTime && now ? Math.max(0, drawTime - now) : 0;
-	Math.floor(remaining / 864e5);
-	const hours = Math.floor(remaining / 36e5);
-	const minutes = Math.floor(remaining % 36e5 / 6e4);
-	const seconds = Math.floor(remaining % 6e4 / 1e3);
-	const isCountdown = Boolean(drawTime && now && remaining > 0 && !hasWinners);
-	const isAwaitingDraw = Boolean(drawTime && now && remaining === 0 && !hasWinners);
-	(0, import_react.useEffect)(() => {
-		if (!window.matchMedia("(hover: none), (pointer: coarse)").matches || !("IntersectionObserver" in window)) return;
-		const cards = Array.from(document.querySelectorAll(".winner-art-card"));
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting && entry.intersectionRatio >= .6) {
-					entry.target.classList.add("is-revealed");
-					observer.unobserve(entry.target);
-				}
-			});
-		}, { threshold: [.6] });
-		cards.forEach((card) => {
-			observer.observe(card);
-		});
-		return () => {
-			observer.disconnect();
-		};
-	}, []);
-	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Page, { children: [
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Edge, { "aria-hidden": "true" }),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SiteHeader, { current: "winner" }),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(WinnerHero, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Container, { children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Kicker, { children: [
-				"Minted out ",
-				"·",
-				" final draw"
-			] }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(DrawStatus, { children: isCountdown ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Countdown, {
-				"aria-label": "Time remaining until the draw",
-				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TimeCell, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: pad(hours) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Hours" })] }),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TimeCell, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: pad(minutes) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Minutes" })] }),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TimeCell, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: pad(seconds) }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Seconds" })] })
-				]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(WinnerDrawDate, { children: [
-				"September 8 ",
-				"·",
-				" 3:30 PM UTC"
-			] })] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(DrawMessage, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(DrawLabel, { children: hasWinners ? "The seven winning IDs have been revealed." : isAwaitingDraw ? "The draw is live. Check X for the winning IDs." : "The final draw begins September 8 at 3:30 PM UTC." }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Verify, {
-				href: PROJECT.dice,
-				target: "_blank",
-				rel: "noreferrer",
-				children: ["Verifiable with Dice Protocol ", "↗"]
-			})] }) }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(WinnerActions, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(WinnerButton, {
-				href: PROJECT.twitter,
-				target: "_blank",
-				rel: "noreferrer",
-				children: ["CHECK X FOR THE DRAW ", "↗"]
-			}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(WinnerSecondaryButton, {
-				href: PROJECT.opensea,
-				target: "_blank",
-				rel: "noreferrer",
-				children: ["GET YOUR NFT ", "↗"]
-			})] }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { height: "52px" } }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Kicker, { children: "The draw room" }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Title, { children: [
-				"Seven doors.",
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-				"Seven fortunes."
-			] }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Lead, { children: "Seven winning NFTs receive $1,000 each. Every NFT is one entry, and every winning ID is worth 1,000x the $1 mint price." }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Promise$1, { children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(PromiseItem, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: "7" }), "Winning NFTs"] }),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(PromiseItem, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: "$1,000" }), "For each winner"] }),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(PromiseItem, { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: "1,000x" }), "The mint price"] })
-			] })
-		] }) }),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(CandidateCarouselSection, {}),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(WinnersSection, { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Container, { children: [
-			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(SectionHead, { children: [
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Kicker, { children: "The final seven" }),
-				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionTitle, { children: hasWinners ? "The winners." : "The names remain sealed." }),
-				hasWinners && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionCopy, {
-					className: "winner-section-copy",
-					children: "Each winning ID and its owner can now be checked against the verified Dice result."
-				})
-			] }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("style", { children: `
+
+export function WhitelistChecker() {
+  const [wallet,setWallet] = useState("");
+  const [message,setMessage] = useState(
+    "Enter your wallet to search OPENSEA ↗."
+  );
+
+  async function checkWallet(
+    event: FormEvent<HTMLFormElement>
+  ) {
+    event.preventDefault();
+
+    const address = wallet.trim();
+
+    if (!/^0x[a-fA-F0-9]{40}$/.test(address)) {
+      setMessage("Enter a valid wallet address.");
+      return;
+    }
+
+    setMessage("Checking OPENSEA ↗...");
+
+    try {
+      const response = await fetch(
+        "https://ikslmrrplnwwipdnteza.supabase.co/functions/v1/whitelist-check",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            wallet: address,
+          }),
+        }
+      );
+
+      if (response.status === 429) {
+        setMessage("Too many checks. Try again later.");
+        return;
+      }
+
+      if (!response.ok) {
+        throw new Error("Whitelist lookup failed");
+      }
+
+      const data = await response.json();
+
+      if (data?.accessType === "royallist_gtd") {
+        setMessage(
+          "MINTED OUT. Guaranteed access. 3 mint spots per wallet."
+        );
+        return;
+      }
+
+      if (data?.accessType === "early_access_fcfs") {
+        setMessage(
+          "Early Access FCFS. 1 mint spot per wallet."
+        );
+        return;
+      }
+
+      if (data?.accessType === "ecosystem_fcfs") {
+        setMessage(
+          "Ecosystem FCFS. 1 mint spot per wallet."
+        );
+        return;
+      }
+
+      setMessage("This wallet is not on OPENSEA ↗.");
+
+    } catch (error) {
+      console.error(error);
+
+      setMessage(
+        "OPENSEA ↗ could not be checked. Try again."
+      );
+    }
+  }
+
+  return (
+    <Page>
+      <Edge aria-hidden="true" />
+      <SiteHeader current="whitelist" />
+
+      <WhitelistMain>
+        <Container>
+          
+
+          <Kicker>
+            OPENSEA ↗
+          </Kicker>
+
+          <Title>Whitelist checker</Title>
+
+          
+
+<Checker>
+            <CheckerLabel htmlFor="wallet">
+              Wallet address
+            </CheckerLabel>
+
+            <InputRow onSubmit={checkWallet}>
+              <WalletInput
+                id="wallet"
+                value={wallet}
+                onChange={(event) =>
+                  setWallet(event.target.value)
+                }
+                placeholder="0x..."
+                autoComplete="off"
+                spellCheck={false}
+              />
+
+              <CheckButton
+                type="submit"
+              >
+                Check wallet
+              </CheckButton>
+            </InputRow>
+
+            <CheckerStatus aria-live="polite">
+              {message}
+            </CheckerStatus>
+
+            
+          </Checker>
+
+          <p
+            style={{
+              maxWidth:"720px",
+              margin:"34px auto 0",
+              color:"var(--red)",
+              fontFamily:'"Cormorant Garamond", serif',
+              fontSize:"clamp(1.05rem, 2.3vw, 1.28rem)",
+              fontStyle:"italic",
+              fontWeight:600,
+              letterSpacing:".02em",
+              lineHeight:1.5,
+              textAlign:"center"
+            }}
+          >
+            The royals keep no fixed hour. A sharp eye may yet find its name written within.
+          </p>
+
+<section className="royalListChapters">
+
+  <article className="royalChapterCard royalChapterFeatured">
+    <div className="royalChapterImage royalChapterImageLarge">
+      <img
+        src="/gallery/gtd.png"
+        alt=""
+      />
+    </div>
+
+    <div className="royalChapterContent">
+      <div className="royalChapterHeading">
+        <span>STAGE I</span>
+      </div>
+
+      <h2>MINTED OUT</h2>
+
+      <p className="royalChapterBigLine">
+        3 MINT SPOTS PER WALLET
+      </p>
+
+      <p className="royalChapterText">
+        For those who stand with onecoin and represent our kingdom.
+      </p>
+
+      <p className="royalChapterText royalChapterOpenSea">
+        Minting takes place on OpenSea, so all 777 GTD places receive guaranteed mint access.
+      </p>
+    </div>
+  </article>
+
+
+  <div className="royalChapterGrid">
+
+    <article className="royalChapterCard">
+      <div className="royalChapterImage">
+        <img
+          src="/gallery/fcfs.png"
+          alt=""
+        />
+      </div>
+
+      <div className="royalChapterContent">
+        <div className="royalChapterHeading">
+          <span>STAGE II</span>
+        </div>
+
+        <h2>EARLY ACCESS FCFS</h2>
+
+        <p className="royalChapterBigLine">
+          1 MINT SPOT PER WALLET
+        </p>
+
+        <p className="royalChapterText">
+          Access is granted in order until the available allocation has been claimed.
+        </p>
+      </div>
+    </article>
+
+
+    <article className="royalChapterCard">
+      <div className="royalChapterImage">
+        <img
+          src="/gallery/fcfscommunity.png"
+          alt=""
+        />
+      </div>
+
+      <div className="royalChapterContent">
+        <div className="royalChapterHeading">
+          <span>STAGE III</span>
+        </div>
+
+        <h2>ECOSYSTEM FCFS</h2>
+
+        <p className="royalChapterBigLine">
+          1 MINT SPOT PER WALLET
+        </p>
+
+        <p className="royalChapterText">
+          A separate first-come allocation reserved for selected projects on Robinhood.
+        </p>
+      </div>
+    </article>
+
+  </div>
+
+
+  <style>{`
+
+    .royalListChapters {
+      width: min(1320px, calc(100% - 48px));
+      margin: 58px auto 76px;
+    }
+
+    .royalChapterCard {
+      position: relative;
+      display: grid;
+      grid-template-columns: 178px minmax(0, 1fr);
+      min-height: 215px;
+      padding: 12px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255,255,255,.28), transparent 48%),
+        rgba(255,245,208,.72);
+      border: 1px solid #5e472b;
+      box-shadow: 6px 6px 0 rgba(164,67,54,.88);
+      overflow: hidden;
+    }
+
+    .royalChapterCard::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border: 1px solid rgba(107,73,35,.16);
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .royalChapterFeatured {
+      grid-template-columns: 270px minmax(0, 1fr);
+      min-height: 305px;
+      margin-bottom: 22px;
+    }
+
+    .royalChapterImage {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      min-height: 190px;
+      overflow: hidden;
+      border: 1px solid #604526;
+      background: #e7d29b;
+    }
+
+    .royalChapterImageLarge {
+      min-height: 280px;
+    }
+
+    .royalChapterImage img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .royalChapterContent {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 24px 30px 25px;
+      text-align: left;
+    }
+
+    .royalChapterFeatured .royalChapterContent {
+      padding: 30px 38px;
+    }
+
+    .royalChapterHeading {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .royalChapterHeading > span:first-child {
+      color: #a93329;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .royalChapterCard h2 {
+      margin: 0;
+      color: #16477e;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(29px, 2.4vw, 40px);
+      font-weight: 400;
+      line-height: 1.02;
+      letter-spacing: .01em;
+      text-transform: uppercase;
+    }
+
+    .royalChapterFeatured h2 {
+      font-size: clamp(40px, 4vw, 60px);
+    }
+
+    .royalChapterBigLine {
+      width: fit-content;
+      margin: 17px 0 0;
+      padding-bottom: 7px;
+      color: #a93329;
+      border-bottom: 1px solid rgba(169,51,41,.4);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .07em;
+      line-height: 1.35;
+      text-transform: uppercase;
+    }
+
+    .royalChapterFeatured .royalChapterBigLine {
+      color: #16477e;
+      font-size: 17px;
+    }
+
+    .royalChapterText {
+      max-width: 42ch;
+      margin: 15px 0 0;
+      color: #69471f;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .royalChapterFeatured .royalChapterText {
+      max-width: 58ch;
+      font-size: 16px;
+    }
+
+    .royalChapterOpenSea {
+      margin-top: 9px;
+      color: #a93329;
+      font-style: italic;
+    }
+
+    .royalChapterGrid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 22px;
+    }
+
+    @media (max-width: 1000px) {
+      .royalListChapters {
+        width: min(760px, calc(100% - 36px));
+      }
+
+      .royalChapterGrid {
+        grid-template-columns: 1fr;
+      }
+
+      .royalChapterFeatured {
+        grid-template-columns: 220px minmax(0,1fr);
+      }
+
+      .royalChapterCard {
+        grid-template-columns: 190px minmax(0,1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .royalListChapters {
+        width: calc(100% - 28px);
+        margin: 40px auto 62px;
+      }
+
+      .royalChapterFeatured,
+      .royalChapterCard {
+        display: block;
+        padding: 10px;
+      }
+
+      .royalChapterImage,
+      .royalChapterImageLarge {
+        width: 100%;
+        height: 190px;
+        min-height: 190px;
+      }
+
+      .royalChapterFeatured .royalChapterImage {
+        height: 230px;
+      }
+
+      .royalChapterContent,
+      .royalChapterFeatured .royalChapterContent {
+        padding: 25px 20px;
+      }
+
+      .royalChapterFeatured h2,
+      .royalChapterCard h2 {
+        font-size: 32px;
+      }
+
+      .royalChapterText,
+      .royalChapterFeatured .royalChapterText {
+        max-width: none;
+        font-size: 15px;
+      }
+
+      .royalChapterGrid {
+        gap: 18px;
+      }
+    }
+
+  `}</style>
+
+</section>
+
+          
+        </Container>
+      </WhitelistMain>
+
+      <SiteFooter />
+    </Page>
+  );
+}
+
+export function WinnerRoom() {
+  const [candidate,setCandidate] = useState(4821);
+  const [now,setNow] = useState(0);
+
+  const drawTime = Date.parse(DRAW_AT);
+
+  const hasWinners =
+    PUBLISHED_WINNERS.length === 7;
+
+  useEffect(() => {
+    let seed = 4821;
+
+    const candidateTimer = window.setInterval(() => {
+      seed = (seed * 9301 + 49297) % 10000;
+      setCandidate(seed + 1);
+    },950);
+
+    const updateClock = () => {
+      setNow(Date.now());
+    };
+
+    updateClock();
+
+    const clockTimer = window.setInterval(
+      updateClock,
+      1000
+    );
+
+    return () => {
+      window.clearInterval(candidateTimer);
+      window.clearInterval(clockTimer);
+    };
+  },[]);
+
+  const remaining =
+    drawTime && now
+      ? Math.max(0,drawTime - now)
+      : 0;
+
+  const days = Math.floor(
+    remaining / 86400000
+  );
+
+  const hours = Math.floor(remaining / 3600000);
+
+  const minutes = Math.floor(
+    (remaining % 3600000) / 60000
+  );
+
+  const seconds = Math.floor(
+    (remaining % 60000) / 1000
+  );
+
+  const isCountdown = Boolean(
+    drawTime &&
+    now &&
+    remaining > 0 &&
+    !hasWinners
+  );
+
+  const isAwaitingDraw = Boolean(
+    drawTime &&
+    now &&
+    remaining === 0 &&
+    !hasWinners
+  );
+
+
+  /* winnerRevealObserver */
+  useEffect(() => {
+    const isTouchDevice = window.matchMedia(
+      "(hover: none), (pointer: coarse)"
+    ).matches;
+
+    if (
+      !isTouchDevice ||
+      !("IntersectionObserver" in window)
+    ) {
+      return;
+    }
+
+    const cards = Array.from(
+      document.querySelectorAll<HTMLElement>(
+        ".winner-art-card"
+      )
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (
+            entry.isIntersecting &&
+            entry.intersectionRatio >= 0.6
+          ) {
+            entry.target.classList.add(
+              "is-revealed"
+            );
+
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold:[0.6]
+      }
+    );
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  },[]);
+
+  return (
+    <Page>
+      <Edge aria-hidden="true" />
+      <SiteHeader current="winner" />
+
+      <WinnerHero>
+  <Container>
+
+    <Title>
+      The royal purse is empty
+    </Title>
+
+    <Lead>
+      Seven winners. $7,000 sent.
+    </Lead>
+
+    <DrawStatus>
+      <DrawMessage>
+        <DrawLabel>
+          CHAPTER I IS COMPLETE.
+        </DrawLabel>
+      </DrawMessage>
+    </DrawStatus>
+
+    <WinnerActions>
+      <WinnerButton
+        href={PROJECT.twitter}
+        target="_blank"
+        rel="noreferrer"
+      >
+        VIEW THE DRAW ON X {"\u2197"}
+      </WinnerButton>
+
+      <WinnerSecondaryButton
+        href={PROJECT.opensea}
+        target="_blank"
+        rel="noreferrer"
+      >
+        VIEW THE COLLECTION {"\u2197"}
+      </WinnerSecondaryButton>
+    </WinnerActions>
+
+    <Lead style={{marginTop:"55px"}}>
+      Every winner has been paid.
+      The final seven now remain here as part of One Coin history.
+    </Lead>
+
+  </Container>
+</WinnerHero>
+
+<WinnersSection>
+        <Container>
+          <SectionHead>
+            <Kicker>The final seven</Kicker>
+
+            <SectionTitle>
+              Fortune found its seven.
+            </SectionTitle>
+
+            <SectionCopy className="winner-section-copy">
+              Seven fortunes were chosen. Seven rewards were sent. These cards now mark the winners of the first One Coin game.
+            </SectionCopy>
+          </SectionHead>
+
+          <style>{`
             /* winnerCardSiteStyle */
 
             .winner-art-grid {
@@ -1207,8 +1670,9 @@ function WinnerRoom() {
                 transition:none;
               }
             }
-          ` }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("style", { children: `
+          `}</style>
+
+          <style>{`
             /* winnerCardOverlayFix */
 
             .winner-art-card {
@@ -1267,8 +1731,9 @@ function WinnerRoom() {
                 transition:none;
               }
             }
-          ` }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("style", { children: `
+          `}</style>
+
+          <style>{`
             /* winnerCardEqualSizeFix */
 
             .winner-art-card {
@@ -1298,8 +1763,9 @@ function WinnerRoom() {
             .winner-card-cover {
               z-index:2;
             }
-          ` }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("style", { children: `
+          `}</style>
+
+          <style>{`
             /* winnerFourThreeLayout */
 
             .winner-section-copy {
@@ -1374,48 +1840,53 @@ function WinnerRoom() {
                 justify-self:stretch;
               }
             }
-          ` }),
-			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(WinnerGrid, {
-				"data-mobile-winner-grid": "true",
-				className: "winner-art-grid",
-				children: hasWinners ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: Array.from({ length: 7 }, (_, index) => {
-					const winner = PUBLISHED_WINNERS[index];
-					return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(WinnerSlot, { children: [
-						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: ["Winner ", index + 1] }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("b", { children: winner ? `#${winner.toString().padStart(4, "0")}` : "SEALED" }),
-						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("small", { children: winner ? "$1,000 prize" : "Awaiting draw" })
-					] }, index);
-				}) }) : [
-					"/gallery/winner-1.png",
-					"/gallery/winner-2.png",
-					"/gallery/winner-3.png",
-					"/gallery/winner-4.png",
-					"/gallery/winner-5.png",
-					"/gallery/winner-6.png",
-					"/gallery/winner-7.png"
-				].map((image, index) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(WinnerSlot, {
-					className: "winner-art-card",
-					tabIndex: 0,
-					style: {
-						padding: 0,
-						overflow: "hidden"
-					},
-					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-						className: "winner-card-art",
-						src: image,
-						alt: `Fortune card for winner ${index + 1}`,
-						loading: index < 2 ? "eager" : "lazy"
-					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
-						className: "winner-card-cover",
-						src: "/gallery/unrevealed.png",
-						alt: "Sealed fortune card",
-						loading: "eager"
-					})]
-				}, image))
-			})
-		] }) }),
-		/* @__PURE__ */ (0, import_jsx_runtime.jsx)(SiteFooter, {})
-	] });
+          `}</style>
+
+          <WinnerGrid data-mobile-winner-grid="true" className="winner-art-grid">
+            {[
+              "/gallery/winner-1.png",
+              "/gallery/winner-2.png",
+              "/gallery/winner-3.png",
+              "/gallery/winner-4.png",
+              "/gallery/winner-5.png",
+              "/gallery/winner-6.png",
+              "/gallery/winner-7.png"
+            ].map((image,index) => (
+              <WinnerSlot
+                key={image}
+                className="winner-art-card is-revealed"
+                tabIndex={0}
+                style={{
+                  padding:0,
+                  overflow:"hidden"
+                }}
+              >
+                <img
+                  className="winner-card-art"
+                  src={image}
+                  alt={`Fortune card for winner ${index + 1}`}
+                  loading={index < 2 ? "eager" : "lazy"}
+                />
+
+                <img
+                  className="winner-card-cover"
+                  src="/gallery/unrevealed.png"
+                  alt=""
+                  aria-hidden="true"
+                  loading="eager"
+                />
+              </WinnerSlot>
+            ))}
+          </WinnerGrid>
+        </Container>
+      </WinnersSection>
+
+      <SiteFooter />
+    </Page>
+  );
 }
-//#endregion
-export { WinnerRoom };
+
+
+
+
+

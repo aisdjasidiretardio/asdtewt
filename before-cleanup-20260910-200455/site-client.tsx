@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import styled, { keyframes } from "styled-components";
 
@@ -163,12 +163,12 @@ export default function OneCoinSite(){
               </HeroCopy>
 
               <ButtonRow>
-                <PrimaryButton
-                  href="https://x.com/onecoinrbh"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <span>X</span> Follow One Coin
+                <PrimaryButton href="/winner">
+                  The Great Seven
+                </PrimaryButton>
+
+                <PrimaryButton href="/scroll">
+                  The Royal Scroll
                 </PrimaryButton>
               </ButtonRow>
             </div>
@@ -225,8 +225,8 @@ export default function OneCoinSite(){
 
             <PrizeArt>
               <img
-                src="/gallery/onecoin-kingdom.webp"
-                alt="The One Coin kingdom"
+                src="/gallery/13-transparency-graphic.webp"
+                alt="One Coin kingdom"
                 width="1200"
                 height="1200"
                 loading="lazy"
@@ -237,7 +237,102 @@ export default function OneCoinSite(){
         </Container>
       </PrizeSection>
 
-<Final>
+      <Section id="kingdom">
+        <Container>
+
+          <SectionHead>
+            <div>
+              <SectionTitle>
+                Three places.
+                <br/>
+                One kingdom.
+              </SectionTitle>
+            </div>
+          </SectionHead>
+
+          <Steps>
+            {steps.map(([number,title,body,image,alt]) => (
+              <Step key={number}>
+
+                <StepImage
+                  src={`/gallery/${image}.webp`}
+                  alt={alt}
+                  width="1200"
+                  height="1200"
+                  loading="lazy"
+                />
+
+                <StepBody>
+                  <StepNumber>Realm {number}</StepNumber>
+                  <StepTitle>{title}</StepTitle>
+                  <StepCopy>{body}</StepCopy>
+                </StepBody>
+
+              </Step>
+            ))}
+          </Steps>
+
+        </Container>
+      </Section>
+
+      <Section id="paths">
+        <Container>
+
+          <SectionHead>
+            <div>
+              <SectionTitle>
+                Choose where
+                <br/>
+                the story takes you.
+              </SectionTitle>
+            </div>
+          </SectionHead>
+
+          <ProofGrid>
+
+            <ProofCard>
+              <ProofIcon>7</ProofIcon>
+
+              <ProofTitle>
+                The Great Seven
+              </ProofTitle>
+
+              <ProofCopy>
+                The first One Coin game.
+                The seven chosen fortunes,
+                the reward record,
+                and the proof that remains behind.
+              </ProofCopy>
+
+              <Contract href="/winner">
+                Enter The Great Seven {"\u2192"}
+              </Contract>
+            </ProofCard>
+
+            <ProofCard>
+              <ProofIcon>{"\u2726"}</ProofIcon>
+
+              <ProofTitle>
+                The Royal Scroll
+              </ProofTitle>
+
+              <ProofCopy>
+                The history of the kingdom,
+                written in order.
+                The bottom of the scroll remains unfinished.
+              </ProofCopy>
+
+              <Contract href="/scroll">
+                Open The Royal Scroll {"\u2192"}
+              </Contract>
+            </ProofCard>
+
+          </ProofGrid>
+
+        </Container>
+      </Section>
+
+      <Final>
         <Container>
 
           <FinalMark aria-hidden="true">

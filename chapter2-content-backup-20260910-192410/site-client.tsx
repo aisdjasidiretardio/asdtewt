@@ -8,9 +8,10 @@ const PROJECT = {
 };
 
 const steps = [
-  ["I", "The Great Hall", "The home of One Coin. A kingdom for simple onchain games, public outcomes and stories built on Robinhood Chain.", "01-main-campaign-poster", "The Great Hall"],
-  ["II", "The Great Seven", "The first tale is complete. Ten thousand one-dollar coins entered. Seven became worth $1,000.", "07-prize-poster", "The Great Seven"],
-  ["III", "The Royal Scroll", "Every important moment is written into the scroll. The final lines are still blank.", "13-transparency-graphic", "The Royal Scroll"],
+  ["I", "The summoning", "10,000 One Coin NFTs entered the kingdom on Robinhood Chain at $1 each.", "03-how-it-works-01-mint", "Mint for one dollar illuminated artwork"],
+  ["II", "The book closed", "The collection minted out. The first One Coin game had reached its final chapter.", "04-how-it-works-02-entry", "Every NFT is one entry illuminated artwork"],
+  ["III", "Seven fortunes were chosen", "Seven winning NFT IDs were drawn publicly after the trading window closed.", "05-how-it-works-03-closes", "The final entry window closes illuminated artwork"],
+  ["IV", "The royal purse opened", "Seven winners received $1,000 each. $7,000 was distributed. Chapter I was complete.", "06-how-it-works-04-winner", "The winning entry illuminated artwork"],
 ] as const;
 
 const gallery = [
@@ -139,146 +140,48 @@ const FooterLink = styled.a`color:var(--pale-gold);text-decoration:none;text-tra
 const external = (href:string) => ({ href, target:"_blank", rel:"noreferrer" });
 
 export default function OneCoinSite(){
-  return (
-    <Page>
-      <Edge aria-hidden="true" />
+  return <Page>
+    <Edge aria-hidden="true" />
+    <Container>
+      <TopBar aria-label="Primary navigation"><Wordmark href="#top"><span>{"\u2726"}</span> One Coin</Wordmark><NavActions><NavLink href="/winner">Winner room</NavLink><NavLink {...external(PROJECT.twitter)}>X {"\u2197"}</NavLink></NavActions></TopBar>
+      <Hero id="top">
+        <HeroGrid>
+          <div>
+            
+            <Title>Chapter I <span>is complete.</span> The story isn't.</Title>
+            <HeroCopy>10,000 minted. Seven fortunes chosen. $7,000 sent.</HeroCopy>
+            <ButtonRow><PrimaryButton {...external(PROJECT.twitter)}><span>X</span> Follow what comes next</PrimaryButton></ButtonRow>
+          </div>
+          <HeroArt data-main-hero-art="true"><img src="/gallery/01-main-campaign-poster.webp" alt="One Dollar Can Change Your Life illuminated campaign poster" width="1200" height="1200" fetchPriority="high" /></HeroArt>
+        </HeroGrid>
+        
+      </Hero>
+    </Container>
+    <Ticker aria-label="Project facts"><TickerInner><span><b>10,000</b><small>Minted</small></span><span><b>7</b><small>Winners</small></span><span><b>$7,000</b><small>Sent</small></span><span><b>7/7</b><small>Paid</small></span><span><b>Chapter II</b><small>Next</small></span><span><b>Robinhood</b><small>Chain</small></span></TickerInner></Ticker>
 
-      <Container>
-        <Hero>
-          <HeroGrid>
+    <PrizeSection><Container><PrizeGrid>
+      <div><PrizeAmount>$7K</PrizeAmount><PrizeLine>Seven winners.<br/>$1,000 each.</PrizeLine><PrizeCopy>Seven fortunes were chosen and every reward was sent. $7,000 left the royal purse. Chapter I is complete.</PrizeCopy></div>
+      <PrizeArt><img src="/gallery/07-prize-poster.webp" alt="Seven thousand dollar prize illustrated as a medieval manuscript" width="1200" height="1200" loading="lazy"/></PrizeArt>
+    </PrizeGrid></Container></PrizeSection>
 
-            <div>
-              <Title>
-                One dollar <span>can change</span> your life
-              </Title>
+    <Section id="how"><Container>
+      <SectionHead><div><SectionTitle>Chapter I. Complete.</SectionTitle></div></SectionHead>
+      <Steps>{steps.map(([number,title,body,image,alt])=><Step key={number}><StepImage src={`/gallery/${image}.webp`} alt={alt} width="1200" height="1200" loading="lazy"/><StepBody><StepNumber>Chapter {number}</StepNumber><StepTitle>{title}</StepTitle><StepCopy>{body}</StepCopy></StepBody></Step>)}</Steps>
+    </Container></Section>
 
-              <HeroCopy>
-                One Coin is an onchain kingdom where simple games
-                become public stories on Robinhood Chain.
-              </HeroCopy>
+    <Section id="proof"><Container>
+      <SectionHead><div><SectionTitle>Luck you can verify.</SectionTitle></div></SectionHead>
+      <ProofGrid>
+        <ProofCard><ProofIcon>R</ProofIcon><ProofTitle>Verifiable randomness by Dice Protocol</ProofTitle><ProofCopy>The first draw was completed publicly with Dice. Seven winning NFT IDs were selected, the result was published, and all seven rewards were sent.</ProofCopy><Contract {...external(PROJECT.dice)}>Visit Dice Protocol {"\u2197"}</Contract></ProofCard>
+        <ProofCard><ProofIcon>7</ProofIcon><ProofTitle>The record of the draw</ProofTitle><Rules>
+          <Rule><b>1</b><span><strong>10,000 coins entered.</strong> The entire One Coin collection minted out.</span></Rule>
+          <Rule><b>2</b><span><strong>Seven fortunes were chosen.</strong> The winning IDs were drawn publicly.</span></Rule>
+          <Rule><b>3</b><span><strong>Every winner was paid.</strong> Seven $1,000 rewards were sent. $7,000 in total.</span></Rule>
+        </Rules></ProofCard>
+      </ProofGrid>
+    </Container></Section>
 
-              <HeroCopy style={{marginTop:"14px"}}>
-                The first tale has been written.
-                What comes next has not.
-              </HeroCopy>
-
-              <ButtonRow>
-                <PrimaryButton
-                  href="https://x.com/onecoinrbh"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <span>X</span> Follow One Coin
-                </PrimaryButton>
-              </ButtonRow>
-            </div>
-
-            <HeroArt data-main-hero-art="true">
-              <img
-                src="/gallery/01-main-campaign-poster.webp"
-                alt="One Dollar Can Change Your Life illuminated campaign poster"
-                width="1200"
-                height="1200"
-                fetchPriority="high"
-              />
-            </HeroArt>
-
-          </HeroGrid>
-        </Hero>
-      </Container>
-
-      <Ticker aria-label="One Coin">
-        <TickerInner>
-          <span><b>10,000</b><small>First collection</small></span>
-          <span><b>$1</b><small>First mint</small></span>
-          <span><b>7</b><small>The Great Seven</small></span>
-          <span><b>$7K</b><small>Paid</small></span>
-          <span><b>RBH</b><small>Our kingdom</small></span>
-        </TickerInner>
-      </Ticker>
-
-      <PrizeSection>
-        <Container>
-          <PrizeGrid>
-
-            <div>
-              <PrizeAmount>ONE</PrizeAmount>
-
-              <PrizeLine>
-                A kingdom built
-                <br/>
-                one game at a time.
-              </PrizeLine>
-
-              <PrizeCopy>
-                One Coin began with a single idea:
-                make the game easy to understand,
-                make the outcome public,
-                and make the story worth remembering.
-              </PrizeCopy>
-
-              <PrizeCopy>
-                The first game is now part of the kingdom.
-                It does not define where One Coin ends.
-              </PrizeCopy>
-            </div>
-
-            <PrizeArt>
-              <img
-                src="/gallery/onecoin-kingdom.webp"
-                alt="The One Coin kingdom"
-                width="1200"
-                height="1200"
-                loading="lazy"
-              />
-            </PrizeArt>
-
-          </PrizeGrid>
-        </Container>
-      </PrizeSection>
-
-<Final>
-        <Container>
-
-          <FinalMark aria-hidden="true">
-            {"\u2726"} {"\u2727"} {"\u2726"}
-          </FinalMark>
-
-          <FinalTitle>
-            The next page is unwritten.
-          </FinalTitle>
-
-          <FinalButton
-            {...external(PROJECT.twitter)}
-          >
-            <span>X</span> Follow the story
-          </FinalButton>
-
-        </Container>
-      </Final>
-
-      <Footer>
-        <Container>
-          <FooterRow>
-
-            <Legal>
-              NFTs are not investments and may have no resale value.
-              The project and its contributors are not liable for trading
-              losses, wallet compromise, failed transactions, third-party
-              services, network interruptions, taxes, or unlawful participation.
-              Use only links published by the official One Coin account.
-            </Legal>
-
-            <FooterLink
-              {...external(PROJECT.twitter)}
-            >
-              Official X {"\u2197"}
-            </FooterLink>
-
-          </FooterRow>
-        </Container>
-      </Footer>
-
-    </Page>
-  );
+    <Final><Container><FinalMark aria-hidden="true">{"\u2726"} {"\u2727"} {"\u2726"}</FinalMark><FinalTitle>May luck be in your favour. Again.</FinalTitle><FinalButton {...external(PROJECT.twitter)}><span>X</span> Follow Chapter II</FinalButton></Container></Final>
+    <Footer><Container><FooterRow><Legal>To the fullest extent permitted by law, the project and its contributors are not liable for trading losses, NFT price changes, wallet compromise, failed transactions, third-party services, network interruptions, taxes, or unlawful participation. NFTs are not investments and may have no resale value. Eligibility, claim deadlines, prize distribution, and the official rules apply. By participating, you accept these risks and remain responsible for complying with local laws. Use only links published by the official account.</Legal><FooterLink {...external(PROJECT.twitter)}>Official X {"\u2197"}</FooterLink></FooterRow></Container></Footer>
+  </Page>
 }

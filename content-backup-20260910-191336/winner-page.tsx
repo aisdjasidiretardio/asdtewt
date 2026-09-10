@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { WinnerRoom } from "../portal-client";
 
 export const metadata:Metadata = {
-  title:"The Great Seven | One Coin",
-  description:"The first One Coin game: seven winning coins, seven rewards, and the public record.",
+  title:"Winner Room | One Coin",
+  description:"Watch the countdown and the seven verifiable One Coin winners appear.",
 };
 
 export default function WinnerPage() {

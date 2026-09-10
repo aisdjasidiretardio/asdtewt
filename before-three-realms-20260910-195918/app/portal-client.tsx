@@ -1,121 +1,49 @@
-import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./framework-B8WyT5R3.js";import{i as r,t as i}from"./styled-components.browser.esm-B0_qInRY.js";var a=e(t(),1),o=n(),s=[9987,512,7361,1884,9042,3477,6208,771,4560,8891,147,8221,4096,973,6510,2944],c=i`
-  from{transform:translateX(0)}
-  to{transform:translateX(-50%)}
-`,l=r.section`
-  padding:55px 0 70px;
-  overflow:hidden;
-  border-top:2px solid var(--ink);
-  border-bottom:2px solid var(--ink);
-  background:var(--red);
-  color:var(--light);
-  text-align:center;
-`,u=r.div`
-  width:min(1180px,calc(100% - 40px));
-  margin:0 auto;
-`,d=r.p`
-  margin:0 0 10px;
-  color:var(--pale-gold);
-  font-family:"Cormorant Garamond",serif;
-  font-size:.78rem;
-  font-weight:700;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-`,f=r.h2`
-  margin:0;
-  color:var(--light);
-  font-family:"Cinzel",serif;
-  font-size:clamp(2rem,8vw,4.8rem);
-  font-weight:700;
-  letter-spacing:.01em;
-  line-height:1;
-`,p=r.div`
-  width:100%;
-  margin-top:38px;
-  overflow:hidden;
-  padding:20px 0 30px;
-  border-top:1px solid rgba(247,236,201,.4);
-  border-bottom:1px solid rgba(247,236,201,.4);
-`,ee=r.div`
-  display:flex;
-  width:max-content;
-  animation:${c} 58s linear infinite;
-  will-change:transform;
+"use client";
 
-  @media(prefers-reduced-motion:reduce){
-    animation:none;
-    transform:none;
-  }
-`,te=r.div`
-  display:flex;
-  gap:22px;
-  padding-right:22px;
-`,ne=r.article`
-  position:relative;
-  width:clamp(260px,24vw,360px);
-  flex:0 0 auto;
-  padding:12px;
-  border:2px solid var(--ink);
-  background:var(--paper);
-  box-shadow:9px 10px 0 var(--lapis);
-  color:var(--ink);
-  text-align:left;
+import { useEffect, useState, type FormEvent } from "react";
+import styled, { keyframes } from "styled-components";
 
-  &::before{
-    content:"";
-    position:absolute;
-    inset:7px;
-    border:1px solid var(--gold);
-    pointer-events:none;
-  }
-`,m=r.div`
-  position:relative;
-  overflow:hidden;
-  border:1px solid rgba(37,23,14,.72);
-  background:var(--light);
-`,h=r.div`
-  display:flex;
-  align-items:baseline;
-  gap:8px;
-  padding:13px 14px;
-  color:var(--red);
-  font-family:"Cinzel",serif;
-  font-size:.72rem;
-  font-weight:700;
-  letter-spacing:.08em;
-  text-transform:uppercase;
+import CandidateCarouselSection from "./candidate-carousel";
+const PROJECT = {
+  twitter: "https://x.com/onecoinrbh",
+  dice: "https://diceprotocol.world/agent/",
+  opensea: "https://opensea.io/collection/onecoin",
+};
 
-  span:first-child{
-    font-size:1rem;
-  }
+// Leave this empty before mint-out. After mint-out, replace it with the
+// exact mint-out time in UTC. The page adds 24 hours automatically.
+// Example: "2026-09-01T18:00:00Z".
+const DRAW_AT = "2026-09-08T15:30:00Z";
 
-  strong{
-    margin-left:auto;
-    color:var(--lapis);
-    font-size:clamp(1rem,2vw,1.3rem);
-    letter-spacing:.03em;
-  }
-`,g=r.img`
-  display:block;
-  width:100%;
-  aspect-ratio:1;
-  object-fit:cover;
-  border-top:1px solid var(--ink);
-  border-bottom:1px solid var(--ink);
-  background:var(--paper);
-`,_=r.span`
-  display:block;
-  padding:12px 10px;
-  color:rgba(37,23,14,.68);
-  font-family:"Cormorant Garamond",serif;
-  font-size:.75rem;
-  font-weight:700;
-  letter-spacing:.12em;
-  text-align:center;
-  text-transform:uppercase;
-`;function v(){return(0,o.jsxs)(l,{children:[(0,o.jsxs)(u,{children:[(0,o.jsx)(d,{children:`Until the book closes`}),(0,o.jsx)(f,{children:`Could fortune rest here?`})]}),(0,o.jsx)(p,{"aria-label":`Possible winning NFT IDs`,children:(0,o.jsx)(ee,{children:[!1,!0].map(e=>(0,o.jsx)(te,{"aria-hidden":e||void 0,children:s.map((t,n)=>(0,o.jsx)(ne,{children:(0,o.jsxs)(m,{children:[(0,o.jsxs)(h,{children:[(0,o.jsx)(`span`,{children:`✦`}),(0,o.jsx)(`span`,{children:`NFT ID`}),(0,o.jsxs)(`strong`,{children:[`#`,t.toString().padStart(4,`0`)]})]}),(0,o.jsx)(g,{src:`/gallery/winner-nft.png`,alt:e||n>0?``:`One Coin possible winning NFT`,loading:n>3?`lazy`:`eager`}),(0,o.jsx)(_,{children:`Fortune may call`})]})},`${e?`d`:`p`}-${t}`))},e?`duplicate`:`primary`))})})]})}var y={twitter:`https://x.com/onecoinrbh`,dice:`https://diceprotocol.world/agent/`,opensea:`https://opensea.io/collection/onecoin`},re=`2026-09-08T15:30:00Z`,b=[],ie=i`
+// After the verified draw, add the seven NFT IDs here.
+// Example: [147, 1220, 3066, 4781, 5902, 7440, 9811]
+const PUBLISHED_WINNERS: number[] = [];
+
+const CANDIDATE_IDS = [
+  147,
+  8221,
+  4096,
+  973,
+  6510,
+  2944,
+  9987,
+  512,
+  7361,
+  1884,
+  9042,
+  3477,
+  6208,
+  771,
+  4560,
+  8891,
+];
+
+const drift = keyframes`
   0%{transform:translateX(0)}
   100%{transform:translateX(-50%)}
-`,ae=i`
+`;
+
+const breathe = keyframes`
   0%,100%{
     transform:translateY(0) rotate(-.6deg);
     box-shadow:12px 14px 0 #163e75;
@@ -124,13 +52,19 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     transform:translateY(-9px) rotate(.6deg);
     box-shadow:15px 18px 0 #163e75;
   }
-`,oe=i`
+`;
+
+const reveal = keyframes`
   0%{opacity:0;transform:translateY(14px) scale(.94)}
   100%{opacity:1;transform:translateY(0) scale(1)}
-`,se=i`
+`;
+
+const shimmer = keyframes`
   0%,100%{opacity:.35}
   50%{opacity:1}
-`,x=r.main`
+`;
+
+const Page = styled.main`
   --lapis:#163e75;
   --deep:#0c2a53;
   --red:#9e332a;
@@ -163,7 +97,9 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
       rgba(80,52,22,.025) 0 1px,
       transparent 1px 5px
     );
-`,S=r.div`
+`;
+
+const Edge = styled.div`
   position:fixed;
   z-index:50;
   inset:8px;
@@ -180,20 +116,26 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   @media(min-width:800px){
     inset:13px;
   }
-`,C=r.div`
+`;
+
+const Container = styled.div`
   width:min(1120px,calc(100% - 40px));
   margin:0 auto;
 
   @media(min-width:760px){
     width:min(1120px,calc(100% - 80px));
   }
-`,w=r.nav`
+`;
+
+const TopBar = styled.nav`
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:16px;
   padding:24px 0 10px;
-`,T=r.a`
+`;
+
+const Wordmark = styled.a`
   display:inline-flex;
   align-items:center;
   gap:9px;
@@ -209,11 +151,15 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     color:var(--red);
     font-size:1.15rem;
   }
-`,E=r.div`
+`;
+
+const Nav = styled.div`
   display:flex;
   align-items:center;
   gap:clamp(10px,2.2vw,25px);
-`,D=r.a`
+`;
+
+const NavLink = styled.a`
   color:var(--ink);
   border-bottom:1px solid currentColor;
   font-family:"Cormorant Garamond",serif;
@@ -227,18 +173,24 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   &[aria-current="page"]{
     color:var(--red);
   }
-`,O=r.section`
+`;
+
+const PortalFinal = styled.section`
   padding:90px 0 105px;
   border-top:2px solid var(--ink);
   background:var(--red);
   color:var(--light);
   text-align:center;
-`,k=r.p`
+`;
+
+const PortalFinalMark = styled.p`
   margin:0 0 20px;
   color:var(--pale-gold);
   font-size:1.4rem;
   letter-spacing:18px;
-`,A=r.h2`
+`;
+
+const PortalFinalTitle = styled.h2`
   max-width:900px;
   margin:0 auto 22px;
   color:var(--light);
@@ -248,7 +200,9 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   letter-spacing:.01em;
   word-spacing:.06em;
   line-height:1;
-`,j=r.p`
+`;
+
+const PortalFinalCopy = styled.p`
   max-width:590px;
   margin:0 auto 30px;
   color:rgba(247,236,201,.82);
@@ -256,7 +210,9 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   font-size:1.22rem;
   font-weight:600;
   line-height:1.5;
-`,M=r.a`
+`;
+
+const PortalFinalButton = styled.a`
   display:inline-flex;
   min-height:50px;
   align-items:center;
@@ -285,14 +241,18 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     outline:3px solid var(--light);
     outline-offset:4px;
   }
-`,N=r.footer`
+`;
+
+const Footer = styled.footer`
   padding:28px 0 42px;
   background:var(--ink);
   color:rgba(247,236,201,.62);
   font-family:"Cormorant Garamond",serif;
   font-size:.79rem;
   line-height:1.5;
-`,P=r.div`
+`;
+
+const FooterRow = styled.div`
   display:grid;
   gap:17px;
 
@@ -300,15 +260,21 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     grid-template-columns:1fr auto;
     align-items:end;
   }
-`,F=r.p`
+`;
+
+const FooterLegal = styled.p`
   max-width:760px;
   margin:0;
-`,I=r.a`
+`;
+
+const FooterLink = styled.a`
   color:var(--pale-gold);
   letter-spacing:.08em;
   text-decoration:none;
   text-transform:uppercase;
-`,L=r.p`
+`;
+
+const Kicker = styled.p`
   margin:0 0 10px;
   color:var(--red);
   font-family:"Cormorant Garamond",serif;
@@ -316,7 +282,9 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   font-weight:700;
   letter-spacing:.18em;
   text-transform:uppercase;
-`,R=r.h1`
+`;
+
+const Title = styled.h1`
   margin:0;
   color:var(--lapis);
   font-family:"Cinzel",serif;
@@ -325,7 +293,9 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   letter-spacing:.01em;
   line-height:.94;
   text-wrap:balance;
-`,z=r.p`
+`;
+
+const Lead = styled.p`
   max-width:660px;
   margin:22px auto 0;
   color:rgba(37,23,14,.78);
@@ -333,7 +303,9 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   font-size:clamp(1.15rem,4vw,1.45rem);
   font-weight:600;
   line-height:1.48;
-`;r.span`
+`;
+
+const StatusPill = styled.span`
   display:inline-flex;
   align-items:center;
   gap:9px;
@@ -352,15 +324,19 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     height:7px;
     border-radius:50%;
     background:var(--red);
-    animation:${se} 1.5s ease-in-out infinite;
+    animation:${shimmer} 1.5s ease-in-out infinite;
   }
-`;var B=r.section`
+`;
+
+const WhitelistMain = styled.section`
   min-height:calc(100svh - 76px);
   display:grid;
   align-items:center;
   padding:55px 0 90px;
   text-align:center;
-`;r.section`
+`;
+
+const AccessStages = styled.section`
   display:grid;
   gap:12px;
   max-width:980px;
@@ -370,7 +346,9 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   @media(min-width:760px){
     grid-template-columns:repeat(3,minmax(0,1fr));
   }
-`,r.article`
+`;
+
+const AccessStage = styled.article`
   position:relative;
   min-height:230px;
   padding:26px 23px 24px;
@@ -385,7 +363,9 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     border:1px solid rgba(158,51,42,.45);
     pointer-events:none;
   }
-`,r.span`
+`;
+
+const AccessNumber = styled.span`
   position:relative;
   display:block;
   margin-bottom:24px;
@@ -395,7 +375,9 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   font-weight:700;
   letter-spacing:.17em;
   text-transform:uppercase;
-`,r.h2`
+`;
+
+const AccessName = styled.h2`
   position:relative;
   margin:0;
   color:var(--lapis);
@@ -404,7 +386,9 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   font-weight:700;
   letter-spacing:.02em;
   line-height:1.1;
-`,r.p`
+`;
+
+const AccessAllocation = styled.p`
   position:relative;
   margin:14px 0 0;
   color:var(--red);
@@ -412,7 +396,9 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   font-size:1.15rem;
   font-weight:700;
   line-height:1.25;
-`,r.p`
+`;
+
+const AccessCopy = styled.p`
   position:relative;
   margin:10px 0 0;
   color:rgba(37,23,14,.7);
@@ -420,7 +406,9 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   font-size:1rem;
   font-weight:600;
   line-height:1.42;
-`;var V=r.div`
+`;
+
+const Checker = styled.div`
   max-width:760px;
   margin:42px auto 0;
   padding:clamp(25px,6vw,54px);
@@ -428,7 +416,9 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   background:rgba(247,236,201,.67);
   box-shadow:9px 10px 0 var(--lapis);
   text-align:left;
-`,H=r.label`
+`;
+
+const CheckerLabel = styled.label`
   display:block;
   margin-bottom:9px;
   color:var(--ink);
@@ -437,14 +427,18 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   font-weight:700;
   letter-spacing:.1em;
   text-transform:uppercase;
-`,U=r.form`
+`;
+
+const InputRow = styled.form`
   display:grid;
   gap:12px;
 
   @media(min-width:650px){
     grid-template-columns:1fr auto;
   }
-`,W=r.input`
+`;
+
+const WalletInput = styled.input`
   min-width:0;
   min-height:56px;
   padding:0 17px;
@@ -460,7 +454,9 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     border-color:var(--red);
     box-shadow:0 0 0 3px rgba(158,51,42,.16);
   }
-`,G=r.button`
+`;
+
+const CheckButton = styled.button`
   min-height:56px;
   padding:0 24px;
   border:2px solid var(--ink);
@@ -480,7 +476,9 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     transform:translate(1px,1px);
     box-shadow:4px 4px 0 var(--gold);
   }
-`,ce=r.p`
+`;
+
+const CheckerStatus = styled.p`
   min-height:24px;
   margin:18px 0 0;
   color:var(--red);
@@ -488,25 +486,35 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   font-size:1.05rem;
   font-weight:700;
   line-height:1.4;
-`;r.p`
+`;
+
+const Note = styled.p`
   margin:11px 0 0;
   color:rgba(37,23,14,.64);
   font-family:"Cormorant Garamond",serif;
   font-size:.9rem;
   font-weight:600;
   line-height:1.45;
-`;var le=r.section`
+`;
+
+const WinnerHero = styled.section`
   padding:58px 0 48px;
   text-align:center;
-`,ue=r.div`
+`;
+
+const DrawStatus = styled.div`
   margin:34px auto 0;
-`,de=r.div`
+`;
+
+const DrawMessage = styled.div`
   max-width:760px;
   margin:0 auto;
   padding:22px;
   border-top:1px solid var(--ink);
   border-bottom:1px solid var(--ink);
-`,fe=r.p`
+`;
+
+const DrawLabel = styled.p`
   margin:0;
   color:var(--red);
   font-family:"Cinzel",serif;
@@ -514,7 +522,9 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   font-weight:700;
   letter-spacing:.04em;
   line-height:1.35;
-`,pe=r.a`
+`;
+
+const Verify = styled.a`
   display:inline-block;
   margin-top:10px;
   color:var(--lapis);
@@ -524,7 +534,9 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   letter-spacing:.06em;
   text-underline-offset:4px;
   text-transform:uppercase;
-`,me=r.p`
+`;
+
+const WinnerDrawDate = styled.p`
   margin:16px 0 0;
   color:var(--red);
   font-family:"Cormorant Garamond",serif;
@@ -533,14 +545,18 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   letter-spacing:.08em;
   text-align:center;
   text-transform:uppercase;
-`,he=r.div`
+`;
+
+const WinnerActions = styled.div`
   display:flex;
   flex-wrap:wrap;
   align-items:center;
   justify-content:center;
   gap:12px;
   margin:24px 0 0;
-`,K=r.a`
+`;
+
+const WinnerButton = styled.a`
   display:inline-flex;
   min-height:50px;
   align-items:center;
@@ -571,7 +587,9 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     outline:3px solid var(--red);
     outline-offset:4px;
   }
-`,ge=r(K)`
+`;
+
+const WinnerSecondaryButton = styled(WinnerButton)`
   background:var(--light);
   color:var(--lapis);
   box-shadow:5px 5px 0 var(--red);
@@ -580,13 +598,16 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     background:white;
     box-shadow:3px 3px 0 var(--red);
   }
-`,_e=r.div`
+`;
+const Countdown = styled.div`
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:7px;
   max-width:720px;
   margin:0 auto;
-`,q=r.div`
+`;
+
+const TimeCell = styled.div`
   padding:16px 6px;
   border:1px solid var(--ink);
   background:var(--lapis);
@@ -609,13 +630,17 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     letter-spacing:.11em;
     text-transform:uppercase;
   }
-`,ve=r.div`
+`;
+
+const Promise = styled.div`
   display:grid;
   grid-template-columns:repeat(3,1fr);
   margin:35px auto 0;
   border:1px solid var(--ink);
   background:rgba(247,236,201,.55);
-`,J=r.div`
+`;
+
+const PromiseItem = styled.div`
   padding:17px 8px;
   border-right:1px solid rgba(37,23,14,.45);
   font-family:"Cormorant Garamond",serif;
@@ -636,21 +661,27 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     font-size:clamp(1rem,4vw,1.55rem);
     letter-spacing:.02em;
   }
-`;r.section`
+`;
+
+const CandidateStage = styled.section`
   padding:55px 0 70px;
   background:var(--red);
   color:var(--light);
   text-align:center;
   border-top:2px solid var(--ink);
   border-bottom:2px solid var(--ink);
-`,r.h2`
+`;
+
+const CandidateHeading = styled.h2`
   margin:0;
   color:var(--light);
   font-family:"Cinzel",serif;
   font-size:clamp(2rem,8vw,4.8rem);
   letter-spacing:.01em;
   line-height:1;
-`,r.article`
+`;
+
+const CandidateCard = styled.article`
   position:relative;
   width:min(78vw,330px);
   aspect-ratio:3/4;
@@ -660,7 +691,7 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   background:var(--paper);
   box-shadow:12px 14px 0 var(--lapis);
   color:var(--ink);
-  animation:${ae} 4s ease-in-out infinite;
+  animation:${breathe} 4s ease-in-out infinite;
 
   &::before{
     content:"";
@@ -669,7 +700,9 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     border:1px solid var(--gold);
     pointer-events:none;
   }
-`,r.div`
+`;
+
+const CardInner = styled.div`
   box-sizing:border-box;
   height:100%;
   display:flex;
@@ -681,7 +714,7 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   background:
     radial-gradient(circle,rgba(241,206,114,.7),transparent 42%),
     linear-gradient(145deg,rgba(255,255,255,.2),rgba(158,51,42,.08));
-  animation:${oe} .45s ease-out;
+  animation:${reveal} .45s ease-out;
 
   &::after{
     content:"";
@@ -698,10 +731,14 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     background-size:contain;
     box-shadow:4px 5px 0 rgba(22,62,117,.72);
   }
-`,r.span`
+`;
+
+const CardStar = styled.span`
   color:var(--red);
   font-size:2rem;
-`,r.span`
+`;
+
+const CardLabel = styled.span`
   margin-top:23px;
   color:var(--red);
   font-family:"Cormorant Garamond",serif;
@@ -709,24 +746,32 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   font-weight:700;
   letter-spacing:.18em;
   text-transform:uppercase;
-`,r.strong`
+`;
+
+const CardNumber = styled.strong`
   margin-top:5px;
   color:var(--lapis);
   font-family:"Cinzel",serif;
   font-size:clamp(2.5rem,12vw,5rem);
   letter-spacing:.04em;
   line-height:1;
-`,r.div`
+`;
+
+const CarouselWindow = styled.div`
   width:100%;
   overflow:hidden;
   border-top:1px solid rgba(247,236,201,.4);
   border-bottom:1px solid rgba(247,236,201,.4);
   padding:13px 0;
-`,r.div`
+`;
+
+const CarouselTrack = styled.div`
   display:flex;
   width:max-content;
-  animation:${ie} 28s linear infinite;
-`,r.div`
+  animation:${drift} 28s linear infinite;
+`;
+
+const MiniCard = styled.div`
   width:146px;
   margin-right:12px;
   padding:14px 10px;
@@ -745,18 +790,26 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     font-size:.68rem;
     text-transform:uppercase;
   }
-`;var ye=r.section`
+`;
+
+const WinnersSection = styled.section`
   padding:78px 0 95px;
-`,be=r.div`
+`;
+
+const SectionHead = styled.div`
   text-align:center;
-`,Y=r.h2`
+`;
+
+const SectionTitle = styled.h2`
   margin:0;
   color:var(--lapis);
   font-family:"Cinzel",serif;
   font-size:clamp(2rem,9vw,5rem);
   letter-spacing:.01em;
   line-height:1;
-`,xe=r.p`
+`;
+
+const SectionCopy = styled.p`
   max-width:620px;
   margin:18px auto 0;
   color:rgba(37,23,14,.72);
@@ -764,7 +817,9 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   font-size:1.15rem;
   font-weight:600;
   line-height:1.45;
-`,Se=r.div`
+`;
+
+const WinnerGrid = styled.div`
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:12px;
@@ -777,7 +832,9 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
   @media(min-width:960px){
     grid-template-columns:repeat(7,minmax(0,1fr));
   }
-`,X=r.article`
+`;
+
+const WinnerSlot = styled.article`
   min-height:168px;
   display:flex;
   flex-direction:column;
@@ -813,7 +870,310 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
     font-weight:700;
     text-transform:uppercase;
   }
-`;function Z({current:e}){return(0,o.jsx)(C,{children:(0,o.jsxs)(w,{"aria-label":`Primary navigation`,children:[(0,o.jsxs)(T,{href:`/`,children:[(0,o.jsx)(`span`,{children:`✦`}),`One Coin`]}),(0,o.jsxs)(E,{children:[(0,o.jsx)(D,{href:`/`,children:`Home`}),(0,o.jsx)(D,{href:`/whitelist`,"aria-current":e===`whitelist`?`page`:void 0,children:`Whitelist`}),(0,o.jsx)(D,{href:`/winner`,"aria-current":e===`winner`?`page`:void 0,children:`Winner room`})]})]})})}function Q(){return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(O,{children:(0,o.jsxs)(C,{children:[(0,o.jsxs)(k,{"aria-hidden":`true`,children:[`✦`,` `,`✧`,` `,`✦`]}),(0,o.jsx)(A,{children:`May luck be in your favour.`}),(0,o.jsxs)(j,{children:[`10,000 entries. Seven winners. One dollar is all it takes to be part of the story.`,(0,o.jsx)(`span`,{style:{display:`block`,marginTop:`12px`,fontSize:`clamp(.92rem, 1.15vw, 1.05rem)`,fontWeight:700,lineHeight:1.5,letterSpacing:`.02em`,color:`inherit`,opacity:.88},children:`One NFT = one entry. Five NFTs in one wallet = five separate entries in the draw.`})]}),(0,o.jsxs)(M,{href:y.twitter,target:`_blank`,rel:`noreferrer`,children:[(0,o.jsx)(`span`,{children:`X`}),` Follow for the mint`]})]})}),(0,o.jsx)(N,{children:(0,o.jsx)(C,{children:(0,o.jsxs)(P,{children:[(0,o.jsx)(F,{children:`To the fullest extent permitted by law, the project and its contributors are not liable for trading losses, NFT price changes, wallet compromise, failed transactions, third party services, network interruptions, taxes, or unlawful participation. NFTs are not investments and may have no resale value. Eligibility, claim deadlines, prize distribution, and the official rules apply. By participating, you accept these risks and remain responsible for complying with local laws. Use only links published by the official account.`}),(0,o.jsxs)(I,{href:y.twitter,target:`_blank`,rel:`noreferrer`,children:[`Official X `,`↗`]})]})})})]})}function $(e){return e.toString().padStart(2,`0`)}function Ce(){let[e,t]=(0,a.useState)(``),[n,r]=(0,a.useState)(`Enter your wallet to search OPENSEA ↗.`);async function i(t){t.preventDefault();let n=e.trim();if(!/^0x[a-fA-F0-9]{40}$/.test(n)){r(`Enter a valid wallet address.`);return}r(`Checking OPENSEA ↗...`);try{let e=await fetch(`https://ikslmrrplnwwipdnteza.supabase.co/functions/v1/whitelist-check`,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify({wallet:n})});if(e.status===429){r(`Too many checks. Try again later.`);return}if(!e.ok)throw Error(`Whitelist lookup failed`);let t=await e.json();if(t?.accessType===`royallist_gtd`){r(`MINTED OUT. Guaranteed access. 3 mint spots per wallet.`);return}if(t?.accessType===`early_access_fcfs`){r(`Early Access FCFS. 1 mint spot per wallet.`);return}if(t?.accessType===`ecosystem_fcfs`){r(`Ecosystem FCFS. 1 mint spot per wallet.`);return}r(`This wallet is not on OPENSEA ↗.`)}catch(e){console.error(e),r(`OPENSEA ↗ could not be checked. Try again.`)}}return(0,o.jsxs)(x,{children:[(0,o.jsx)(S,{"aria-hidden":`true`}),(0,o.jsx)(Z,{current:`whitelist`}),(0,o.jsx)(B,{children:(0,o.jsxs)(C,{children:[(0,o.jsx)(L,{children:`OPENSEA ↗`}),(0,o.jsx)(R,{children:`Whitelist checker`}),(0,o.jsxs)(V,{children:[(0,o.jsx)(H,{htmlFor:`wallet`,children:`Wallet address`}),(0,o.jsxs)(U,{onSubmit:i,children:[(0,o.jsx)(W,{id:`wallet`,value:e,onChange:e=>t(e.target.value),placeholder:`0x...`,autoComplete:`off`,spellCheck:!1}),(0,o.jsx)(G,{type:`submit`,children:`Check wallet`})]}),(0,o.jsx)(ce,{"aria-live":`polite`,children:n})]}),(0,o.jsx)(`p`,{style:{maxWidth:`720px`,margin:`34px auto 0`,color:`var(--red)`,fontFamily:`"Cormorant Garamond", serif`,fontSize:`clamp(1.05rem, 2.3vw, 1.28rem)`,fontStyle:`italic`,fontWeight:600,letterSpacing:`.02em`,lineHeight:1.5,textAlign:`center`},children:`The royals keep no fixed hour. A sharp eye may yet find its name written within.`}),(0,o.jsxs)(`section`,{className:`royalListChapters`,children:[(0,o.jsxs)(`article`,{className:`royalChapterCard royalChapterFeatured`,children:[(0,o.jsx)(`div`,{className:`royalChapterImage royalChapterImageLarge`,children:(0,o.jsx)(`img`,{src:`/gallery/gtd.png`,alt:``})}),(0,o.jsxs)(`div`,{className:`royalChapterContent`,children:[(0,o.jsx)(`div`,{className:`royalChapterHeading`,children:(0,o.jsx)(`span`,{children:`STAGE I`})}),(0,o.jsx)(`h2`,{children:`MINTED OUT`}),(0,o.jsx)(`p`,{className:`royalChapterBigLine`,children:`3 MINT SPOTS PER WALLET`}),(0,o.jsx)(`p`,{className:`royalChapterText`,children:`For those who stand with onecoin and represent our kingdom.`}),(0,o.jsx)(`p`,{className:`royalChapterText royalChapterOpenSea`,children:`Minting takes place on OpenSea, so all 777 GTD places receive guaranteed mint access.`})]})]}),(0,o.jsxs)(`div`,{className:`royalChapterGrid`,children:[(0,o.jsxs)(`article`,{className:`royalChapterCard`,children:[(0,o.jsx)(`div`,{className:`royalChapterImage`,children:(0,o.jsx)(`img`,{src:`/gallery/fcfs.png`,alt:``})}),(0,o.jsxs)(`div`,{className:`royalChapterContent`,children:[(0,o.jsx)(`div`,{className:`royalChapterHeading`,children:(0,o.jsx)(`span`,{children:`STAGE II`})}),(0,o.jsx)(`h2`,{children:`EARLY ACCESS FCFS`}),(0,o.jsx)(`p`,{className:`royalChapterBigLine`,children:`1 MINT SPOT PER WALLET`}),(0,o.jsx)(`p`,{className:`royalChapterText`,children:`Access is granted in order until the available allocation has been claimed.`})]})]}),(0,o.jsxs)(`article`,{className:`royalChapterCard`,children:[(0,o.jsx)(`div`,{className:`royalChapterImage`,children:(0,o.jsx)(`img`,{src:`/gallery/fcfscommunity.png`,alt:``})}),(0,o.jsxs)(`div`,{className:`royalChapterContent`,children:[(0,o.jsx)(`div`,{className:`royalChapterHeading`,children:(0,o.jsx)(`span`,{children:`STAGE III`})}),(0,o.jsx)(`h2`,{children:`ECOSYSTEM FCFS`}),(0,o.jsx)(`p`,{className:`royalChapterBigLine`,children:`1 MINT SPOT PER WALLET`}),(0,o.jsx)(`p`,{className:`royalChapterText`,children:`A separate first-come allocation reserved for selected projects on Robinhood.`})]})]})]}),(0,o.jsx)(`style`,{children:`
+`;
+
+function SiteHeader({
+  current,
+}: {
+  current:"whitelist" | "winner";
+}) {
+  return (
+    <Container>
+      <TopBar aria-label="Primary navigation">
+        <Wordmark href="/">
+          <span>{"\u2726"}</span>
+          One Coin
+        </Wordmark>
+
+        <Nav>
+          <NavLink href="/">Home</NavLink>
+
+          <NavLink
+            href="/whitelist"
+            aria-current={
+              current === "whitelist"
+                ? "page"
+                : undefined
+            }
+          >
+            Whitelist
+          </NavLink>
+
+          <NavLink
+            href="/winner"
+            aria-current={
+              current === "winner"
+                ? "page"
+                : undefined
+            }
+          >
+            Winner chamber
+          </NavLink>
+        </Nav>
+      </TopBar>
+    </Container>
+  );
+}
+
+function SiteFooter() {
+  return <>
+    <PortalFinal>
+      <Container>
+        <PortalFinalMark aria-hidden="true">{"\u2726"} {"\u2727"} {"\u2726"}</PortalFinalMark>
+        <PortalFinalTitle>May luck be in your favour. Again.</PortalFinalTitle>
+        <PortalFinalCopy>The first game is over. The kingdom remains. Keep your coin close while Chapter II is forged.</PortalFinalCopy>
+        <PortalFinalButton href={PROJECT.twitter} target="_blank" rel="noreferrer"><span>X</span> Follow Chapter II</PortalFinalButton>
+      </Container>
+    </PortalFinal>
+
+    <Footer>
+      <Container>
+        <FooterRow>
+          <FooterLegal>To the fullest extent permitted by law, the project and its contributors are not liable for trading losses, NFT price changes, wallet compromise, failed transactions, third party services, network interruptions, taxes, or unlawful participation. NFTs are not investments and may have no resale value. Eligibility, claim deadlines, prize distribution, and the official rules apply. By participating, you accept these risks and remain responsible for complying with local laws. Use only links published by the official account.</FooterLegal>
+          <FooterLink href={PROJECT.twitter} target="_blank" rel="noreferrer">
+            Official X {"\u2197"}
+          </FooterLink>
+        </FooterRow>
+      </Container>
+    </Footer>
+  </>;
+}
+
+function pad(value:number) {
+  return value.toString().padStart(2,"0");
+}
+
+export function WhitelistChecker() {
+  const [wallet,setWallet] = useState("");
+  const [message,setMessage] = useState(
+    "Enter your wallet to search OPENSEA ↗."
+  );
+
+  async function checkWallet(
+    event: FormEvent<HTMLFormElement>
+  ) {
+    event.preventDefault();
+
+    const address = wallet.trim();
+
+    if (!/^0x[a-fA-F0-9]{40}$/.test(address)) {
+      setMessage("Enter a valid wallet address.");
+      return;
+    }
+
+    setMessage("Checking OPENSEA ↗...");
+
+    try {
+      const response = await fetch(
+        "https://ikslmrrplnwwipdnteza.supabase.co/functions/v1/whitelist-check",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            wallet: address,
+          }),
+        }
+      );
+
+      if (response.status === 429) {
+        setMessage("Too many checks. Try again later.");
+        return;
+      }
+
+      if (!response.ok) {
+        throw new Error("Whitelist lookup failed");
+      }
+
+      const data = await response.json();
+
+      if (data?.accessType === "royallist_gtd") {
+        setMessage(
+          "MINTED OUT. Guaranteed access. 3 mint spots per wallet."
+        );
+        return;
+      }
+
+      if (data?.accessType === "early_access_fcfs") {
+        setMessage(
+          "Early Access FCFS. 1 mint spot per wallet."
+        );
+        return;
+      }
+
+      if (data?.accessType === "ecosystem_fcfs") {
+        setMessage(
+          "Ecosystem FCFS. 1 mint spot per wallet."
+        );
+        return;
+      }
+
+      setMessage("This wallet is not on OPENSEA ↗.");
+
+    } catch (error) {
+      console.error(error);
+
+      setMessage(
+        "OPENSEA ↗ could not be checked. Try again."
+      );
+    }
+  }
+
+  return (
+    <Page>
+      <Edge aria-hidden="true" />
+      <SiteHeader current="whitelist" />
+
+      <WhitelistMain>
+        <Container>
+          
+
+          <Kicker>
+            OPENSEA ↗
+          </Kicker>
+
+          <Title>Whitelist checker</Title>
+
+          
+
+<Checker>
+            <CheckerLabel htmlFor="wallet">
+              Wallet address
+            </CheckerLabel>
+
+            <InputRow onSubmit={checkWallet}>
+              <WalletInput
+                id="wallet"
+                value={wallet}
+                onChange={(event) =>
+                  setWallet(event.target.value)
+                }
+                placeholder="0x..."
+                autoComplete="off"
+                spellCheck={false}
+              />
+
+              <CheckButton
+                type="submit"
+              >
+                Check wallet
+              </CheckButton>
+            </InputRow>
+
+            <CheckerStatus aria-live="polite">
+              {message}
+            </CheckerStatus>
+
+            
+          </Checker>
+
+          <p
+            style={{
+              maxWidth:"720px",
+              margin:"34px auto 0",
+              color:"var(--red)",
+              fontFamily:'"Cormorant Garamond", serif',
+              fontSize:"clamp(1.05rem, 2.3vw, 1.28rem)",
+              fontStyle:"italic",
+              fontWeight:600,
+              letterSpacing:".02em",
+              lineHeight:1.5,
+              textAlign:"center"
+            }}
+          >
+            The royals keep no fixed hour. A sharp eye may yet find its name written within.
+          </p>
+
+<section className="royalListChapters">
+
+  <article className="royalChapterCard royalChapterFeatured">
+    <div className="royalChapterImage royalChapterImageLarge">
+      <img
+        src="/gallery/gtd.png"
+        alt=""
+      />
+    </div>
+
+    <div className="royalChapterContent">
+      <div className="royalChapterHeading">
+        <span>STAGE I</span>
+      </div>
+
+      <h2>MINTED OUT</h2>
+
+      <p className="royalChapterBigLine">
+        3 MINT SPOTS PER WALLET
+      </p>
+
+      <p className="royalChapterText">
+        For those who stand with onecoin and represent our kingdom.
+      </p>
+
+      <p className="royalChapterText royalChapterOpenSea">
+        Minting takes place on OpenSea, so all 777 GTD places receive guaranteed mint access.
+      </p>
+    </div>
+  </article>
+
+
+  <div className="royalChapterGrid">
+
+    <article className="royalChapterCard">
+      <div className="royalChapterImage">
+        <img
+          src="/gallery/fcfs.png"
+          alt=""
+        />
+      </div>
+
+      <div className="royalChapterContent">
+        <div className="royalChapterHeading">
+          <span>STAGE II</span>
+        </div>
+
+        <h2>EARLY ACCESS FCFS</h2>
+
+        <p className="royalChapterBigLine">
+          1 MINT SPOT PER WALLET
+        </p>
+
+        <p className="royalChapterText">
+          Access is granted in order until the available allocation has been claimed.
+        </p>
+      </div>
+    </article>
+
+
+    <article className="royalChapterCard">
+      <div className="royalChapterImage">
+        <img
+          src="/gallery/fcfscommunity.png"
+          alt=""
+        />
+      </div>
+
+      <div className="royalChapterContent">
+        <div className="royalChapterHeading">
+          <span>STAGE III</span>
+        </div>
+
+        <h2>ECOSYSTEM FCFS</h2>
+
+        <p className="royalChapterBigLine">
+          1 MINT SPOT PER WALLET
+        </p>
+
+        <p className="royalChapterText">
+          A separate first-come allocation reserved for selected projects on Robinhood.
+        </p>
+      </div>
+    </article>
+
+  </div>
+
+
+  <style>{`
 
     .royalListChapters {
       width: min(1320px, calc(100% - 48px));
@@ -1027,7 +1387,200 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
       }
     }
 
-  `})]})]})}),(0,o.jsx)(Q,{})]})}function we(){let[e,t]=(0,a.useState)(4821),[n,r]=(0,a.useState)(0),i=Date.parse(re),s=b.length===7;(0,a.useEffect)(()=>{let e=4821,n=window.setInterval(()=>{e=(e*9301+49297)%1e4,t(e+1)},950),i=()=>{r(Date.now())};i();let a=window.setInterval(i,1e3);return()=>{window.clearInterval(n),window.clearInterval(a)}},[]);let c=i&&n?Math.max(0,i-n):0;Math.floor(c/864e5);let l=Math.floor(c/36e5),u=Math.floor(c%36e5/6e4),d=Math.floor(c%6e4/1e3),f=!!(i&&n&&c>0&&!s),p=!!(i&&n&&c===0&&!s);return(0,a.useEffect)(()=>{if(!window.matchMedia(`(hover: none), (pointer: coarse)`).matches||!(`IntersectionObserver`in window))return;let e=Array.from(document.querySelectorAll(`.winner-art-card`)),t=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.intersectionRatio>=.6&&(e.target.classList.add(`is-revealed`),t.unobserve(e.target))})},{threshold:[.6]});return e.forEach(e=>{t.observe(e)}),()=>{t.disconnect()}},[]),(0,o.jsxs)(x,{children:[(0,o.jsx)(S,{"aria-hidden":`true`}),(0,o.jsx)(Z,{current:`winner`}),(0,o.jsx)(le,{children:(0,o.jsxs)(C,{children:[(0,o.jsxs)(L,{children:[`Minted out `,`·`,` final draw`]}),(0,o.jsx)(ue,{children:f?(0,o.jsxs)(o.Fragment,{children:[(0,o.jsxs)(_e,{"aria-label":`Time remaining until the draw`,children:[(0,o.jsxs)(q,{children:[(0,o.jsx)(`b`,{children:$(l)}),(0,o.jsx)(`span`,{children:`Hours`})]}),(0,o.jsxs)(q,{children:[(0,o.jsx)(`b`,{children:$(u)}),(0,o.jsx)(`span`,{children:`Minutes`})]}),(0,o.jsxs)(q,{children:[(0,o.jsx)(`b`,{children:$(d)}),(0,o.jsx)(`span`,{children:`Seconds`})]})]}),(0,o.jsxs)(me,{children:[`September 8 `,`·`,` 3:30 PM UTC`]})]}):(0,o.jsxs)(de,{children:[(0,o.jsx)(fe,{children:s?`The seven winning IDs have been revealed.`:p?`The draw is live. Check X for the winning IDs.`:`The final draw begins September 8 at 3:30 PM UTC.`}),(0,o.jsxs)(pe,{href:y.dice,target:`_blank`,rel:`noreferrer`,children:[`Verifiable with Dice Protocol `,`↗`]})]})}),(0,o.jsxs)(he,{children:[(0,o.jsxs)(K,{href:y.twitter,target:`_blank`,rel:`noreferrer`,children:[`CHECK X FOR THE DRAW `,`↗`]}),(0,o.jsxs)(ge,{href:y.opensea,target:`_blank`,rel:`noreferrer`,children:[`GET YOUR NFT `,`↗`]})]}),(0,o.jsx)(`div`,{style:{height:`52px`}}),(0,o.jsx)(L,{children:`The draw room`}),(0,o.jsxs)(R,{children:[`Seven doors.`,(0,o.jsx)(`br`,{}),`Seven fortunes.`]}),(0,o.jsx)(z,{children:`Seven winning NFTs receive $1,000 each. Every NFT is one entry, and every winning ID is worth 1,000x the $1 mint price.`}),(0,o.jsxs)(ve,{children:[(0,o.jsxs)(J,{children:[(0,o.jsx)(`b`,{children:`7`}),`Winning NFTs`]}),(0,o.jsxs)(J,{children:[(0,o.jsx)(`b`,{children:`$1,000`}),`For each winner`]}),(0,o.jsxs)(J,{children:[(0,o.jsx)(`b`,{children:`1,000x`}),`The mint price`]})]})]})}),(0,o.jsx)(v,{}),(0,o.jsx)(ye,{children:(0,o.jsxs)(C,{children:[(0,o.jsxs)(be,{children:[(0,o.jsx)(L,{children:`The final seven`}),(0,o.jsx)(Y,{children:s?`The winners.`:`The names remain sealed.`}),s&&(0,o.jsx)(xe,{className:`winner-section-copy`,children:`Each winning ID and its owner can now be checked against the verified Dice result.`})]}),(0,o.jsx)(`style`,{children:`
+  `}</style>
+
+</section>
+
+          
+        </Container>
+      </WhitelistMain>
+
+      <SiteFooter />
+    </Page>
+  );
+}
+
+export function WinnerRoom() {
+  const [candidate,setCandidate] = useState(4821);
+  const [now,setNow] = useState(0);
+
+  const drawTime = Date.parse(DRAW_AT);
+
+  const hasWinners =
+    PUBLISHED_WINNERS.length === 7;
+
+  useEffect(() => {
+    let seed = 4821;
+
+    const candidateTimer = window.setInterval(() => {
+      seed = (seed * 9301 + 49297) % 10000;
+      setCandidate(seed + 1);
+    },950);
+
+    const updateClock = () => {
+      setNow(Date.now());
+    };
+
+    updateClock();
+
+    const clockTimer = window.setInterval(
+      updateClock,
+      1000
+    );
+
+    return () => {
+      window.clearInterval(candidateTimer);
+      window.clearInterval(clockTimer);
+    };
+  },[]);
+
+  const remaining =
+    drawTime && now
+      ? Math.max(0,drawTime - now)
+      : 0;
+
+  const days = Math.floor(
+    remaining / 86400000
+  );
+
+  const hours = Math.floor(remaining / 3600000);
+
+  const minutes = Math.floor(
+    (remaining % 3600000) / 60000
+  );
+
+  const seconds = Math.floor(
+    (remaining % 60000) / 1000
+  );
+
+  const isCountdown = Boolean(
+    drawTime &&
+    now &&
+    remaining > 0 &&
+    !hasWinners
+  );
+
+  const isAwaitingDraw = Boolean(
+    drawTime &&
+    now &&
+    remaining === 0 &&
+    !hasWinners
+  );
+
+
+  /* winnerRevealObserver */
+  useEffect(() => {
+    const isTouchDevice = window.matchMedia(
+      "(hover: none), (pointer: coarse)"
+    ).matches;
+
+    if (
+      !isTouchDevice ||
+      !("IntersectionObserver" in window)
+    ) {
+      return;
+    }
+
+    const cards = Array.from(
+      document.querySelectorAll<HTMLElement>(
+        ".winner-art-card"
+      )
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (
+            entry.isIntersecting &&
+            entry.intersectionRatio >= 0.6
+          ) {
+            entry.target.classList.add(
+              "is-revealed"
+            );
+
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold:[0.6]
+      }
+    );
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  },[]);
+
+  return (
+    <Page>
+      <Edge aria-hidden="true" />
+      <SiteHeader current="winner" />
+
+      <WinnerHero>
+  <Container>
+
+    <Title>
+      The royal purse is empty
+    </Title>
+
+    <Lead>
+      Seven winners. $7,000 sent.
+    </Lead>
+
+    <DrawStatus>
+      <DrawMessage>
+        <DrawLabel>
+          CHAPTER I IS COMPLETE.
+        </DrawLabel>
+      </DrawMessage>
+    </DrawStatus>
+
+    <WinnerActions>
+      <WinnerButton
+        href={PROJECT.twitter}
+        target="_blank"
+        rel="noreferrer"
+      >
+        VIEW THE DRAW ON X {"\u2197"}
+      </WinnerButton>
+
+      <WinnerSecondaryButton
+        href={PROJECT.opensea}
+        target="_blank"
+        rel="noreferrer"
+      >
+        VIEW THE COLLECTION {"\u2197"}
+      </WinnerSecondaryButton>
+    </WinnerActions>
+
+    <Lead style={{marginTop:"55px"}}>
+      Every winner has been paid.
+      The final seven now remain here as part of One Coin history.
+    </Lead>
+
+  </Container>
+</WinnerHero>
+
+<WinnersSection>
+        <Container>
+          <SectionHead>
+            <Kicker>The final seven</Kicker>
+
+            <SectionTitle>
+              Fortune found its seven.
+            </SectionTitle>
+
+            <SectionCopy className="winner-section-copy">
+              Seven fortunes were chosen. Seven rewards were sent. These cards now mark the winners of the first One Coin game.
+            </SectionCopy>
+          </SectionHead>
+
+          <style>{`
             /* winnerCardSiteStyle */
 
             .winner-art-grid {
@@ -1117,7 +1670,9 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
                 transition:none;
               }
             }
-          `}),(0,o.jsx)(`style`,{children:`
+          `}</style>
+
+          <style>{`
             /* winnerCardOverlayFix */
 
             .winner-art-card {
@@ -1176,7 +1731,9 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
                 transition:none;
               }
             }
-          `}),(0,o.jsx)(`style`,{children:`
+          `}</style>
+
+          <style>{`
             /* winnerCardEqualSizeFix */
 
             .winner-art-card {
@@ -1206,7 +1763,9 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
             .winner-card-cover {
               z-index:2;
             }
-          `}),(0,o.jsx)(`style`,{children:`
+          `}</style>
+
+          <style>{`
             /* winnerFourThreeLayout */
 
             .winner-section-copy {
@@ -1281,4 +1840,53 @@ import{r as e}from"./rolldown-runtime-S-ySWqyJ.js";import{i as t,r as n}from"./f
                 justify-self:stretch;
               }
             }
-          `}),(0,o.jsx)(Se,{"data-mobile-winner-grid":`true`,className:`winner-art-grid`,children:s?(0,o.jsx)(o.Fragment,{children:Array.from({length:7},(e,t)=>{let n=b[t];return(0,o.jsxs)(X,{children:[(0,o.jsxs)(`span`,{children:[`Winner `,t+1]}),(0,o.jsx)(`b`,{children:n?`#${n.toString().padStart(4,`0`)}`:`SEALED`}),(0,o.jsx)(`small`,{children:n?`$1,000 prize`:`Awaiting draw`})]},t)})}):[`/gallery/winner-1.png`,`/gallery/winner-2.png`,`/gallery/winner-3.png`,`/gallery/winner-4.png`,`/gallery/winner-5.png`,`/gallery/winner-6.png`,`/gallery/winner-7.png`].map((e,t)=>(0,o.jsxs)(X,{className:`winner-art-card`,tabIndex:0,style:{padding:0,overflow:`hidden`},children:[(0,o.jsx)(`img`,{className:`winner-card-art`,src:e,alt:`Fortune card for winner ${t+1}`,loading:t<2?`eager`:`lazy`}),(0,o.jsx)(`img`,{className:`winner-card-cover`,src:`/gallery/unrevealed.png`,alt:`Sealed fortune card`,loading:`eager`})]},e))})]})}),(0,o.jsx)(Q,{})]})}export{Ce as WhitelistChecker,we as WinnerRoom};
+          `}</style>
+
+          <WinnerGrid data-mobile-winner-grid="true" className="winner-art-grid">
+            {[
+              "/gallery/winner-1.png",
+              "/gallery/winner-2.png",
+              "/gallery/winner-3.png",
+              "/gallery/winner-4.png",
+              "/gallery/winner-5.png",
+              "/gallery/winner-6.png",
+              "/gallery/winner-7.png"
+            ].map((image,index) => (
+              <WinnerSlot
+                key={image}
+                className="winner-art-card is-revealed"
+                tabIndex={0}
+                style={{
+                  padding:0,
+                  overflow:"hidden"
+                }}
+              >
+                <img
+                  className="winner-card-art"
+                  src={image}
+                  alt={`Fortune card for winner ${index + 1}`}
+                  loading={index < 2 ? "eager" : "lazy"}
+                />
+
+                <img
+                  className="winner-card-cover"
+                  src="/gallery/unrevealed.png"
+                  alt=""
+                  aria-hidden="true"
+                  loading="eager"
+                />
+              </WinnerSlot>
+            ))}
+          </WinnerGrid>
+        </Container>
+      </WinnersSection>
+
+      <SiteFooter />
+    </Page>
+  );
+}
+
+
+
+
+

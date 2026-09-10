@@ -1,17 +1,8 @@
-﻿"use client";
-
-import { usePathname } from "next/navigation";
-import styled, { createGlobalStyle } from "styled-components";
-
-const TWITTER_URL = "https://x.com/onecoinrbh";
-
-const HideOldHeaders = createGlobalStyle`
+import{r as e}from"./framework-B8WyT5R3.js";import{t}from"./navigation-CmmnqiuG.js";import{i as n,r}from"./styled-components.browser.esm-B0_qInRY.js";var i=e(),a=`https://x.com/onecoinrbh`,o=r`
   nav[aria-label="Primary navigation"]:not([data-shared-header="true"]) {
     display: none !important;
   }
-`;
-
-const Header = styled.header`
+`,s=n.header`
   position: relative;
   z-index: 60;
   isolation: isolate;
@@ -29,9 +20,7 @@ const Header = styled.header`
       transparent 1px 5px
     );
   border-bottom: 1px solid rgba(37, 23, 14, 0.3);
-`;
-
-const HeaderInner = styled.nav`
+`,c=n.nav`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -47,9 +36,7 @@ const HeaderInner = styled.nav`
     width: calc(100% - 32px);
     padding: 16px 0;
   }
-`;
-
-const Wordmark = styled.a`
+`,l=n.a`
   display: inline-flex;
   align-items: center;
   gap: 9px;
@@ -65,9 +52,7 @@ const Wordmark = styled.a`
     color: #9e332a;
     font-size: 1.15rem;
   }
-`;
-
-const HeaderLink = styled.a`
+`,u=n.a`
   color: #25170e;
   border-bottom: 1px solid currentColor;
   font-family: "Cormorant Garamond", serif;
@@ -81,9 +66,7 @@ const HeaderLink = styled.a`
   &[aria-current="page"] {
     color: #9e332a;
   }
-`;
-
-const DesktopLinks = styled.div`
+`,d=n.div`
   display: flex;
   align-items: center;
   gap: clamp(10px, 2.2vw, 25px);
@@ -91,9 +74,7 @@ const DesktopLinks = styled.div`
   @media (max-width: 680px) {
     display: none;
   }
-`;
-
-const MobileMenu = styled.details`
+`,f=n.details`
   display: none;
   position: relative;
 
@@ -129,9 +110,7 @@ const MobileMenu = styled.details`
   &[open] .menu-close {
     display: inline;
   }
-`;
-
-const MobilePanel = styled.div`
+`,p=n.div`
   position: absolute;
   top: calc(100% + 17px);
   right: 0;
@@ -155,102 +134,14 @@ const MobilePanel = styled.div`
   border: 1px solid rgba(37, 23, 14, 0.35);
   box-shadow: 8px 10px 0 rgba(37, 23, 14, 0.13);
 
-  ${HeaderLink} {
+  ${u} {
     display: block;
     padding: 14px 2px;
     border-bottom: 1px solid rgba(37, 23, 14, 0.25);
     font-size: 0.82rem;
   }
 
-  ${HeaderLink}:last-child {
+  ${u}:last-child {
     border-bottom: 0;
   }
-`;
-
-export default function GlobalSiteHeader() {
-  const pathname = usePathname();
-
-  return (
-    <>
-      <HideOldHeaders />
-
-      <Header>
-        <HeaderInner
-          aria-label="Primary navigation"
-          data-shared-header="true"
-        >
-          <Wordmark href="/">
-            <span>{"\u2726"}</span>
-            One Coin
-          </Wordmark>
-
-          <DesktopLinks>
-            <HeaderLink
-              href="/"
-              aria-current={pathname === "/" ? "page" : undefined}
-            >
-              The Great Hall
-            </HeaderLink>
-<HeaderLink
-              href="/winner"
-              aria-current={pathname === "/winner" ? "page" : undefined}
-            >
-              The Great Seven
-            </HeaderLink>
-<HeaderLink
-              href="/scroll"
-              aria-current={pathname === "/scroll" ? "page" : undefined}
-            >
-              The Royal Scroll
-            </HeaderLink>
-
-            <HeaderLink
-              href={TWITTER_URL}
-              target="_blank"
-              rel="noreferrer"
-            >
-              X {"\u2197\uFE0E"}
-            </HeaderLink>
-          </DesktopLinks>
-
-          <MobileMenu>
-            <summary>
-              <span className="menu-open">Menu</span>
-              <span className="menu-close">Close</span>
-            </summary>
-
-            <MobilePanel>
-              <HeaderLink
-                href="/"
-                aria-current={pathname === "/" ? "page" : undefined}
-              >
-                The Great Hall
-              </HeaderLink>
-<HeaderLink
-                href="/winner"
-                aria-current={pathname === "/winner" ? "page" : undefined}
-              >
-                The Great Seven
-              </HeaderLink>
-
-              <HeaderLink
-                href={TWITTER_URL}
-                target="_blank"
-                rel="noreferrer"
-              >
-                X {"\u2197\uFE0E"}
-              </HeaderLink>
-            </MobilePanel>
-          </MobileMenu>
-        </HeaderInner>
-      </Header>
-    </>
-  );
-}
-
-
-
-
-
-
-
+`;function m(){let e=t();return(0,i.jsxs)(i.Fragment,{children:[(0,i.jsx)(o,{}),(0,i.jsx)(s,{children:(0,i.jsxs)(c,{"aria-label":`Primary navigation`,"data-shared-header":`true`,children:[(0,i.jsxs)(l,{href:`/`,children:[(0,i.jsx)(`span`,{children:`✦`}),`One Coin`]}),(0,i.jsxs)(d,{children:[(0,i.jsx)(u,{href:`/`,"aria-current":e===`/`?`page`:void 0,children:`The Great Hall`}),(0,i.jsx)(u,{href:`/winner`,"aria-current":e===`/winner`?`page`:void 0,children:`The Great Seven`}),(0,i.jsx)(u,{href:`/scroll`,"aria-current":e===`/scroll`?`page`:void 0,children:`The Royal Scroll`}),(0,i.jsxs)(u,{href:a,target:`_blank`,rel:`noreferrer`,children:[`X `,`↗︎`]})]}),(0,i.jsxs)(f,{children:[(0,i.jsxs)(`summary`,{children:[(0,i.jsx)(`span`,{className:`menu-open`,children:`Menu`}),(0,i.jsx)(`span`,{className:`menu-close`,children:`Close`})]}),(0,i.jsxs)(p,{children:[(0,i.jsx)(u,{href:`/`,"aria-current":e===`/`?`page`:void 0,children:`The Great Hall`}),(0,i.jsx)(u,{href:`/winner`,"aria-current":e===`/winner`?`page`:void 0,children:`The Great Seven`}),(0,i.jsxs)(u,{href:a,target:`_blank`,rel:`noreferrer`,children:[`X `,`↗︎`]})]})]})]})})]})}export{m as default};

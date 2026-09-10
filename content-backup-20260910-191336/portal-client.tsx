@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState, type FormEvent } from "react";
 import styled, { keyframes } from "styled-components";
@@ -872,143 +872,6 @@ const WinnerSlot = styled.article`
   }
 `;
 
-
-
-/* greatSevenDetailsStyles */
-
-const GreatSevenDetailsSection = styled.section`
-  padding:78px 0 92px;
-  border-top:2px solid var(--ink);
-  border-bottom:2px solid var(--ink);
-  background:var(--paper);
-`;
-
-const GreatSevenFacts = styled.div`
-  display:grid;
-  grid-template-columns:repeat(5,minmax(0,1fr));
-  margin-top:42px;
-  border:2px solid var(--ink);
-  background:var(--light);
-  box-shadow:7px 8px 0 var(--lapis);
-
-  @media(max-width:900px){
-    grid-template-columns:repeat(2,minmax(0,1fr));
-  }
-
-  @media(max-width:520px){
-    grid-template-columns:1fr;
-  }
-`;
-
-const GreatSevenFact = styled.div`
-  min-height:125px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  padding:22px;
-  border-right:1px solid rgba(37,23,14,.5);
-
-  &:last-child{
-    border-right:0;
-  }
-
-  b{
-    color:var(--lapis);
-    font-family:"Cinzel",serif;
-    font-size:clamp(1.8rem,3vw,2.8rem);
-    line-height:1;
-  }
-
-  span{
-    margin-top:20px;
-    color:var(--red);
-    font-family:"Cormorant Garamond",serif;
-    font-size:.72rem;
-    font-weight:700;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-  }
-
-  @media(max-width:900px){
-    border-bottom:1px solid rgba(37,23,14,.35);
-  }
-`;
-
-const GreatSevenFlow = styled.div`
-  display:grid;
-  gap:14px;
-  margin-top:50px;
-
-  @media(min-width:820px){
-    grid-template-columns:repeat(2,minmax(0,1fr));
-  }
-`;
-
-const GreatSevenStep = styled.article`
-  display:grid;
-  grid-template-columns:70px 1fr;
-  gap:20px;
-  min-height:190px;
-  padding:27px;
-  border:2px solid var(--ink);
-  background:var(--light);
-  box-shadow:6px 7px 0 var(--gold);
-
-  &:nth-child(2){
-    box-shadow:6px 7px 0 var(--red);
-  }
-
-  &:nth-child(3){
-    box-shadow:6px 7px 0 var(--lapis);
-  }
-
-  &:nth-child(4){
-    background:var(--lapis);
-    color:var(--light);
-    box-shadow:6px 7px 0 var(--red);
-  }
-`;
-
-const GreatSevenStepNo = styled.div`
-  color:var(--red);
-  font-family:"Cinzel",serif;
-  font-size:2.4rem;
-  font-weight:700;
-  line-height:1;
-
-  ${GreatSevenStep}:nth-child(4) &{
-    color:var(--pale-gold);
-  }
-`;
-
-const GreatSevenStepBody = styled.div`
-  strong{
-    display:block;
-    color:var(--lapis);
-    font-family:"Cinzel",serif;
-    font-size:clamp(1.15rem,2.3vw,1.7rem);
-    line-height:1.05;
-  }
-
-  p{
-    margin:14px 0 0;
-    color:rgba(37,23,14,.76);
-    font-family:"Cormorant Garamond",serif;
-    font-size:1.05rem;
-    font-weight:600;
-    line-height:1.48;
-  }
-
-  ${GreatSevenStep}:nth-child(4) & strong{
-    color:var(--pale-gold);
-  }
-
-  ${GreatSevenStep}:nth-child(4) & p{
-    color:rgba(255,255,255,.82);
-  }
-`;
-
-
 function SiteHeader({
   current,
 }: {
@@ -1044,7 +907,7 @@ function SiteHeader({
                 : undefined
             }
           >
-            The Great Seven
+            Winner room
           </NavLink>
         </Nav>
       </TopBar>
@@ -1057,17 +920,26 @@ function SiteFooter() {
     <PortalFinal>
       <Container>
         <PortalFinalMark aria-hidden="true">{"\u2726"} {"\u2727"} {"\u2726"}</PortalFinalMark>
-        <PortalFinalTitle>The proof remains.</PortalFinalTitle>
-        <PortalFinalCopy>
-          The draw ended.
-          The record did not.
-        </PortalFinalCopy>
-        <PortalFinalButton
-          href={PROJECT.twitter}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span>X</span> View the public record
+        <PortalFinalTitle>May luck be in your favour.</PortalFinalTitle>
+        <PortalFinalCopy>10,000 entries. Seven winners. One dollar is all it takes to be part of the story.
+              {/* footerEntryExplainer */}
+              <span
+                style={{
+                  display:"block",
+                  marginTop:"12px",
+                  fontSize:"clamp(.92rem, 1.15vw, 1.05rem)",
+                  fontWeight:700,
+                  lineHeight:1.5,
+                  letterSpacing:".02em",
+                  color:"inherit",
+                  opacity:.88
+                }}
+              >
+                One NFT = one entry. Five NFTs in one wallet =
+                five separate entries in the draw.
+              </span></PortalFinalCopy>
+        <PortalFinalButton href={PROJECT.twitter} target="_blank" rel="noreferrer">
+          <span>X</span> Follow for the mint
         </PortalFinalButton>
       </Container>
     </PortalFinal>
@@ -1546,221 +1418,6 @@ export function WhitelistChecker() {
   );
 }
 
-
-const VERIFIED_WINNERS = [
-  {
-    fortune:"I",
-    id:7230,
-    tx:"0x214ec4264a4c2bebe7573a96c05e50c7de8c3fc0320210451feed9eeb82e9acf",
-  },
-  {
-    fortune:"II",
-    id:7381,
-    tx:"0xeeef74b6979bfe09462f58380478c59d06f6ab31c58393c87a3fad04fca3530e",
-  },
-  {
-    fortune:"III",
-    id:4078,
-    tx:"0x311ecc4002785723d810a641f2dc6190b4b66a7f2e49cc2a7dc0225b992ffdee",
-  },
-  {
-    fortune:"IV",
-    id:5729,
-    tx:"0x837d5bd61b90d3645a5d4c3ac34e0dfee120b1bedd1002d591348cc026144894",
-  },
-  {
-    fortune:"V",
-    id:6040,
-    tx:"0x2456430cf51cd76fe3224abc68add8446619ed153ed6af47e0495d09e161eb4c",
-  },
-  {
-    fortune:"VI",
-    id:7924,
-    tx:"0xae905328b9c2dd0b0e1fa50129f3e72e49a23614b337b7b5126a603ff0ad7e2e",
-  },
-  {
-    fortune:"VII",
-    id:5414,
-    tx:"0xd8cd5cf6a116f35b659a106686ac261ba731bbbdf6271c2c663cc5a64c2a476c",
-  },
-] as const;
-
-const DRAW_PROOF =
-  "https://x.com/DiceAgentRH/status/2097346750931443937";
-
-const ONECOIN_COLLECTION =
-  "https://opensea.io/collection/onecoin";
-
-const ROBINHOOD_EXPLORER =
-  "https://robinhoodchain.blockscout.com";
-
-
-
-/* verifiedRoyalLedger */
-
-const RoyalLedger = styled.div`
-  margin-top:58px;
-  border:2px solid var(--ink);
-  background:var(--light);
-  box-shadow:8px 9px 0 var(--lapis);
-`;
-
-const RoyalLedgerHead = styled.div`
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:30px;
-  padding:30px 32px;
-  border-bottom:2px solid var(--ink);
-  background:var(--paper);
-
-  h3{
-    margin:4px 0 0;
-    color:var(--lapis);
-    font-family:"Cinzel",serif;
-    font-size:clamp(1.8rem,4vw,3.4rem);
-    line-height:1;
-  }
-
-  > span{
-    color:var(--red);
-    font-family:"Cinzel",serif;
-    font-size:.68rem;
-    font-weight:700;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-    white-space:nowrap;
-  }
-
-  @media(max-width:680px){
-    align-items:flex-start;
-    flex-direction:column;
-    gap:12px;
-  }
-`;
-
-const RoyalLedgerRow = styled.div`
-  display:grid;
-  grid-template-columns:110px 120px 150px minmax(0,1fr);
-  align-items:center;
-  gap:18px;
-  padding:20px 28px;
-  border-bottom:1px solid rgba(37,23,14,.35);
-
-  &:last-child{
-    border-bottom:0;
-  }
-
-  @media(max-width:800px){
-    grid-template-columns:90px 1fr;
-    gap:10px 18px;
-  }
-
-  @media(max-width:500px){
-    grid-template-columns:1fr;
-    gap:7px;
-  }
-`;
-
-const RoyalFortune = styled.span`
-  color:var(--red);
-  font-family:"Cinzel",serif;
-  font-size:.63rem;
-  font-weight:700;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-`;
-
-const RoyalToken = styled.strong`
-  color:var(--lapis);
-  font-family:"Cinzel",serif;
-  font-size:1.3rem;
-`;
-
-const RoyalPaid = styled.span`
-  color:var(--ink);
-  font-family:"Cormorant Garamond",serif;
-  font-size:.76rem;
-  font-weight:700;
-  letter-spacing:.09em;
-  text-transform:uppercase;
-`;
-
-const RoyalTx = styled.a`
-  overflow:hidden;
-  color:var(--lapis);
-  font-family:monospace;
-  font-size:.73rem;
-  font-weight:700;
-  text-decoration:none;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-
-  &:hover{
-    color:var(--red);
-    text-decoration:underline;
-  }
-
-  @media(min-width:801px){
-    text-align:right;
-  }
-`;
-
-const VerificationBox = styled.div`
-  display:grid;
-  gap:2px;
-  margin-top:30px;
-  border:2px solid var(--ink);
-  background:var(--ink);
-
-  @media(min-width:720px){
-    grid-template-columns:1fr 1fr;
-  }
-`;
-
-const VerificationLink = styled.a`
-  min-height:135px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  padding:27px 30px;
-  background:var(--light);
-  color:var(--ink);
-  text-decoration:none;
-  transition:.18s ease;
-
-  small{
-    color:var(--red);
-    font-family:"Cinzel",serif;
-    font-size:.61rem;
-    font-weight:700;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-  }
-
-  strong{
-    display:block;
-    margin-top:9px;
-    color:var(--lapis);
-    font-family:"Cinzel",serif;
-    font-size:clamp(1.2rem,2.7vw,1.8rem);
-    line-height:1.05;
-  }
-
-  span{
-    display:block;
-    margin-top:10px;
-    font-family:"Cormorant Garamond",serif;
-    font-size:1rem;
-    font-weight:600;
-  }
-
-  &:hover{
-    background:var(--paper);
-  }
-`;
-
-
 export function WinnerRoom() {
   const [candidate,setCandidate] = useState(4821);
   const [now,setNow] = useState(0);
@@ -1883,493 +1540,440 @@ export function WinnerRoom() {
       <SiteHeader current="winner" />
 
       <WinnerHero>
+  <Container>
+
+    <Title>
+      Minted out
+    </Title>
+
+    <Lead>
+      Draw in:
+    </Lead>
+
+    <DrawStatus>
+      {isCountdown ? (
+        <>
+          <Countdown
+            aria-label="Time remaining until the draw"
+          >
+            <TimeCell>
+              <b>{pad(hours)}</b>
+              <span>Hours</span>
+            </TimeCell>
+
+            <TimeCell>
+              <b>{pad(minutes)}</b>
+              <span>Minutes</span>
+            </TimeCell>
+
+            <TimeCell>
+              <b>{pad(seconds)}</b>
+              <span>Seconds</span>
+            </TimeCell>
+          </Countdown>
+
+          <WinnerDrawDate>
+            September 8 {"\u00B7"} 3:30 PM UTC
+          </WinnerDrawDate>
+        </>
+      ) : (
+        <DrawMessage>
+          <DrawLabel>
+            {hasWinners
+              ? "The seven winning IDs have been revealed."
+              : "The draw is live. Check X for the winning IDs."}
+          </DrawLabel>
+        </DrawMessage>
+      )}
+    </DrawStatus>
+
+    <WinnerActions>
+      <WinnerButton
+        href={PROJECT.twitter}
+        target="_blank"
+        rel="noreferrer"
+      >
+        CHECK X FOR THE DRAW {"\u2197"}
+      </WinnerButton>
+
+      <WinnerSecondaryButton
+        href={PROJECT.opensea}
+        target="_blank"
+        rel="noreferrer"
+      >
+        GET YOUR NFT {"\u2197"}
+      </WinnerSecondaryButton>
+    </WinnerActions>
+
+    <Lead
+      style={{
+        marginTop:"55px"
+      }}
+    >
+      Seven winning NFTs receive $1,000 each.
+      Every NFT is one entry, and every winning ID
+      is worth 1,000x the $1 mint price.
+    </Lead>
+
+  </Container>
+</WinnerHero>
+
+      <CandidateCarouselSection />
+
+      <WinnersSection>
         <Container>
-
-          <Kicker>The first tale</Kicker>
-
-          <Title>
-            The Great Seven
-          </Title>
-
-          <Lead>
-            Seven coins changed seven lives.
-          </Lead>
-
-          <WinnerActions>
-
-            <WinnerButton
-              href="https://x.com/onecoinrbh/status/2097349817420652725?s=20"
-              target="_blank"
-              rel="noreferrer"
-            >
-              VIEW THE PUBLIC RECORD {"\u2197"}
-            </WinnerButton>
-
-            <WinnerSecondaryButton
-              href={PROJECT.opensea}
-              target="_blank"
-              rel="noreferrer"
-            >
-              VIEW THE COLLECTION {"\u2197"}
-            </WinnerSecondaryButton>
-
-          </WinnerActions>
-
-        </Container>
-      </WinnerHero>
-
-      {/* greatSevenDetailsContent */}
-      <GreatSevenDetailsSection>
-        <Container>
-
           <SectionHead>
-
-            <Kicker>
-              The first collection
-            </Kicker>
+            <Kicker>The final seven</Kicker>
 
             <SectionTitle>
-              How the first game worked.
+              {hasWinners
+                ? "The winners."
+                : "The names remain sealed."}
             </SectionTitle>
 
-            <SectionCopy>
-              The first One Coin chapter was a collection of 10,000 NFTs
-              on Robinhood Chain, minted through OpenSea for $1 each.
-              Every NFT represented one separate chance in the final draw.
+            {hasWinners && (
+            <SectionCopy className="winner-section-copy">
+              Each winning ID and its owner can now be checked
+              against the verified Dice result.
             </SectionCopy>
-
+          )}
           </SectionHead>
 
-          <GreatSevenFacts>
+          <style>{`
+            /* winnerCardSiteStyle */
 
-            <GreatSevenFact>
-              <b>10,000</b>
-              <span>Total supply</span>
-            </GreatSevenFact>
+            .winner-art-grid {
+              display:grid;
+              position:relative;
+              left:50%;
+              width:min(1400px, calc(100vw - 80px));
+              margin:0;
+              grid-template-columns:repeat(7, minmax(0, 1fr));
+              justify-content:center;
+              gap:12px;
+              transform:translateX(-50%);
+            }
 
-            <GreatSevenFact>
-              <b>$1</b>
-              <span>Mint price</span>
-            </GreatSevenFact>
+            .winner-art-card {
+              position:relative;
+              box-sizing:border-box;
+              width:100%;
+              min-width:0;
+              padding:2px !important;
+              overflow:hidden;
+              border:1px solid var(--ink);
+              border-radius:0;
+              background:var(--pale-gold);
+              box-shadow:
+                4px 0 0 var(--red),
+                4px 5px 0 var(--lapis);
+              cursor:pointer;
+              transition:
+                transform .2s ease,
+                box-shadow .2s ease;
+            }
 
-            <GreatSevenFact>
-              <b>24H</b>
-              <span>Trading window</span>
-            </GreatSevenFact>
+            .winner-art-card::after {
+              display:none;
+            }
 
-            <GreatSevenFact>
-              <b>7</b>
-              <span>Winning NFTs</span>
-            </GreatSevenFact>
+            .winner-card-art {
+              display:block;
+              width:100%;
+              height:auto;
+              border:0;
+              object-fit:contain;
+            }
 
-            <GreatSevenFact>
-              <b>$7K</b>
-              <span>Paid to winners</span>
-            </GreatSevenFact>
+            .winner-card-cover {
+              inset:2px;
+              width:calc(100% - 4px);
+              height:calc(100% - 4px);
+              border:0;
+              object-fit:cover;
+            }
 
-          </GreatSevenFacts>
+            .winner-art-card:hover,
+            .winner-art-card:focus-visible {
+              transform:translate(1px,1px);
+              box-shadow:
+                3px 0 0 var(--red),
+                3px 4px 0 var(--lapis);
+            }
 
-          <GreatSevenFlow>
+            .winner-art-card.is-revealed {
+              box-shadow:
+                4px 0 0 var(--red),
+                4px 5px 0 var(--lapis);
+            }
 
-            <GreatSevenStep>
+            @media (max-width:900px) {
+              .winner-art-grid {
+                width:min(720px, calc(100vw - 36px));
+                grid-template-columns:repeat(2, minmax(0, 1fr));
+                gap:18px;
+              }
+            }
 
-              <GreatSevenStepNo>I</GreatSevenStepNo>
+            @media (max-width:520px) {
+              .winner-art-grid {
+                width:min(280px, calc(100vw - 28px));
+                grid-template-columns:1fr;
+              }
+            }
 
-              <GreatSevenStepBody>
-                <strong>One dollar. One entry.</strong>
+            @media (prefers-reduced-motion: reduce) {
+              .winner-art-card,
+              .winner-card-art,
+              .winner-card-cover {
+                transition:none;
+              }
+            }
+          `}</style>
 
-                <p>
-                  10,000 One Coin NFTs were released on Robinhood Chain
-                  through OpenSea for $1 each. Every NFT counted as one
-                  individual entry in the final draw.
-                </p>
-              </GreatSevenStepBody>
+          <style>{`
+            /* winnerCardOverlayFix */
 
-            </GreatSevenStep>
+            .winner-art-card {
+              position:relative !important;
+              overflow:hidden !important;
+            }
 
+            .winner-card-art {
+              position:relative;
+              z-index:1;
+              display:block;
+              width:100%;
+              height:auto;
+              object-fit:contain;
+              transition:
+                transform .42s ease,
+                filter .42s ease;
+            }
 
-            <GreatSevenStep>
+            .winner-card-cover {
+              position:absolute !important;
+              inset:3px !important;
+              z-index:2;
+              display:block;
+              width:calc(100% - 6px) !important;
+              height:calc(100% - 6px) !important;
+              object-fit:cover;
+              opacity:1;
+              pointer-events:none;
+              transition:
+                opacity .42s ease,
+                transform .42s ease;
+            }
 
-              <GreatSevenStepNo>II</GreatSevenStepNo>
+            .winner-art-card:hover .winner-card-cover,
+            .winner-art-card:focus-visible .winner-card-cover,
+            .winner-art-card.is-revealed .winner-card-cover {
+              opacity:0;
+              transform:scale(.975);
+            }
 
-              <GreatSevenStepBody>
-                <strong>The coins could move.</strong>
+            .winner-art-card:hover .winner-card-art,
+            .winner-art-card:focus-visible .winner-card-art,
+            .winner-art-card.is-revealed .winner-card-art {
+              transform:scale(1.012);
+            }
 
-                <p>
-                  Once the collection minted out, a 24-hour trading
-                  window began. Holders could keep their coins or trade
-                  them before the book closed.
-                </p>
-              </GreatSevenStepBody>
+            .winner-art-card:focus-visible {
+              outline:3px solid var(--red);
+              outline-offset:4px;
+            }
 
-            </GreatSevenStep>
+            @media (prefers-reduced-motion: reduce) {
+              .winner-card-art,
+              .winner-card-cover {
+                transition:none;
+              }
+            }
+          `}</style>
 
+          <style>{`
+            /* winnerCardEqualSizeFix */
 
-            <GreatSevenStep>
+            .winner-art-card {
+              position:relative !important;
+              width:100% !important;
+              height:auto !important;
+              min-height:0 !important;
+              aspect-ratio:2 / 3;
+              overflow:hidden !important;
+            }
 
-              <GreatSevenStepNo>III</GreatSevenStepNo>
+            .winner-card-art,
+            .winner-card-cover {
+              position:absolute !important;
+              inset:2px !important;
+              display:block !important;
+              width:calc(100% - 4px) !important;
+              height:calc(100% - 4px) !important;
+              object-fit:cover !important;
+              object-position:center !important;
+            }
 
-              <GreatSevenStepBody>
-                <strong>The final owner held the chance.</strong>
+            .winner-card-art {
+              z-index:1;
+            }
 
-                <p>
-                  At the end of the trading window, ownership was locked
-                  for the draw. The wallet holding each NFT at that final
-                  snapshot carried that coin's chance of winning.
-                </p>
-              </GreatSevenStepBody>
+            .winner-card-cover {
+              z-index:2;
+            }
+          `}</style>
 
-            </GreatSevenStep>
+          <style>{`
+            /* winnerFourThreeLayout */
 
+            .winner-section-copy {
+              width:100%;
+              max-width:920px !important;
+              margin-left:auto !important;
+              margin-right:auto !important;
+            }
 
-            <GreatSevenStep>
+            .winner-art-grid {
+              position:relative !important;
+              left:50% !important;
+              display:grid !important;
+              width:min(1120px, calc(100vw - 64px)) !important;
+              margin:0 !important;
+              grid-template-columns:repeat(8, minmax(0, 1fr)) !important;
+              column-gap:14px !important;
+              row-gap:28px !important;
+              transform:translateX(-50%) !important;
+            }
 
-              <GreatSevenStepNo>IV</GreatSevenStepNo>
+            .winner-art-grid > * {
+              grid-column:span 2;
+              width:100%;
+              min-width:0;
+            }
 
-              <GreatSevenStepBody>
-                <strong>Fortune chose seven.</strong>
+            .winner-art-grid > :nth-child(5) {
+              grid-column:2 / span 2;
+            }
 
-                <p>
-                  Dice was used publicly to select seven unique winning
-                  NFT IDs. Each winning coin received $1,000.
-                  All seven rewards were sent — $7,000 in total.
-                </p>
-              </GreatSevenStepBody>
+            .winner-art-grid > :nth-child(6) {
+              grid-column:4 / span 2;
+            }
 
-            </GreatSevenStep>
+            .winner-art-grid > :nth-child(7) {
+              grid-column:6 / span 2;
+            }
 
-          </GreatSevenFlow>
+            @media (max-width:900px) {
+              .winner-section-copy {
+                max-width:650px !important;
+              }
 
+              .winner-art-grid {
+                width:min(620px, calc(100vw - 36px)) !important;
+                grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
+                gap:18px !important;
+              }
+
+              .winner-art-grid > * {
+                grid-column:auto !important;
+              }
+
+              .winner-art-grid > :nth-child(7) {
+                grid-column:1 / -1 !important;
+                width:calc(50% - 9px) !important;
+                justify-self:center;
+              }
+            }
+
+            @media (max-width:520px) {
+              .winner-art-grid {
+                width:min(280px, calc(100vw - 28px)) !important;
+                grid-template-columns:1fr !important;
+              }
+
+              .winner-art-grid > *,
+              .winner-art-grid > :nth-child(7) {
+                grid-column:1 !important;
+                width:100% !important;
+                justify-self:stretch;
+              }
+            }
+          `}</style>
+
+          <WinnerGrid data-mobile-winner-grid="true" className="winner-art-grid">
+            {hasWinners ? (
+              <>
+                {Array.from(
+              {length:7},
+              (_,index) => {
+                const winner =
+                  PUBLISHED_WINNERS[index];
+
+                return (
+                  <WinnerSlot key={index}>
+                    <span>
+                      Winner {index + 1}
+                    </span>
+
+                    <b>
+                      {winner
+                        ? `#${winner
+                            .toString()
+                            .padStart(4,"0")}`
+                        : "SEALED"}
+                    </b>
+
+                    <small>
+                      {winner
+                        ? "$1,000 prize"
+                        : "Awaiting draw"}
+                    </small>
+                  </WinnerSlot>
+                );
+              }
+            )}
+              </>
+            ) : (
+              [
+          "/gallery/winner-1.png",
+          "/gallery/winner-2.png",
+          "/gallery/winner-3.png",
+          "/gallery/winner-4.png",
+          "/gallery/winner-5.png",
+          "/gallery/winner-6.png",
+          "/gallery/winner-7.png"
+].map(
+                (image, index) => (
+                  <WinnerSlot
+                    key={image}
+                    className="winner-art-card"
+                    tabIndex={0}
+                    style={{
+                      padding:0,
+                      overflow:"hidden"
+                    }}
+                  >
+                    <img
+                      className="winner-card-art"
+                      src={image}
+                      alt={`Fortune card for winner ${index + 1}`}
+                      loading={index < 2 ? "eager" : "lazy"}
+                    />
+
+                    <img
+                      className="winner-card-cover"
+                      src="/gallery/unrevealed.png"
+                      alt="Sealed fortune card"
+                      loading="eager"
+                    />
+                  </WinnerSlot>
+                )
+              )
+            )}
+          </WinnerGrid>
         </Container>
-      </GreatSevenDetailsSection>
-
-      {/* WINNER_PROOF_VISIBLE_START */}
-
-      <section
-        style={{
-          padding:"80px 0 95px",
-          borderTop:"2px solid var(--ink)",
-          background:"var(--paper)",
-        }}
-      >
-        <Container>
-
-          <div style={{maxWidth:"850px", marginBottom:"42px"}}>
-
-            <Kicker>THE GREAT SEVEN</Kicker>
-
-            <h2
-              style={{
-                margin:0,
-                color:"var(--lapis)",
-                fontFamily:'"Cinzel", serif',
-                fontSize:"clamp(3rem,7vw,5.8rem)",
-                fontWeight:700,
-                lineHeight:.92,
-              }}
-            >
-              Fortune chose seven.
-            </h2>
-
-            <p
-              style={{
-                maxWidth:"650px",
-                margin:"20px 0 0",
-                fontFamily:'"Cormorant Garamond", serif',
-                fontSize:"1.15rem",
-                fontWeight:600,
-                lineHeight:1.5,
-              }}
-            >
-              These are the seven winning NFT IDs from the first One Coin
-              draw. Each winning coin received $1,000.
-            </p>
-
-          </div>
-
-
-          <div style={{display:"grid", gap:"14px"}}>
-
-            {[
-              {
-                roman:"I",
-                id:"7230",
-                tx:"0x214ec4264a4c2bebe7573a96c05e50c7de8c3fc0320210451feed9eeb82e9acf"
-              },
-              {
-                roman:"II",
-                id:"7381",
-                tx:"0xeeef74b6979bfe09462f58380478c59d06f6ab31c58393c87a3fad04fca3530e"
-              },
-              {
-                roman:"III",
-                id:"4078",
-                tx:"0x311ecc4002785723d810a641f2dc6190b4b66a7f2e49cc2a7dc0225b992ffdee"
-              },
-              {
-                roman:"IV",
-                id:"5729",
-                tx:"0x837d5bd61b90d3645a5d4c3ac34e0dfee120b1bedd1002d591348cc026144894"
-              },
-              {
-                roman:"V",
-                id:"6040",
-                tx:"0x2456430cf51cd76fe3224abc68add8446619ed153ed6af47e0495d09e161eb4c"
-              },
-              {
-                roman:"VI",
-                id:"7924",
-                tx:"0xae905328b9c2dd0b0e1fa50129f3e72e49a23614b337b7b5126a603ff0ad7e2e"
-              },
-              {
-                roman:"VII",
-                id:"5414",
-                tx:"0xd8cd5cf6a116f35b659a106686ac261ba731bbbdf6271c2c663cc5a64c2a476c"
-              },
-            ].map((winner) => (
-
-              <div
-                key={winner.id}
-                style={{
-                  display:"grid",
-                  gridTemplateColumns:"100px 130px 150px minmax(0,1fr)",
-                  alignItems:"center",
-                  gap:"18px",
-                  padding:"22px 25px",
-                  border:"2px solid var(--ink)",
-                  background:"var(--light)",
-                  boxShadow:
-                    winner.roman === "II" ||
-                    winner.roman === "IV" ||
-                    winner.roman === "VI"
-                      ? "6px 7px 0 var(--red)"
-                      : "6px 7px 0 var(--lapis)",
-                }}
-              >
-
-                <span
-                  style={{
-                    color:"var(--red)",
-                    fontFamily:'"Cinzel", serif',
-                    fontSize:".62rem",
-                    fontWeight:700,
-                    letterSpacing:".12em",
-                  }}
-                >
-                  FORTUNE {winner.roman}
-                </span>
-
-                <strong
-                  style={{
-                    color:"var(--lapis)",
-                    fontFamily:'"Cinzel", serif',
-                    fontSize:"1.5rem",
-                  }}
-                >
-                  #{winner.id}
-                </strong>
-
-                <span
-                  style={{
-                    fontFamily:'"Cinzel", serif',
-                    fontSize:".64rem",
-                    fontWeight:700,
-                    color:"var(--red)",
-                    letterSpacing:".07em",
-                  }}
-                >
-                  $1,000 SENT ✓
-                </span>
-
-                <a
-                  href={`https://robinhoodchain.blockscout.com/tx/${winner.tx}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  title={winner.tx}
-                  style={{
-                    minWidth:0,
-                    overflow:"hidden",
-                    color:"var(--lapis)",
-                    fontFamily:"monospace",
-                    fontSize:".72rem",
-                    fontWeight:700,
-                    textDecoration:"underline",
-                    textOverflow:"ellipsis",
-                    whiteSpace:"nowrap",
-                  }}
-                >
-                  {winner.tx} ↗
-                </a>
-
-              </div>
-
-            ))}
-
-          </div>
-
-
-          <div
-            style={{
-              marginTop:"38px",
-              padding:"32px",
-              border:"2px solid var(--ink)",
-              background:"var(--lapis)",
-              boxShadow:"7px 8px 0 var(--red)",
-              textAlign:"center",
-            }}
-          >
-            <div
-              style={{
-                color:"var(--pale-gold)",
-                fontFamily:'"Cinzel", serif',
-                fontSize:"clamp(3rem,7vw,5rem)",
-                fontWeight:700,
-                lineHeight:.9,
-              }}
-            >
-              $7,000
-            </div>
-
-            <div
-              style={{
-                marginTop:"14px",
-                color:"white",
-                fontFamily:'"Cinzel", serif',
-                fontSize:".65rem",
-                fontWeight:700,
-                letterSpacing:".13em",
-              }}
-            >
-              7 WINNERS · 7 PAYOUTS · PAID IN FULL
-            </div>
-          </div>
-
-
-          <div
-            style={{
-              display:"grid",
-              gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",
-              gap:"16px",
-              marginTop:"34px",
-            }}
-          >
-
-            <a
-              href="https://x.com/DiceAgentRH/status/2097346750931443937"
-              target="_blank"
-              rel="noreferrer"
-              style={{
-                minHeight:"165px",
-                padding:"28px",
-                display:"flex",
-                flexDirection:"column",
-                justifyContent:"center",
-                border:"2px solid var(--ink)",
-                background:"var(--light)",
-                boxShadow:"6px 7px 0 var(--gold)",
-                color:"var(--ink)",
-                textDecoration:"none",
-              }}
-            >
-              <span
-                style={{
-                  color:"var(--red)",
-                  fontFamily:'"Cinzel", serif',
-                  fontSize:".6rem",
-                  fontWeight:700,
-                  letterSpacing:".14em",
-                }}
-              >
-                PROOF OF DRAW
-              </span>
-
-              <strong
-                style={{
-                  marginTop:"20px",
-                  color:"var(--lapis)",
-                  fontFamily:'"Cinzel", serif',
-                  fontSize:"1.45rem",
-                }}
-              >
-                Dice chose The Great Seven ↗
-              </strong>
-
-              <span
-                style={{
-                  marginTop:"10px",
-                  fontFamily:'"Cormorant Garamond", serif',
-                  fontSize:"1rem",
-                  fontWeight:600,
-                }}
-              >
-                View the public Dice Agent draw.
-              </span>
-            </a>
-
-
-            <a
-              href="https://opensea.io/collection/onecoin"
-              target="_blank"
-              rel="noreferrer"
-              style={{
-                minHeight:"165px",
-                padding:"28px",
-                display:"flex",
-                flexDirection:"column",
-                justifyContent:"center",
-                border:"2px solid var(--ink)",
-                background:"var(--light)",
-                boxShadow:"6px 7px 0 var(--red)",
-                color:"var(--ink)",
-                textDecoration:"none",
-              }}
-            >
-              <span
-                style={{
-                  color:"var(--red)",
-                  fontFamily:'"Cinzel", serif',
-                  fontSize:".6rem",
-                  fontWeight:700,
-                  letterSpacing:".14em",
-                }}
-              >
-                ORIGINAL COLLECTION
-              </span>
-
-              <strong
-                style={{
-                  marginTop:"20px",
-                  color:"var(--lapis)",
-                  fontFamily:'"Cinzel", serif',
-                  fontSize:"1.45rem",
-                }}
-              >
-                One Coin on OpenSea ↗
-              </strong>
-
-              <span
-                style={{
-                  marginTop:"10px",
-                  fontFamily:'"Cormorant Garamond", serif',
-                  fontSize:"1rem",
-                  fontWeight:600,
-                }}
-              >
-                View the original 10,000 One Coin NFTs.
-              </span>
-            </a>
-
-          </div>
-
-        </Container>
-      </section>
-
-      {/* WINNER_PROOF_VISIBLE_END */}
-
-
-
-
-
+      </WinnersSection>
 
       <SiteFooter />
     </Page>

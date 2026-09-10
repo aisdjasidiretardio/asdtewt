@@ -163,12 +163,12 @@ export default function OneCoinSite(){
               </HeroCopy>
 
               <ButtonRow>
-                <PrimaryButton
-                  href="https://x.com/onecoinrbh"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <span>X</span> Follow One Coin
+                <PrimaryButton href="/winner">
+                  The Great Seven
+                </PrimaryButton>
+
+                <PrimaryButton href="/scroll">
+                  The Royal Scroll
                 </PrimaryButton>
               </ButtonRow>
             </div>

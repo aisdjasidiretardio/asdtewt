@@ -1,0 +1,131 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background: rgba(244, 238, 224, 0.94);
+  border-bottom: 1px solid rgba(35, 29, 20, 0.16);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.inner {
+  width: min(1400px, calc(100% - 48px));
+  min-height: 76px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #18140e;
+  text-decoration: none;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  white-space: nowrap;
+}
+
+.star {
+  font-size: 17px;
+}
+
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.navLink,
+.xLink {
+  position: relative;
+  color: rgba(24, 20, 14, 0.72);
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition:
+    color 160ms ease,
+    opacity 160ms ease;
+}
+
+.navLink:hover,
+.xLink:hover,
+.active {
+  color: #18140e;
+}
+
+.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 1px;
+  background: #18140e;
+}
+
+.menuButton {
+  display: none;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #18140e;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.mobileNav {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .inner {
+    width: min(100% - 32px, 1400px);
+    min-height: 66px;
+  }
+
+  .desktopNav {
+    display: none;
+  }
+
+  .menuButton {
+    display: block;
+  }
+
+  .mobileNav {
+    display: flex;
+    flex-direction: column;
+    padding: 9px 16px 22px;
+    background: #f4eee0;
+    border-top: 1px solid rgba(35, 29, 20, 0.1);
+  }
+
+  .mobileLink {
+    padding: 16px 4px;
+    color: #18140e;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(35, 29, 20, 0.1);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  .mobileLink:last-child {
+    border-bottom: 0;
+  }
+}

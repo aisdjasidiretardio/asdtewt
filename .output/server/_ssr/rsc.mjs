@@ -2,57 +2,68 @@ import * as __viteRscAsyncHooks from "node:async_hooks";
 import { AsyncLocalStorage as AsyncLocalStorage$1 } from "node:async_hooks";
 //#region node_modules/.nitro/vite/services/rsc/__vite_rsc_assets_manifest.js
 var __vite_rsc_assets_manifest_default = {
-	"bootstrapScriptContent": "import(\"/assets/index-C8CuvZXw.js\")",
+	"bootstrapScriptContent": "import(\"/assets/index-D2BXQWmj.js\")",
 	"clientReferenceDeps": {
 		"556f1e0fb9a2": {
 			"js": [
-				"/assets/global-site-header-B_5i13E1.js",
+				"/assets/global-site-header-Da2KYxph.js",
 				"/assets/styled-components.browser.esm-B0_qInRY.js",
 				"/assets/rolldown-runtime-S-ySWqyJ.js",
 				"/assets/framework-B8WyT5R3.js",
 				"/assets/navigation-CmmnqiuG.js",
 				"/assets/readonly-url-search-params-pgk0LUNy.js",
-				"/assets/index-C8CuvZXw.js"
+				"/assets/index-D2BXQWmj.js"
 			],
 			"css": []
 		},
 		"6be96b483227": {
 			"js": [
-				"/assets/portal-client-B3oatfur.js",
+				"/assets/portal-client-BBo3JVz1.js",
 				"/assets/rolldown-runtime-S-ySWqyJ.js",
 				"/assets/styled-components.browser.esm-B0_qInRY.js",
 				"/assets/framework-B8WyT5R3.js",
-				"/assets/index-C8CuvZXw.js",
+				"/assets/index-D2BXQWmj.js",
+				"/assets/readonly-url-search-params-pgk0LUNy.js"
+			],
+			"css": []
+		},
+		"d04d64c46e2c": {
+			"js": [
+				"/assets/royal-scroll-DFbZvMtB.js",
+				"/assets/styled-components.browser.esm-B0_qInRY.js",
+				"/assets/rolldown-runtime-S-ySWqyJ.js",
+				"/assets/framework-B8WyT5R3.js",
+				"/assets/index-D2BXQWmj.js",
 				"/assets/readonly-url-search-params-pgk0LUNy.js"
 			],
 			"css": []
 		},
 		"26f909cfad48": {
 			"js": [
-				"/assets/site-client-CVnu6pns.js",
+				"/assets/site-client-BebzFr46.js",
 				"/assets/styled-components.browser.esm-B0_qInRY.js",
 				"/assets/rolldown-runtime-S-ySWqyJ.js",
 				"/assets/framework-B8WyT5R3.js",
-				"/assets/index-C8CuvZXw.js",
+				"/assets/index-D2BXQWmj.js",
 				"/assets/readonly-url-search-params-pgk0LUNy.js"
 			],
 			"css": []
 		},
 		"ed7d606e58f7": {
 			"js": [
-				"/assets/styled-components-registry-CVdP4HiT.js",
+				"/assets/styled-components-registry-BdOclkJY.js",
 				"/assets/rolldown-runtime-S-ySWqyJ.js",
 				"/assets/styled-components.browser.esm-B0_qInRY.js",
 				"/assets/framework-B8WyT5R3.js",
 				"/assets/navigation-CmmnqiuG.js",
 				"/assets/readonly-url-search-params-pgk0LUNy.js",
-				"/assets/index-C8CuvZXw.js"
+				"/assets/index-D2BXQWmj.js"
 			],
 			"css": []
 		},
 		"593f344dc510": {
 			"js": [
-				"/assets/index-C8CuvZXw.js",
+				"/assets/index-D2BXQWmj.js",
 				"/assets/rolldown-runtime-S-ySWqyJ.js",
 				"/assets/framework-B8WyT5R3.js",
 				"/assets/readonly-url-search-params-pgk0LUNy.js"
@@ -61,9 +72,9 @@ var __vite_rsc_assets_manifest_default = {
 		},
 		"15c18cfaeeff": {
 			"js": [
-				"/assets/layout-segment-context-Dy5WxLbM.js",
+				"/assets/layout-segment-context-CXiQ26-W.js",
 				"/assets/rolldown-runtime-S-ySWqyJ.js",
-				"/assets/index-C8CuvZXw.js",
+				"/assets/index-D2BXQWmj.js",
 				"/assets/framework-B8WyT5R3.js",
 				"/assets/readonly-url-search-params-pgk0LUNy.js"
 			],
@@ -71,7 +82,7 @@ var __vite_rsc_assets_manifest_default = {
 		},
 		"8c0f216c4604": {
 			"js": [
-				"/assets/index-C8CuvZXw.js",
+				"/assets/index-D2BXQWmj.js",
 				"/assets/rolldown-runtime-S-ySWqyJ.js",
 				"/assets/framework-B8WyT5R3.js",
 				"/assets/readonly-url-search-params-pgk0LUNy.js"
@@ -81,7 +92,7 @@ var __vite_rsc_assets_manifest_default = {
 	},
 	"serverResources": { "app/layout.tsx": {
 		"js": [],
-		"css": ["/assets/index-D3m43cnI.css"]
+		"css": ["/assets/index-BHbvs6Cj.css"]
 	} }
 };
 //#endregion
@@ -3725,6 +3736,34 @@ function restoreScrollPosition(state) {
 		});
 	}
 }
+/**
+* Internal error class used by redirect/notFound/forbidden/unauthorized.
+* The `digest` field is the serialised control-flow signal read by the
+* framework's error boundary and server-side request handlers.
+*/
+var VinextNavigationError = class extends Error {
+	digest;
+	constructor(message, digest) {
+		super(message);
+		this.digest = digest;
+	}
+};
+/**
+* Throw a redirect. Caught by the framework to send a redirect response.
+*
+* When `type` is omitted, the digest carries an empty sentinel so the
+* catch site can resolve the default based on context:
+* - Server Action context → "push"  (Back button works after form submission)
+* - SSR render context    → "replace"
+*
+* This matches Next.js behavior where `redirect()` checks
+* `actionAsyncStorage.getStore()?.isAction` at call time.
+*
+* @see https://github.com/vercel/next.js/blob/canary/packages/next/src/client/components/redirect.ts
+*/
+function redirect(url, type) {
+	throw new VinextNavigationError(`NEXT_REDIRECT:${url}`, `NEXT_REDIRECT;${type ?? ""};${encodeURIComponent(url)}`);
+}
 if (!isServer) {
 	const state = getClientNavigationState();
 	if (state && !state.patchInstalled) {
@@ -4238,7 +4277,7 @@ function getAndClearPendingCookies() {
 var DRAFT_MODE_COOKIE = "__prerender_bypass";
 (/* @__PURE__ */ new Date(0)).toUTCString();
 function getDraftSecret() {
-	return "abe1f537-6789-4003-97a1-137dd497c83a";
+	return "f0db5b0c-f820-467b-8e55-fb30c28ad0c3";
 }
 /**
 * Get any Set-Cookie header generated by draftMode().enable()/disable().
@@ -7349,7 +7388,7 @@ var NextURL = class NextURL {
 	* Matches the Next.js API: `request.nextUrl.buildId`.
 	*/
 	get buildId() {
-		return "b86a0807-9ebc-499e-8aba-2a7b1f9074f5";
+		return "a2736c04-7d40-4874-a2bd-7c4238355253";
 	}
 };
 var RequestCookies = class {
@@ -12373,7 +12412,7 @@ function buildCacheKey(prefix, pathname, suffix) {
 * The suffix mirrors Next.js's separate on-disk app artifacts while keeping the
 * Cloudflare KV key under its 512-byte limit for long pathnames.
 */
-function appIsrCacheKey(pathname, suffix, buildId = "b86a0807-9ebc-499e-8aba-2a7b1f9074f5") {
+function appIsrCacheKey(pathname, suffix, buildId = "a2736c04-7d40-4874-a2bd-7c4238355253") {
 	return buildCacheKey(buildId ? `app:${buildId}` : "app", pathname, suffix);
 }
 function appIsrHtmlKey(pathname) {
@@ -12694,7 +12733,7 @@ function createAppPageArtifactCompatibility(element, routePattern) {
 			routePattern,
 			rootBoundaryId
 		}),
-		deploymentVersion: "b86a0807-9ebc-499e-8aba-2a7b1f9074f5",
+		deploymentVersion: "a2736c04-7d40-4874-a2bd-7c4238355253",
 		rootBoundaryId
 	});
 }
@@ -14070,7 +14109,14 @@ function clearAppRequestContext() {
 var site_client_default = /* @__PURE__ */ registerClientReference(() => {
 	throw new Error("Unexpectedly client reference export 'default' is called on server");
 }, "26f909cfad48", "default");
-var page_exports$1 = /* @__PURE__ */ __exportAll({ default: () => Home });
+var page_exports$3 = /* @__PURE__ */ __exportAll({
+	default: () => Home,
+	metadata: () => metadata$3
+});
+var metadata$3 = {
+	title: "The Great Hall | One Coin",
+	description: "The home of One Coin, an onchain kingdom built on Robinhood Chain."
+};
 function Home() {
 	return /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(site_client_default, {});
 }
@@ -14093,10 +14139,10 @@ var global_site_header_default = /* @__PURE__ */ registerClientReference(() => {
 }, "556f1e0fb9a2", "default");
 var layout_exports = /* @__PURE__ */ __exportAll({
 	default: () => $$wrap_RootLayout,
-	metadata: () => metadata$1,
+	metadata: () => metadata$2,
 	viewport: () => viewport
 });
-var metadata$1 = {
+var metadata$2 = {
 	metadataBase: new URL("https://onecoinrbh.com"),
 	title: {
 		default: "One Coin | Seven $1,000 Winners",
@@ -14187,6 +14233,24 @@ function __vite_rsc_wrap_css__(value, name) {
 	Object.defineProperty(__wrapper, "name", { value: name });
 	return __wrapper;
 }
+var royal_scroll_default = /* @__PURE__ */ registerClientReference(() => {
+	throw new Error("Unexpectedly client reference export 'default' is called on server");
+}, "d04d64c46e2c", "default");
+var page_exports$2 = /* @__PURE__ */ __exportAll({
+	default: () => RoyalScrollPage,
+	metadata: () => metadata$1
+});
+var metadata$1 = {
+	title: "The Royal Scroll | One Coin",
+	description: "Everything written so far in the One Coin kingdom."
+};
+function RoyalScrollPage() {
+	return /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(royal_scroll_default, {});
+}
+var page_exports$1 = /* @__PURE__ */ __exportAll({ default: () => WhitelistPage });
+function WhitelistPage() {
+	redirect("/");
+}
 var WinnerRoom = /* @__PURE__ */ registerClientReference(() => {
 	throw new Error("Unexpectedly client reference export 'WinnerRoom' is called on server");
 }, "6be96b483227", "WinnerRoom");
@@ -14195,8 +14259,8 @@ var page_exports = /* @__PURE__ */ __exportAll({
 	metadata: () => metadata
 });
 var metadata = {
-	title: "Winner Room | One Coin",
-	description: "Watch the countdown and the seven verifiable One Coin winners appear."
+	title: "The Great Seven | One Coin",
+	description: "The first One Coin game: seven winning coins, seven rewards, and the public record."
 };
 function WinnerPage() {
 	return /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(WinnerRoom, {});
@@ -14228,79 +14292,156 @@ function __VINEXT_CLASS(routeIdx) {
 function __VINEXT_CLASS_REASONS(routeIdx) {
 	return null;
 }
-var routes = [{
-	__buildTimeClassifications: __VINEXT_CLASS(0),
-	__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(0) : null,
-	ids: {
-		"route": "route:/",
-		"page": "page:/",
-		"routeHandler": null,
-		"rootBoundary": "root-boundary:/",
-		"layouts": ["layout:/"],
-		"templates": [],
-		"slots": {}
+var routes = [
+	{
+		__buildTimeClassifications: __VINEXT_CLASS(0),
+		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(0) : null,
+		ids: {
+			"route": "route:/",
+			"page": "page:/",
+			"routeHandler": null,
+			"rootBoundary": "root-boundary:/",
+			"layouts": ["layout:/"],
+			"templates": [],
+			"slots": {}
+		},
+		pattern: "/",
+		patternParts: [],
+		isDynamic: false,
+		params: [],
+		rootParamNames: [],
+		page: page_exports$3,
+		routeHandler: null,
+		layouts: [layout_exports],
+		routeSegments: [],
+		templateTreePositions: [],
+		layoutTreePositions: [0],
+		templates: [],
+		errors: [null],
+		errorPaths: [],
+		errorTreePositions: [],
+		slots: {},
+		loading: null,
+		error: null,
+		notFound: null,
+		notFounds: [null],
+		forbidden: null,
+		forbiddens: [null],
+		unauthorized: null,
+		unauthorizeds: [null]
 	},
-	pattern: "/",
-	patternParts: [],
-	isDynamic: false,
-	params: [],
-	rootParamNames: [],
-	page: page_exports$1,
-	routeHandler: null,
-	layouts: [layout_exports],
-	routeSegments: [],
-	templateTreePositions: [],
-	layoutTreePositions: [0],
-	templates: [],
-	errors: [null],
-	errorPaths: [],
-	errorTreePositions: [],
-	slots: {},
-	loading: null,
-	error: null,
-	notFound: null,
-	notFounds: [null],
-	forbidden: null,
-	forbiddens: [null],
-	unauthorized: null,
-	unauthorizeds: [null]
-}, {
-	__buildTimeClassifications: __VINEXT_CLASS(1),
-	__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(1) : null,
-	ids: {
-		"route": "route:/winner",
-		"page": "page:/winner",
-		"routeHandler": null,
-		"rootBoundary": "root-boundary:/",
-		"layouts": ["layout:/"],
-		"templates": [],
-		"slots": {}
+	{
+		__buildTimeClassifications: __VINEXT_CLASS(1),
+		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(1) : null,
+		ids: {
+			"route": "route:/scroll",
+			"page": "page:/scroll",
+			"routeHandler": null,
+			"rootBoundary": "root-boundary:/",
+			"layouts": ["layout:/"],
+			"templates": [],
+			"slots": {}
+		},
+		pattern: "/scroll",
+		patternParts: ["scroll"],
+		isDynamic: false,
+		params: [],
+		rootParamNames: [],
+		page: page_exports$2,
+		routeHandler: null,
+		layouts: [layout_exports],
+		routeSegments: ["scroll"],
+		templateTreePositions: [],
+		layoutTreePositions: [0],
+		templates: [],
+		errors: [null],
+		errorPaths: [],
+		errorTreePositions: [],
+		slots: {},
+		loading: null,
+		error: null,
+		notFound: null,
+		notFounds: [null],
+		forbidden: null,
+		forbiddens: [null],
+		unauthorized: null,
+		unauthorizeds: [null]
 	},
-	pattern: "/winner",
-	patternParts: ["winner"],
-	isDynamic: false,
-	params: [],
-	rootParamNames: [],
-	page: page_exports,
-	routeHandler: null,
-	layouts: [layout_exports],
-	routeSegments: ["winner"],
-	templateTreePositions: [],
-	layoutTreePositions: [0],
-	templates: [],
-	errors: [null],
-	errorPaths: [],
-	errorTreePositions: [],
-	slots: {},
-	loading: null,
-	error: null,
-	notFound: null,
-	notFounds: [null],
-	forbidden: null,
-	forbiddens: [null],
-	unauthorized: null,
-	unauthorizeds: [null]
-}];
+	{
+		__buildTimeClassifications: __VINEXT_CLASS(2),
+		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(2) : null,
+		ids: {
+			"route": "route:/whitelist",
+			"page": "page:/whitelist",
+			"routeHandler": null,
+			"rootBoundary": "root-boundary:/",
+			"layouts": ["layout:/"],
+			"templates": [],
+			"slots": {}
+		},
+		pattern: "/whitelist",
+		patternParts: ["whitelist"],
+		isDynamic: false,
+		params: [],
+		rootParamNames: [],
+		page: page_exports$1,
+		routeHandler: null,
+		layouts: [layout_exports],
+		routeSegments: ["whitelist"],
+		templateTreePositions: [],
+		layoutTreePositions: [0],
+		templates: [],
+		errors: [null],
+		errorPaths: [],
+		errorTreePositions: [],
+		slots: {},
+		loading: null,
+		error: null,
+		notFound: null,
+		notFounds: [null],
+		forbidden: null,
+		forbiddens: [null],
+		unauthorized: null,
+		unauthorizeds: [null]
+	},
+	{
+		__buildTimeClassifications: __VINEXT_CLASS(3),
+		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(3) : null,
+		ids: {
+			"route": "route:/winner",
+			"page": "page:/winner",
+			"routeHandler": null,
+			"rootBoundary": "root-boundary:/",
+			"layouts": ["layout:/"],
+			"templates": [],
+			"slots": {}
+		},
+		pattern: "/winner",
+		patternParts: ["winner"],
+		isDynamic: false,
+		params: [],
+		rootParamNames: [],
+		page: page_exports,
+		routeHandler: null,
+		layouts: [layout_exports],
+		routeSegments: ["winner"],
+		templateTreePositions: [],
+		layoutTreePositions: [0],
+		templates: [],
+		errors: [null],
+		errorPaths: [],
+		errorTreePositions: [],
+		slots: {},
+		loading: null,
+		error: null,
+		notFound: null,
+		notFounds: [null],
+		forbidden: null,
+		forbiddens: [null],
+		unauthorized: null,
+		unauthorizeds: [null]
+	}
+];
 var __routeMatcher = createAppRscRouteMatcher(routes);
 var metadataRoutes = [{
 	type: "apple-icon",
@@ -14418,6 +14559,8 @@ var __publicFiles = new Set([
 	"/gallery/fcfs.png",
 	"/gallery/fcfscommunity.png",
 	"/gallery/gtd.png",
+	"/gallery/notthelastggame.webp",
+	"/gallery/onecoin-kingdom.webp",
 	"/gallery/unrevealed.png",
 	"/gallery/winner-1.png",
 	"/gallery/winner-2.png",

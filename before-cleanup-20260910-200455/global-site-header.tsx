@@ -199,7 +199,7 @@ export default function GlobalSiteHeader() {
             </HeaderLink>
 <HeaderLink
               href="/scroll"
-              aria-current={pathname === "/scroll" ? "page" : undefined}
+              aria-current={pathname === "/winner" ? "page" : undefined}
             >
               The Royal Scroll
             </HeaderLink>
