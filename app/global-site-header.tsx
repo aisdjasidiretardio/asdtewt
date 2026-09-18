@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { usePathname } from "next/navigation";
 import styled, { createGlobalStyle } from "styled-components";
@@ -192,6 +192,12 @@ export default function GlobalSiteHeader() {
               The Great Hall
             </HeaderLink>
 <HeaderLink
+  href="/game2"
+  aria-current={pathname === "/game2" ? "page" : undefined}
+>
+  Game II
+</HeaderLink>
+<HeaderLink
               href="/winner"
               aria-current={pathname === "/winner" ? "page" : undefined}
             >
@@ -226,6 +232,12 @@ export default function GlobalSiteHeader() {
               >
                 The Great Hall
               </HeaderLink>
+<HeaderLink
+  href="/game2"
+  aria-current={pathname === "/game2" ? "page" : undefined}
+>
+  Game II
+</HeaderLink>
 <HeaderLink
                 href="/winner"
                 aria-current={pathname === "/winner" ? "page" : undefined}
