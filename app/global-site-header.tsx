@@ -189,7 +189,14 @@ export default function GlobalSiteHeader() {
               href="/"
               aria-current={pathname === "/" ? "page" : undefined}
             >
-              The Great Hall
+              About
+            </HeaderLink>
+
+<HeaderLink
+              href="/winner"
+              aria-current={pathname === "/winner" ? "page" : undefined}
+            >
+              Game I
             </HeaderLink>
 <HeaderLink
   href="/game2"
@@ -197,19 +204,6 @@ export default function GlobalSiteHeader() {
 >
   Game II
 </HeaderLink>
-<HeaderLink
-              href="/winner"
-              aria-current={pathname === "/winner" ? "page" : undefined}
-            >
-              The Great Seven
-            </HeaderLink>
-<HeaderLink
-              href="/scroll"
-              aria-current={pathname === "/scroll" ? "page" : undefined}
-            >
-              The Royal Scroll
-            </HeaderLink>
-
             <HeaderLink
               href={TWITTER_URL}
               target="_blank"

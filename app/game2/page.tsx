@@ -4,7 +4,7 @@ import RoyalGameClient from "./royal-game-client";
 export const metadata: Metadata = {
   title: "Game II | One Coin",
   description:
-    "ONECOIN Game II: Royal Pot, Royal Rewards, live wallet weight, claims and verifiable onchain proof.",
+    "ONECOIN Game II — Royal Rewards, Royal Pot, holder weight and onchain proof.",
 };
 
 export default function GameTwoPage() {
