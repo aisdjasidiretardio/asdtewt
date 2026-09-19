@@ -189,21 +189,21 @@ export default function GlobalSiteHeader() {
               href="/"
               aria-current={pathname === "/" ? "page" : undefined}
             >
-              The Great Hall
-            </HeaderLink>
-
-            <HeaderLink
-              href="/whitelist"
-              aria-current={pathname === "/whitelist" ? "page" : undefined}
-            >
-              OPENSEA ↗
+              About
             </HeaderLink>
 
             <HeaderLink
               href="/winner"
               aria-current={pathname === "/winner" ? "page" : undefined}
             >
-              Winner Chamber
+              Game I
+            </HeaderLink>
+
+            <HeaderLink
+              href="/game2"
+              aria-current={pathname === "/game2" ? "page" : undefined}
+            >
+              Game II
             </HeaderLink>
 
             <HeaderLink
@@ -226,23 +226,21 @@ export default function GlobalSiteHeader() {
                 href="/"
                 aria-current={pathname === "/" ? "page" : undefined}
               >
-                The Great Hall
-              </HeaderLink>
-
-              <HeaderLink
-                href="/whitelist"
-                aria-current={
-                  pathname === "/whitelist" ? "page" : undefined
-                }
-              >
-                OPENSEA ↗
+                About
               </HeaderLink>
 
               <HeaderLink
                 href="/winner"
                 aria-current={pathname === "/winner" ? "page" : undefined}
               >
-                Winner Chamber
+                Game I
+              </HeaderLink>
+
+              <HeaderLink
+                href="/game2"
+                aria-current={pathname === "/game2" ? "page" : undefined}
+              >
+                Game II
               </HeaderLink>
 
               <HeaderLink
@@ -259,5 +257,3 @@ export default function GlobalSiteHeader() {
     </>
   );
 }
-
-
