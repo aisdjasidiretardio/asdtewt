@@ -13,7 +13,6 @@ const API =
 
 const ENDPOINTS = {
   site: `${API}/royal-site-state`,
-  launch: `${API}/royal-launch-status`,
   wallet: `${API}/royal-pot-api/api/wallet`,
 };
 
@@ -36,6 +35,7 @@ type SiteState = {
   launch: {
     activated: boolean;
     token: string | null;
+    error?: string | null;
   };
   pot: {
     round: number;
@@ -65,10 +65,6 @@ type SiteState = {
   } | null;
 };
 
-type LaunchStatus = {
-  token?: string | null;
-  lastError?: string | null;
-};
 
 type WalletStatus = {
   onecoinBalance: string | null;
@@ -640,9 +636,6 @@ export default function RoyalGameClient() {
     null
   );
 
-  const [launch, setLaunch] =
-    useState<LaunchStatus | null>(null);
-
   const [apiError, setApiError] = useState("");
 
   /*
@@ -673,14 +666,9 @@ export default function RoyalGameClient() {
 
   const refreshSite = useCallback(async () => {
     try {
-      const [siteState, launchState] =
-        await Promise.all([
-          getJson(ENDPOINTS.site),
-          getJson(ENDPOINTS.launch),
-        ]);
+      const siteState = await getJson(ENDPOINTS.site);
 
       setSite(siteState);
-      setLaunch(launchState);
       setApiError("");
     } catch (error) {
       setApiError(
@@ -692,15 +680,52 @@ export default function RoyalGameClient() {
   }, []);
 
   useEffect(() => {
-    refreshSite();
+    let interval: number | null = null;
 
-    const interval = window.setInterval(
-      refreshSite,
-      2000
+    const stopPolling = () => {
+      if (interval !== null) {
+        window.clearInterval(interval);
+        interval = null;
+      }
+    };
+
+    const startPolling = () => {
+      stopPolling();
+
+      if (document.visibilityState !== "visible") {
+        return;
+      }
+
+      refreshSite();
+
+      interval = window.setInterval(() => {
+        if (document.visibilityState === "visible") {
+          refreshSite();
+        }
+      }, 10000);
+    };
+
+    const onVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        startPolling();
+      } else {
+        stopPolling();
+      }
+    };
+
+    startPolling();
+
+    document.addEventListener(
+      "visibilitychange",
+      onVisibilityChange
     );
 
     return () => {
-      window.clearInterval(interval);
+      stopPolling();
+      document.removeEventListener(
+        "visibilitychange",
+        onVisibilityChange
+      );
     };
   }, [refreshSite]);
 
@@ -717,9 +742,7 @@ export default function RoyalGameClient() {
   }, []);
 
   const displayedToken =
-    launch?.token ||
-    site?.launch?.token ||
-    null;
+    site?.launch?.token || null;
 
   const isActivated =
     Boolean(site?.launch?.activated);
@@ -766,12 +789,51 @@ export default function RoyalGameClient() {
   useEffect(() => {
     if (!wallet) return;
 
-    const interval = window.setInterval(() => {
-      checkWallet(wallet);
-    }, 10000);
+    let interval: number | null = null;
+
+    const stopPolling = () => {
+      if (interval !== null) {
+        window.clearInterval(interval);
+        interval = null;
+      }
+    };
+
+    const startPolling = () => {
+      stopPolling();
+
+      if (document.visibilityState !== "visible") {
+        return;
+      }
+
+      interval = window.setInterval(() => {
+        if (document.visibilityState === "visible") {
+          checkWallet(wallet);
+        }
+      }, 30000);
+    };
+
+    const onVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        checkWallet(wallet);
+        startPolling();
+      } else {
+        stopPolling();
+      }
+    };
+
+    startPolling();
+
+    document.addEventListener(
+      "visibilitychange",
+      onVisibilityChange
+    );
 
     return () => {
-      window.clearInterval(interval);
+      stopPolling();
+      document.removeEventListener(
+        "visibilitychange",
+        onVisibilityChange
+      );
     };
   }, [wallet, checkWallet]);
 
@@ -904,9 +966,9 @@ export default function RoyalGameClient() {
             </Notice>
           )}
 
-          {launch?.lastError && (
+          {site?.launch?.error && (
             <Notice $danger>
-              {launch.lastError}
+              {site.launch.error}
             </Notice>
           )}
         </Container>
